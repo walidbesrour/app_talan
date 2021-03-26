@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ServiceBinding">
+
+        <variable
+            name="servicemodel"
+            type="com.example.talan_app.view_model.Service_List_VM" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#707070"
+            app:strokeWidth="0.5dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/RL_S1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp">
+
+
+                <TextView
+                    android:id="@+id/code_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{servicemodel.Code_service}"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{servicemodel.Description_service}"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/code_service"/>
+                <TextView
+                    android:id="@+id/Con_par"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Consigné :"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/code_service" />
+
+                <TextView
+                    android:id="@+id/consigne_par"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{servicemodel.Consigne_service}"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/Con_par"
+                    android:layout_below="@+id/description"
+                   />
+
+                <TextView
+                    android:id="@+id/Etat1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ETAT :"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/Con_par" />
+
+                <TextView
+                    android:id="@+id/ETAT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{servicemodel.Etat_service}"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/Etat1"
+                    android:layout_below="@+id/consigne_par"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/cc"
+                    android:layout_width="45dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btn_add"
+                    android:layout_marginBottom="2dp"
+                    app:srcCompat="@drawable/workflow_icon"
+                    android:elevation="3dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    app:tint="@color/white" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/RL_S2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#F4F5FA"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="10dp"
+
+                android:layout_below="@+id/RL_S1">
+
+                <TextView
+                    android:id="@+id/codeactif11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actif : "
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/code_actif_in_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{servicemodel.Code_actif}"
+                    android:paddingTop="2dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/codeactif11"/>
+
+                <TextView
+                    android:id="@+id/descriptionActif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{servicemodel.Description_actif}"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/codeactif11"
+                    />
+                <ImageButton
+
+                    android:id="@+id/btn_add_intervention"
+                    android:layout_width="45dp"
+                    android:layout_height="35dp"
+                    app:srcCompat="@drawable/ic_baseline_addchart_24"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_add2"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
+                    android:elevation="3dp"
+                    />
+
+            </RelativeLayout>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</layout>
+

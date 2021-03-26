@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/My_background"
+    android:orientation="vertical"
+    tools:context=".list_intervention.List_Favoris_List">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_favoris_inter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="4dp"
+        tools:listitem="@layout/item_list_favoris_intervention"/>
+
+</LinearLayout>

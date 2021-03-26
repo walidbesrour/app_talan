@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="home"
+        app:cnb_backgroundColor="@color/blue_talan"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+
+    <item
+        android:id="@+id/actif"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Actif"
+        app:cnb_backgroundColor="@color/blue_talan"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+
+    <item
+        android:id="@+id/service"
+        android:icon="@drawable/ic_baseline_border_color_24"
+        android:title="Service"
+        app:cnb_backgroundColor="@color/blue_talan"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+    <item
+        android:id="@+id/intervention"
+        android:icon="@drawable/ic_baseline_engineering_24"
+        android:title="Intervention"
+        app:cnb_backgroundColor="@color/blue_talan"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+</menu>

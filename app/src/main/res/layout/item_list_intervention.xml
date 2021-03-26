@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  >
+    <data class="InterventionBinding">
+        <variable
+            name="interventionmodel"
+            type="com.example.talan_app.view_model.Intervention_List_VM" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+     >
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#707070"
+            app:strokeWidth="0.5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+            <RelativeLayout
+                android:id="@+id/RLI1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#F4F5FA"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="3dp"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/code_intervention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.Code_Intervention}"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/code_actif_in_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.Description_Intervention}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/code_intervention"/>
+
+
+                <TextView
+                    android:id="@+id/Active_intervention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.Etat_Intervention}"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="20sp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="#2196F3"
+                    android:layout_below="@+id/code_intervention"/>
+                <CheckBox
+                    android:id="@+id/icon"
+                    android:layout_width="35sp"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/sl_favourite_24dp"
+                    app:buttonTint="#003BFF"
+                    android:text=" "
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/RLI1">
+                <TextView
+                    android:id="@+id/Ac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actif : "
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/C_actif_int"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.Code_actif}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/Ac"/>
+
+                <TextView
+                    android:id="@+id/D_actif_int"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.Description_actif}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/C_actif_int"/>
+
+
+
+                <TextView
+                    android:id="@+id/type1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type: "
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/Ac"/>
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.type_inter}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/type1"
+                    android:layout_below="@+id/C_actif_int"/>
+
+
+                <TextView
+                    android:id="@+id/Priorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.Priorite}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_below="@+id/D_actif_int"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:id="@+id/Priorite1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Priorite:"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/Ac"
+                    android:layout_toLeftOf="@+id/Priorite"/>
+
+
+                <TextView
+                    android:id="@+id/date_obj1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Début obj :"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/type1"/>
+
+                <TextView
+                    android:id="@+id/date_obj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.actif_date}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/date_obj1"
+                    android:layout_below="@+id/type"/>
+
+
+
+            </RelativeLayout>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</layout>
