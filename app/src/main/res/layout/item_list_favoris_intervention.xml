@@ -3,6 +3,9 @@
 
    >
     <data class="FavorisBinding">
+        <variable
+            name="favorismodel"
+            type="com.example.talan_app.view_model.Favoris_intervention_VM" />
 
     </data>
     <LinearLayout
@@ -39,7 +42,7 @@
                     android:id="@+id/code_intervention"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1099"
+                    android:text="@{favorismodel.Code_Intervention}"
                     android:layout_marginLeft="5dp"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
@@ -50,7 +53,7 @@
                     android:id="@+id/code_actif_in_service"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fire Extinguisher xxzodel"
+                    android:text="@{favorismodel.Description_Intervention}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
@@ -63,7 +66,7 @@
                     android:id="@+id/Active_intervention"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Active"
+                    android:text="@{favorismodel.Etat_Intervention}"
                     android:paddingTop="2dp"
                     android:layout_marginLeft="20sp"
                     android:fontFamily="@font/mmedium"
@@ -90,7 +93,7 @@
                     android:id="@+id/C_actif_int"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1099"
+                    android:text="@{favorismodel.Code_actif}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mmedium"
@@ -102,7 +105,7 @@
                     android:id="@+id/D_actif_int"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cold Extinguisher ezf"
+                    android:text="@{favorismodel.Description_actif}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
@@ -128,7 +131,7 @@
                     android:id="@+id/type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="industrielle"
+                    android:text="@{favorismodel.type_inter}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
@@ -142,7 +145,7 @@
                     android:id="@+id/Priorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Priorite"
+                    android:text="@{favorismodel.Priorite}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
@@ -181,7 +184,7 @@
                     android:id="@+id/date_obj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10/10/2020"
+                    android:text="@{favorismodel.actif_date}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"

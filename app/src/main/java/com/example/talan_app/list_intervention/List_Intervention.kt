@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.talan_app.R
 import com.example.talan_app.adapters.Adapter_List_intervention
 import com.example.talan_app.databinding.FragmentListInterventionBinding
 import com.example.talan_app.view_model.Intervention_List_VM

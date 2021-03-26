@@ -8,7 +8,7 @@
     tools:context=".list_intervention.List_Favoris_List">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_favoris_inter"
+        android:id="@+id/recyclefavorisinter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
