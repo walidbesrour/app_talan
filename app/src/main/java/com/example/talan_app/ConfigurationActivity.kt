@@ -40,7 +40,7 @@ class ConfigurationActivity : AppCompatActivity() {
         }
 
         binding.b21.setOnClickListener {
-//            viewOk()
+
             httptxt = binding.protocole2.text.toString()
             localhost1 = binding.numlocalhost.text.toString()
             port1 = binding.numport1.text.toString()
@@ -50,7 +50,14 @@ class ConfigurationActivity : AppCompatActivity() {
             configurationVM.addconfiguration(ConfigurationEntity(1,"httptxt","localhost","port"))
             var config = ConfigurationEntity(1,httptxt,localhost1,port1)
             configurationVM.updateconfiguration(config)
+            if (configurationVM.updateconfiguration(config) != null){
+                viewOk()
+            }
+
+
             configurationVM.getconfiguration(this)!!.observe(this, Observer {
+
+
                 Log.d("port", it[0].port)
                 Log.d("port", it[0].hostname)
                 Log.d("port", it[0].protocol)
