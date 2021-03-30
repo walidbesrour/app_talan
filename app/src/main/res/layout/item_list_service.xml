@@ -98,17 +98,18 @@
                     />
 
 
-                <ImageView
+                <Button
                     android:id="@+id/cc"
-                    android:layout_width="45dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    android:background="@drawable/btn_add"
+                    android:background="#00000000"
                     android:layout_marginBottom="2dp"
-                    app:srcCompat="@drawable/workflow_icon"
-                    android:elevation="3dp"
-                    android:layout_marginRight="10dp"
+                    app:icon="@drawable/workflow_icon"
+                    app:iconGravity="textEnd"
+                    app:iconTint="#26CCD3"
+                    android:text=""
                     android:layout_alignParentRight="true"
-                    app:tint="@color/white" />
+                    />
 
             </RelativeLayout>
             <RelativeLayout
@@ -154,20 +155,32 @@
                     android:textColor="@color/black"
                     android:layout_below="@+id/codeactif11"
                     />
-                <ImageButton
+                <Button
 
                     android:id="@+id/btn_add_intervention"
-                    android:layout_width="45dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    app:srcCompat="@drawable/ic_baseline_addchart_24"
+                    app:icon="@drawable/ic_baseline_addchart_24"
+                    app:iconTint="#0064FE"
+                    app:iconGravity="textEnd"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/btn_add2"
-                    android:layout_marginRight="5dp"
+                    android:background="#00000000"
                     android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
-                    android:elevation="3dp"
                     />
-
+<!--
+                <Button
+                    android:id="@+id/cc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="#0000000"
+                    android:layout_marginBottom="2dp"
+                    app:icon="@drawable/workflow_icon"
+                    app:iconGravity="textEnd"
+                    app:iconTint="#26CCD3"
+                    android:text=""
+                    android:layout_alignParentRight="true"
+                    />-->
             </RelativeLayout>
 
             </RelativeLayout>

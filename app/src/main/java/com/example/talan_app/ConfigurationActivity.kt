@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
@@ -29,6 +30,10 @@ class ConfigurationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityConfigurationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val protocole_http = resources.getStringArray(R.array.protocoleHTTP)
+    val arrayAdapter = ArrayAdapter(this,R.layout.dropdown_item, protocole_http)
+        binding.protocole2.setAdapter(arrayAdapter)
 
         configurationVM =  ViewModelProvider(this).get(ConfigurationVM::class.java)
 
