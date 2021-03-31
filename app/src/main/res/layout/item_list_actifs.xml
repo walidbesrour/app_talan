@@ -125,7 +125,6 @@
         app:iconGravity="textEnd"
         app:iconPadding="1sp"
         app:iconTint="#0064FE"
-
         android:background="#00000000"
         android:text=""
         android:layout_gravity="center_vertical"

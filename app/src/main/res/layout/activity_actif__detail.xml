@@ -4,10 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+android:background="@color/My_background"
 
     app:layoutDescription="@xml/activity_actif__detail_scene"
     tools:context=".detail.Actif_Detail">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbaractif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_toolbar"
+        android:paddingLeft="10dp"
+        app:title=" "
+        app:titleMarginStart="30dp"
+        app:menu="@menu/nav_menu"
+        app:navigationIcon="@drawable/img_logo"
 
+        />
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -15,10 +27,8 @@
         android:orientation="vertical"
         android:paddingLeft="5dp"
         android:paddingTop="10dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbaractif"
+       >
 
         <TextView
             android:id="@+id/N_actif"
@@ -40,16 +50,16 @@
 
         <ImageButton
             android:id="@+id/btn_img"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_baseline_image_24" />
 
         <ImageButton
             android:id="@+id/btn_piece"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_below="@+id/btn_img"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
@@ -81,11 +91,197 @@
     <RelativeLayout
         android:id="@+id/layout_min"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@color/black"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <TextView
+            android:id="@+id/codeparent1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parent"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codeparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/codeparent1"
+            android:text="1988"
+            />
+
+
+
+        <TextView
+            android:id="@+id/Emplacement1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeparent"
+            android:layout_marginTop="8dp"
+            android:text="Emplacement :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Emplacement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeparent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/Emplacement1"
+            android:text="9662" />
+
+        <TextView
+            android:id="@+id/descEmplacement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emplacement"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:text="Description : Run Hours" />
+
+        <TextView
+            android:id="@+id/EtatActif1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descEmplacement"
+            android:layout_marginTop="8dp"
+            android:text="Etat d'arrêt de l'actif : "
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/EtatActif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descEmplacement"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/EtatActif1"
+            android:text="ACTIVE" />
+        <TextView
+            android:id="@+id/NSERIE1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EtatActif1"
+            android:layout_marginTop="8dp"
+            android:text="N° de Série : "
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/NSERIE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EtatActif"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/NSERIE1"
+            android:text="N1F25" />
+        <LinearLayout
+            android:id="@+id/titreInf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EBEDFA"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/NSERIE">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EtatActif"
+                android:layout_margin="8dp"
+                android:paddingLeft="5dp"
+                android:text="Informations d'adresses"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/Address1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titreInf"
+            android:layout_marginTop="8dp"
+            android:text="Adresse de service: "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titreInf"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/Address1"
+            android:text="Service Address" />
+        <TextView
+            android:id="@+id/city1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Address1"
+            android:layout_marginTop="8dp"
+            android:text="ville : "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Address"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/city1"
+            android:text="My City" />
+        <TextView
+            android:id="@+id/adress1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city1"
+            android:layout_marginTop="8dp"
+            android:text="Rue : "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/adress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/adress1"
+            android:text="My steet adress" />
+        <TextView
+            android:id="@+id/Province1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adress1"
+            android:layout_marginTop="8dp"
+            android:text="État / Province : "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/Province"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adress"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/Province1"
+            android:text="Province" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/latout_btn"
@@ -94,16 +290,40 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         app:layout_constraintTop_toBottomOf="@+id/layout_min">
+        <Button
+            android:id="@+id/btn_add_service"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            app:icon="@drawable/ic_baseline_add_24"
+            android:layout_centerVertical="true"
+            app:iconGravity="textEnd"
+            app:iconTint="#0064FE"
+            android:text=""
+            android:layout_gravity="center_vertical"
+            android:background="#00000000"
+            app:strokeColor="#0064FE"
+            app:strokeWidth="1dp"
+            />
 
         <Button
+            android:id="@+id/btn_add_intervention"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" />
+            android:layout_height="35dp"
+            app:icon="@drawable/ic_baseline_addchart_24"
+            app:iconGravity="textEnd"
+            app:iconPadding="1sp"
+            app:iconTint="#0064FE"
+            android:background="#00000000"
+            android:text=""
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            app:strokeColor="#0064FE"
+            app:strokeWidth="1dp"
+          />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <com.google.android.material.tabs.TabLayout
@@ -115,35 +335,18 @@
         app:layout_constraintTop_toBottomOf="@+id/latout_btn"
         app:tabMode="scrollable">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="string/tab_1" />
+<!--       <com.google.android.material.tabs.TabLayout-->
 
         <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="string/tab_2" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="string/tab_3" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="string/tab_4" />
-
-        <com.google.android.material.tabs.TabItem
+            android:id="@+id/appBarLayoutActif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="string/tab_5" />
 
     </com.google.android.material.tabs.TabLayout>
 
-    <ScrollView
-        android:id="@+id/imageView"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPageActif"
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
@@ -151,17 +354,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_detail_actif" >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/zesfv_svdv_v_sdw_khbdksdhwxkd_bkhsbdkhbsdkcbqbdiyzqdsiqsihbdwxhbqkbkbdqscbqbcbcbqckbqwcbqbckqwxcbdksbieqs_bdhbqckhbqkxcbxbcieviebdfsdhnckfsbdwxc_kds_wbxckjsdbvizebsf_wxbdghresdlwvzosdwbomuvdmoudbmoudfb_qskdcvqkjfsbdfbkhbdksdhwxkd_bkhsbdkhbsdkcbqbdiyzqdsiqsihbdwxhbqkbkbdqscbqbcbcbqckbqwcbqbckqwxcbdksbieqs_bdhbqckhbqkxcbxbcieviebdfsdhnckfsbdwxc_kds_wbxckjsdbvizebsf_wxbdghresdlwvzosdwbomuvdmoudbmoudfb_qskdcvqkjfsbdfbvueflb_bx_hskdbouevvueflb_bx_hskdbouevsdwcx"
-                android:textSize="35sp"
-                />
 
-
-        </LinearLayout>
-    </ScrollView>
+    </androidx.viewpager.widget.ViewPager>
 </androidx.constraintlayout.motion.widget.MotionLayout>

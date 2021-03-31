@@ -44,27 +44,27 @@ class MainActivity : AppCompatActivity() {
         binding.b2.startAnimation(btt4)
         println("//////////////////////////////////////////////")
 ///////////////////////////////////// test Retrofit ////////////////////////////////////////////
-        val repository = RetrofitRepository()
-        val viewModelFactory = LoginFactory_VM(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(Login_VM::class.java)
-//        val expiration = Expiration(-1)
-        val jsonObject = JSONObject()
-        jsonObject.put("expiration", -1)
-        val jsonObjectString = jsonObject.toString()
-        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
-
-        viewModel.getloginAPI(requestBody)
-
-        viewModel.myResponse.observe(this, Observer { response ->
-            if (response.isSuccessful) {
-//                Log.d("response **", response.body().toString())
-                println("*********************************")
-            } else {
-                Log.d("response --", response.code().toString())
-                Log.d("response --", response.message().toString())
-                println("+++++++++++++++++++++++++++++++++++++")
-            }
-        })
+//        val repository = RetrofitRepository()
+//        val viewModelFactory = LoginFactory_VM(repository)
+//        viewModel = ViewModelProvider(this, viewModelFactory).get(Login_VM::class.java)
+////        val expiration = Expiration(-1)
+//        val jsonObject = JSONObject()
+//        jsonObject.put("expiration", -1)
+//        val jsonObjectString = jsonObject.toString()
+//        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+//
+//        viewModel.getloginAPI(requestBody)
+//
+//        viewModel.myResponse.observe(this, Observer { response ->
+//            if (response.isSuccessful) {
+////                Log.d("response **", response.body().toString())
+//                println("*********************************")
+//            } else {
+//                Log.d("response --", response.code().toString())
+//                Log.d("response --", response.message().toString())
+//                println("+++++++++++++++++++++++++++++++++++++")
+//            }
+//        })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
