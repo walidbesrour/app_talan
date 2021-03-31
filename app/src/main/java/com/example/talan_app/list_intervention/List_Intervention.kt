@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talan_app.adapters.Adapter_List_intervention
 import com.example.talan_app.databinding.FragmentListInterventionBinding
@@ -20,9 +20,9 @@ private var adapterListIntervention : Adapter_List_intervention? =null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentListInterventionBinding.inflate(layoutInflater)
 
-        val interventionListVm : Intervention_List_VM = ViewModelProviders.of(this).get(Intervention_List_VM ::class.java)
+        val interventionListVm : Intervention_List_VM = ViewModelProvider(this).get(Intervention_List_VM ::class.java)
 
-        interventionListVm.getArrayList().observe(this,{ interList ->
+        interventionListVm.getArrayList().observe(viewLifecycleOwner,{ interList ->
             adapterListIntervention = Adapter_List_intervention(requireContext(),interList)
             binding.recycleIntervention.layoutManager = LinearLayoutManager(requireContext())
             binding.recycleIntervention.adapter = adapterListIntervention

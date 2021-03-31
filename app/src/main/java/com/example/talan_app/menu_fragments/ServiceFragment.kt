@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talan_app.R
 import com.example.talan_app.adapters.Adapter_List_Service
@@ -25,9 +25,9 @@ class ServiceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentServiceBinding.inflate(layoutInflater)
 
-        val service_list_VM : Service_List_VM = ViewModelProviders.of(this).get(Service_List_VM::class.java)
+        val service_list_VM : Service_List_VM = ViewModelProvider(this).get(Service_List_VM::class.java)
 
-        service_list_VM.getArrayList().observe(this,{serv_list_vm ->
+        service_list_VM.getArrayList().observe(viewLifecycleOwner,{serv_list_vm ->
             adapter_List_Service = Adapter_List_Service(requireContext(),serv_list_vm)
             binding.recycleService.layoutManager = LinearLayoutManager(requireContext())
             binding.recycleService.adapter = adapter_List_Service

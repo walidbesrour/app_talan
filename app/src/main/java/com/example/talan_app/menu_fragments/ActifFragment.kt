@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 
 
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,9 +24,9 @@ class ActifFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentActifBinding.inflate(layoutInflater)
 
-        val actif_List_vm : Actif_List_VM =  ViewModelProviders.of(this).get(Actif_List_VM::class.java)
+        val actif_List_vm : Actif_List_VM =  ViewModelProvider(this).get(Actif_List_VM::class.java)
 
-        actif_List_vm.getArrayList().observe(this, Observer {actif_List_vms ->
+        actif_List_vm.getArrayList().observe(viewLifecycleOwner, Observer {actif_List_vms ->
 
             adapter_list_actifs = Adapter_List_Actifs(requireContext(),actif_List_vms!! )
             binding.recycleActif.layoutManager = LinearLayoutManager(requireContext())
