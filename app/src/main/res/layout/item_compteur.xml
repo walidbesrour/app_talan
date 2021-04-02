@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="CompteurBinding">
+        <variable
+            name="compteurmodel"
+            type="com.example.talan_app.view_model.Compteur_List_VM" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeWidth="0.5dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RL_S2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F4F5FA"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                    app:strokeColor="#707070"
+                    android:layout_below="@+id/RL_S1">
+
+                    <TextView
+                        android:id="@+id/codecompteur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10562 : "
+                        android:textStyle="bold"
+                        android:paddingTop="2dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/code_actif_in_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fire Extinguisher "
+                        android:paddingTop="2dp"
+                        android:fontFamily="@font/mlight"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/codecompteur"/>
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/descriptionActif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10/20/2020 "
+                    android:textStyle="normal"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/RL_S2"
+                    />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/My_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".detail.detail_actif.CompteurFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        android:id="@+id/addcompteur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compteur"
+        android:textSize="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        app:iconSize="18dp"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/bleu_btn" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclefavorisinter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:text="Compteur" />
+        android:layout_below="@+id/addcompteur"
+        android:clipToPadding="false"
+        android:padding="4dp"
+        tools:listitem="@layout/item_compteur"/>
 
-</LinearLayout>
+
+</RelativeLayout>
