@@ -323,8 +323,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="15sp"
-            android:layout_below="@+id/pers1"
-            android:layout_marginBottom="10dp">
+            android:layout_below="@+id/pers1">
             <!--       android:enabled="false"         -->
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nom"
@@ -341,8 +340,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="15sp"
-                android:layout_below="@+id/nom1"
-                android:layout_marginBottom="10dp">
+                android:layout_below="@+id/nom1">
                 <!--       android:enabled="false"         -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/telephone"

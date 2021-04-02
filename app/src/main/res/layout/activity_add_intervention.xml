@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/My_background"
+    tools:context=".intervention.AddIntervention">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbaractif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_toolbar"
+        android:paddingLeft="10dp"
+        app:title=" "
+        app:titleMarginStart="30dp"
+        app:menu="@menu/nav_menu"
+        app:navigationIcon="@drawable/img_logo" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/titleAddService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnjoint2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="#00000000"
+                    android:layout_marginBottom="2dp"
+                    app:icon="@drawable/ic_baseline_attach_file_24"
+                    app:iconGravity="textEnd"
+                    app:iconTint="#003BFF"
+                    android:text=""
+                    android:layout_alignParentRight="true"
+                    />
+
+
+                <Button
+                    android:id="@+id/cc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="#00000000"
+                    android:layout_marginBottom="2dp"
+                    app:icon="@drawable/workflow_icon"
+                    app:iconGravity="textEnd"
+                    app:iconTint="#26CCD3"
+                    android:text=""
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/btnjoint2"
+                    />
+                <TextView
+                    android:id="@+id/Ndemande"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="N°demande :"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/description_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/blue_talan"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/Ndemande"
+                    android:text="Fire Extinguisher "
+                    />
+
+                <TextView
+                    android:id="@+id/Statusadd1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Status :"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/Ndemande"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/Statusadd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/description_detail"
+                    android:layout_toRightOf="@+id/Statusadd1"
+                    android:text="Active"
+                    />
+                <TextView
+                    android:id="@+id/Descriptionadd1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Description :"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/Statusadd1"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/Descriptionadd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/Statusadd"
+                    android:layout_toRightOf="@+id/Descriptionadd1"
+                    android:text="Fire Extinguisher"
+                    />
+            </RelativeLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/titleAddService">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:id="@+id/CodeActifadd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Code Actif "
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/lis"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/rond"
+                        android:tint="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="3dp"
+                        android:layout_toLeftOf="@+id/camera"
+                        android:layout_marginRight="20dp"
+                        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                    <ImageButton
+                        android:id="@+id/camera"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/rond"
+                        android:tint="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentRight="true"
+                        app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/codeadd1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/CodeActifadd">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/codeadd"
+                            android:hint="Code Actif"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/descriptionaddser1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/codeadd1">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/First_name1"
+                            android:hint="Description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/CodeSite1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/descriptionaddser1">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CodeSite"
+                            android:hint="Code Site"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:id="@+id/ligne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:background="#686464"
+                        android:layout_margin="10dp"
+                        android:layout_below="@+id/CodeSite1"/>
+                    <TextView
+                        android:id="@+id/Codeemplacement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Code emplacement : "
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/ligne"
+                        android:textStyle="bold" />
+                    <ImageButton
+                        android:id="@+id/lis2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/rond"
+                        android:tint="@color/black"
+                        android:paddingLeft="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/ligne"
+                        android:layout_marginRight="20dp"
+                        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/codeemp1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/Codeemplacement">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/codeemp"
+                            android:hint="Code emplacement"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/descriptionemp1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/codeemp1"
+                        android:layout_marginBottom="10dp">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/descriptionemp"
+                            android:hint="Description emplacement"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+
+                android:layout_below="@+id/card1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/Personneaffectee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Personne affectée :"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="15sp"
+                        android:textStyle="bold" />
+                    <ImageButton
+                        android:id="@+id/lis3"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/rond"
+                        android:tint="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/pers1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/Personneaffectee">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/pers"
+                            android:hint="Personne affectée"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/nom1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/pers1">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nom"
+                            android:hint="Nom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/telephone1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/nom1">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/telephone"
+                            android:hint="Téléphone "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/email1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/telephone1"
+                        android:layout_marginBottom="10dp">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            android:hint="Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/card2">
+                <Button
+                    android:id="@+id/b1"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/bleu_btn"
+                    android:text="enregistrer"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    />
+                <Button
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:id="@+id/b2"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    app:strokeColor="@color/bleu_btn"
+                    app:strokeWidth="3dp"
+                    android:textSize="12dp"
+                    android:text="annuler"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/bleu_btn"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

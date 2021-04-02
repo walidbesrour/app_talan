@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".detail.detail_actif.RisquePrecautionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:text="RISQUES/PRECAUTION" />
+
 
 </LinearLayout>
