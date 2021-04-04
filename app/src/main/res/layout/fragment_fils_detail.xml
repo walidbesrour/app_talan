@@ -3,13 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".detail.detail_actif.FilsDetailFragment">
 
 
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerfils"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:text="les fils"/>
+        android:clipToPadding="false"
+        android:padding="4dp"
+        tools:listitem="@layout/item_precaution"/>
 
 </LinearLayout>

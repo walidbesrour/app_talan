@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="FilsActifBinding">
+        <variable
+            name="filsactifmodel"
+            type="com.example.talan_app.view_model.FilsActif_List_VM" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -10,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            app:strokeWidth="0.5dp">
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -33,7 +39,7 @@
                         android:id="@+id/codecompteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1055 "
+                        android:text="@{filsactifmodel.Code1}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:fontFamily="@font/mmedium"
@@ -43,7 +49,7 @@
                         android:id="@+id/compteurdescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="feu"
+                        android:text="@{filsactifmodel.Description1}"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -58,7 +64,7 @@
                     android:id="@+id/descriptionActif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="compteurmodel.compteurDate"
+                    android:text="@{filsactifmodel.Code_emplacement1}"
                     android:textStyle="normal"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="@font/mlight"

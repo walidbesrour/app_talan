@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            app:strokeWidth="0.5dp">
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
