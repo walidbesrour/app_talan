@@ -22,7 +22,7 @@ class Actif_Detail : AppCompatActivity() {
     private fun setUpTabs() {
         val adapter = ViewAdapterPageView(supportFragmentManager)
         adapter.addFragment(CompteurFragment(), "COMPTEUR")
-        adapter.addFragment(RisquePrecautionFragment(), "COMPTEUR")
+        adapter.addFragment(RisquePrecautionFragment(), "RISQUES PRECAUTION")
         adapter.addFragment(FilsDetailFragment(), "DETAIL FILS ")
 
         binding.viewPageActif.adapter = adapter

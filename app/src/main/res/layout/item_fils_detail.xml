@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <data class="CompteurBinding">
-        <variable
-            name="compteurmodel"
-            type="com.example.talan_app.view_model.Compteur_List_VM" />
-
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +33,7 @@
                         android:id="@+id/codecompteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{compteurmodel.codecompteur}"
+                        android:text="1055 "
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:fontFamily="@font/mmedium"
@@ -51,7 +43,7 @@
                         android:id="@+id/compteurdescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{compteurmodel.descriptionDesc}"
+                        android:text="feu"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -66,7 +58,7 @@
                     android:id="@+id/descriptionActif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{compteurmodel.compteurDate}"
+                    android:text="compteurmodel.compteurDate"
                     android:textStyle="normal"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="@font/mlight"
