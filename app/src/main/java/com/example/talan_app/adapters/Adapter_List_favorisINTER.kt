@@ -1,12 +1,14 @@
 package com.example.talan_app.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.FavorisBinding
+import com.example.talan_app.intervention.Intervention_Detail
 
 import com.example.talan_app.view_model.Favoris_intervention_VM
 
@@ -31,9 +33,16 @@ class Adapter_List_favorisINTER(private val context: Context, private val list_f
 
     /////////////////////////////// Class Intervention_View_Holder  /////////////////////////////////////////////
 
-    class FavorisHolder(private val favorisBinding :FavorisBinding) : RecyclerView.ViewHolder(favorisBinding.root){
+    inner class FavorisHolder(private val favorisBinding :FavorisBinding) : RecyclerView.ViewHolder(favorisBinding.root){
         fun bind(favoris_intervention_VM : Favoris_intervention_VM){
             this.favorisBinding.favorismodel = favoris_intervention_VM
+
+            favorisBinding.cardfilsintervention.setOnClickListener {
+                val intent = Intent(context, Intervention_Detail::class.java)
+                context.startActivity(intent)
+
+            }
+
             favorisBinding.executePendingBindings()
         }
 

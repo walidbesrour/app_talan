@@ -1,12 +1,14 @@
 package com.example.talan_app.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.ServiceBinding
+import com.example.talan_app.services.Service_Detail
 import com.example.talan_app.view_model.Service_List_VM
 
 class Adapter_List_Service(private val context: Context , private val list_service : ArrayList<Service_List_VM>) : RecyclerView.Adapter<Adapter_List_Service.Service_View_Holder>() {
@@ -31,6 +33,14 @@ class Adapter_List_Service(private val context: Context , private val list_servi
     inner class Service_View_Holder(private val service_Binding : ServiceBinding) :RecyclerView.ViewHolder(service_Binding.root){
         fun bind(service_List_VM: Service_List_VM){
             this.service_Binding.servicemodel = service_List_VM
+
+
+            service_Binding.cardbtnservice.setOnClickListener {
+                val intent = Intent(context,Service_Detail::class.java)
+                context.startActivity(intent)
+            }
+
+
             service_Binding.executePendingBindings()
         }
 

@@ -1,12 +1,16 @@
 package com.example.talan_app.adapters
 
 import android.content.Context
+import android.content.Intent
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.InterventionBinding
+import com.example.talan_app.intervention.Intervention_Detail
+
 import com.example.talan_app.view_model.Intervention_List_VM
 
 class Adapter_List_intervention(private val context: Context , private val list_intervention: ArrayList<Intervention_List_VM>) : RecyclerView.Adapter<Adapter_List_intervention.Intervention_View_Holder>(){
@@ -26,9 +30,15 @@ class Adapter_List_intervention(private val context: Context , private val list_
     override fun getItemCount(): Int = list_intervention.size
 
     /////////////////////////////// Class Intervention_View_Holder  /////////////////////////////////////////////
-    class Intervention_View_Holder( private val inter_Binding : InterventionBinding) :RecyclerView.ViewHolder(inter_Binding.root) {
+    inner class Intervention_View_Holder( private val inter_Binding : InterventionBinding) :RecyclerView.ViewHolder(inter_Binding.root) {
         fun bind(intervention_List_VM:Intervention_List_VM){
             this.inter_Binding.interventionmodel = intervention_List_VM
+
+            inter_Binding.cardintervention.setOnClickListener {
+                val intent = Intent(context,Intervention_Detail::class.java)
+                context.startActivity(intent)
+
+            }
             inter_Binding.executePendingBindings()
         }
 

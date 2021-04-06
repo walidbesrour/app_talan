@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talan_App"
         android:usesCleartextTraffic="true">
-        <activity android:name=".intervention.AddIntervention"></activity>
+        <activity android:name=".intervention.Intervention_Detail"></activity>
+        <activity android:name=".services.Service_Detail" />
+        <activity android:name=".intervention.AddIntervention" />
         <activity android:name=".services.AddService" />
         <activity android:name=".detail.Actif_Detail" />
         <activity android:name=".Menu_Activity" />
