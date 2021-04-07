@@ -1,14 +1,340 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/My_background"
+    app:layoutDescription="@xml/activity_service__detail_scene"
     tools:context=".services.Service_Detail">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Service Detail"
-        android:textSize="50dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarservice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_toolbar"
+        android:paddingLeft="10dp"
+        app:menu="@menu/nav_menu"
+        app:navigationIcon="@drawable/img_logo"
+        app:title=" "
+        app:titleMarginStart="30dp"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarservice">
+
+        <TextView
+            android:id="@+id/NDemande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N°  demande :"
+            android:textColor="@color/blue_talan"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codeDemande"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/NDemande"
+            android:text="1500 "
+            android:textColor="@color/blue_talan"
+
+            />
+
+        <ImageButton
+            android:id="@+id/btnPieceService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_baseline_attach_file_24" />
+
+        <ImageButton
+            android:id="@+id/btnWorkflowService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/btnPieceService"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/workflow_icon"
+            android:backgroundTint="#26CCD3" />
+
+        <ImageButton
+            android:id="@+id/InterventionService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/btnWorkflowService"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_baseline_addchart_24"
+            android:backgroundTint="#0064FE" />
+
+
+        <TextView
+            android:id="@+id/DemandeDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/NDemande"
+            android:layout_marginTop="8dp"
+            android:text="Description de la demande" />
+
+        <TextView
+            android:id="@+id/actifService1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DemandeDesc"
+            android:layout_marginTop="8dp"
+            android:text="Status :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/actifService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DemandeDesc"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/actifService1"
+            android:text="ACTIVE" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_min1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
+
+        <TextView
+            android:id="@+id/codeActif1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Code Actif :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codeActif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/codeActif1"
+            android:text="1988" />
+
+        <TextView
+            android:id="@+id/descAtif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeActif1"
+            android:layout_marginTop="8dp"
+            android:text="Description de l'actif" />
+
+        <TextView
+            android:id="@+id/Emplacement1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descAtif"
+            android:layout_marginTop="8dp"
+            android:text="Emplacement :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Emplacement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descAtif"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/Emplacement1"
+            android:text="9662" />
+
+        <TextView
+            android:id="@+id/descEmplacement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emplacement"
+            android:layout_marginTop="8dp"
+            android:text="Description : Run Hours" />
+
+
+        <!--        //////////////////////////////      -->
+        <LinearLayout
+            android:id="@+id/titreInf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descEmplacement"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#EBEDFA">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EtatActif"
+                android:layout_margin="8dp"
+                android:paddingLeft="5dp"
+                android:text="Informations d'adresses"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/Address1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titreInf"
+            android:layout_marginTop="8dp"
+            android:text="Adresse de service: "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titreInf"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/Address1"
+            android:text="Service Address" />
+
+        <TextView
+            android:id="@+id/city1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Address1"
+            android:layout_marginTop="8dp"
+            android:text="ville : "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Address"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/city1"
+            android:text="My City" />
+
+        <TextView
+            android:id="@+id/adress1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city1"
+            android:layout_marginTop="8dp"
+            android:text="Rue : "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/adress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/adress1"
+            android:text="My steet adress" />
+
+        <TextView
+            android:id="@+id/Province1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adress1"
+            android:layout_marginTop="8dp"
+            android:text="État / Province : "
+            android:textColor="@color/black"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/Province"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adress"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/Province1"
+            android:text="Province" />
+
+    </RelativeLayout>
+    <!--    *********************************  -->
+    <RelativeLayout
+        android:id="@+id/latout_btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_min1">
+
+        <Button
+            android:id="@+id/btn_enregistrer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="enregistrer"
+            android:textSize="12dp"
+            app:backgroundTint="@color/blue_talan"
+            />
+
+        <Button
+            android:id="@+id/btn_annuler"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:text="ANNULER"
+            android:textColor="@color/blue_talan"
+            app:strokeColor="@color/blue_talan"
+            app:strokeWidth="2dp" />
+
+    </RelativeLayout>
+    <!--    ***************************************  -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabDetailService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabMode="scrollable"
+        app:tabTextColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/latout_btn1">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPageService"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabDetailService">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
+

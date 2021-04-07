@@ -5,10 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".intervention.Intervention_Detail">
-    <TextView
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarservice"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="50dp"
-        android:text="INTERVENTION DETAIL"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_toolbar"
+        android:paddingLeft="10dp"
+        app:title=" "
+        app:titleMarginStart="30dp"
+        app:menu="@menu/nav_menu"
+        app:navigationIcon="@drawable/img_logo"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
