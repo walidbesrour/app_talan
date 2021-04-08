@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/My_background"
+    app:layoutDescription="@xml/activity_intervention__detail_scene"
     tools:context=".intervention.Intervention_Detail">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,10 +14,289 @@
         android:layout_height="wrap_content"
         android:background="@drawable/menu_toolbar"
         android:paddingLeft="10dp"
-        app:title=" "
-        app:titleMarginStart="30dp"
         app:menu="@menu/nav_menu"
         app:navigationIcon="@drawable/img_logo"
+        app:title=" "
+        app:titleMarginStart="30dp"
         tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarservice">
+
+        <TextView
+            android:id="@+id/NDemande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Code :"
+            android:textColor="@color/blue_talan"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codeDemande"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/NDemande"
+            android:text="1500 "
+            android:textColor="@color/blue_talan"
+
+            />
+
+        <ImageButton
+            android:id="@+id/btnPieceService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_baseline_attach_file_24" />
+
+        <ImageButton
+            android:id="@+id/addbtnService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="22dp"
+            android:layout_toLeftOf="@+id/btnPieceService"
+            android:background="@drawable/ic_baseline_add_24"
+            android:backgroundTint="#0064FE" />
+
+        <ImageButton
+            android:id="@+id/btnWorkflowService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/DiscriptionDesc"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/workflow_icon"
+            android:backgroundTint="#26CCD3" />
+
+        <ImageButton
+            android:id="@+id/InterventionService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/DiscriptionDesc"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="22dp"
+            android:layout_toLeftOf="@+id/btnWorkflowService"
+            android:background="@drawable/ic_baseline_alarm_24"
+            android:backgroundTint="#0064FE" />
+
+
+        <TextView
+            android:id="@+id/DiscriptionDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/NDemande"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:layout_toLeftOf="@+id/InterventionService"
+            android:text="Description de la demande" />
+
+        <TextView
+            android:id="@+id/SiteInter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DiscriptionDesc"
+            android:layout_marginTop="8dp"
+            android:text="Site :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/SiteInter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DiscriptionDesc"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/SiteInter1"
+            android:text="TUNIS" />
+
+
+    </RelativeLayout>
+
+    <!--    **************************   -->
+    <RelativeLayout
+        android:id="@+id/layout_min2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+        <View
+            android:id="@+id/ligne2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/codeparent2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ligne2"
+            android:text="Parent : "
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/parentcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ligne2"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/codeparent2"
+            android:text="1988" />
+
+        <ImageButton
+            android:id="@+id/addParent"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/ligne2"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/parentcode"
+            android:background="@drawable/rond"
+            android:paddingLeft="3dp"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_baseline_arrow_forward" />
+
+        <TextView
+            android:id="@+id/codeActifInterv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeparent2"
+            android:layout_marginTop="8dp"
+            android:text="Actif :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codeActifInterv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeparent2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/codeActifInterv1"
+            android:text="9662" />
+
+        <ImageButton
+            android:id="@+id/addActif"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/addParent"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/codeActifInterv"
+            android:background="@drawable/rond"
+            android:paddingLeft="3dp"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_baseline_arrow_forward" />
+
+        <TextView
+            android:id="@+id/descActifs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeActifInterv"
+            android:layout_marginTop="8dp"
+            android:text="Description : des Actifs dans les interventions" />
+
+        <TextView
+            android:id="@+id/type1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descActifs"
+            android:layout_marginTop="8dp"
+            android:text="Type d’intervention :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/typeInterv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descActifs"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/type1"
+            android:text="Tunis type" />
+
+        <TextView
+            android:id="@+id/desctypeInterv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type1"
+            android:layout_marginTop="8dp"
+            android:text="Description : des Actifs dans les interventions" />
+
+
+    </RelativeLayout>
+    <!--    *********************************  -->
+    <RelativeLayout
+        android:id="@+id/latout_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_min2">
+
+        <Button
+            android:id="@+id/btn_enregistrer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="enregistrer"
+            android:textSize="12dp"
+            app:backgroundTint="@color/blue_talan" />
+
+        <Button
+            android:id="@+id/btn_annuler"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:text="ANNULER"
+            android:textColor="@color/blue_talan"
+            app:strokeColor="@color/blue_talan"
+            app:strokeWidth="2dp" />
+
+    </RelativeLayout>
+    <!--    ***************************************  -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabDetailinterv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latout_btn2"
+        app:tabMode="scrollable"
+        app:tabTextColor="@color/black">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPageServiceInterv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabDetailinterv">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

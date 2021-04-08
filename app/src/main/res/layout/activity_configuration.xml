@@ -28,10 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mregular"
-            android:text="Register with  airtel account number, to start your account !"
+            android:text="Configurer la connexion pour démarrer votre compte"
             android:textSize="15dp"
             android:textColor="#999999"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"/>
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -62,7 +62,7 @@
         app:startIconDrawable="@drawable/vpn_lock_24">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/numlocalhost"
-            android:hint="localhost"
+            android:hint="Serveur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -96,7 +96,7 @@
                 android:layout_marginTop="20dp"
                 app:backgroundTint="@color/blue_talan"
                 android:padding="12dp"
-                android:text="SAVE IN"
+                android:text="enregistrer"
                 android:textStyle="bold"
                 />
             <Button
@@ -110,7 +110,7 @@
                 android:padding="12dp"
                 app:strokeColor="@color/blue_talan"
                 app:strokeWidth="3dp"
-                android:text="SIGN UP"
+                android:text="Retoure"
                 android:textColor="@color/blue_talan" />
 
 

@@ -253,7 +253,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="15sp"
                 android:layout_below="@+id/codeemp1"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="15dp">
                 <!--       android:enabled="false"         -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/descriptionemp"
@@ -270,7 +270,9 @@
         android:id="@+id/card2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
 
         android:layout_below="@+id/card1">
         <RelativeLayout
@@ -358,7 +360,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="15sp"
                 android:layout_below="@+id/telephone1"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="15dp">
                 <!--       android:enabled="false"         -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
