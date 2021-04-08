@@ -22,10 +22,10 @@ class Intervention_Detail : AppCompatActivity() {
 
     private fun setUpTabs() {
         val adapter = ViewAdapterPageView(supportFragmentManager)
-        adapter.addFragment(CompteurIntervFragment(), "Compteur")
-        adapter.addFragment(RisqPreqIntervFragment(), "resque precaution")
+        adapter.addFragment(CompteurIntervFragment(), "COMPTEURS")
+        adapter.addFragment(RisqPreqIntervFragment(), "RISQUE PRECAUTION")
         adapter.addFragment(RealisationFragment(), "REALISATION")
-        adapter.addFragment(PlanFragment(), "Plan")
+        adapter.addFragment(PlanFragment(), "PLAN")
 
         binding.viewPageServiceInterv.adapter = adapter
         binding.tabDetailinterv.setupWithViewPager(binding.viewPageServiceInterv)

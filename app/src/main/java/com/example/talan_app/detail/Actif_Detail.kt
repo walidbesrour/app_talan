@@ -21,9 +21,9 @@ class Actif_Detail : AppCompatActivity() {
     }
     private fun setUpTabs() {
         val adapter = ViewAdapterPageView(supportFragmentManager)
-        adapter.addFragment(CompteurFragment(), "COMPTEUR")
+        adapter.addFragment(CompteurFragment(), "COMPTEURS")
         adapter.addFragment(RisquePrecautionFragment(), "RISQUES PRECAUTION")
-        adapter.addFragment(FilsDetailFragment(), "DETAIL FILS ")
+        adapter.addFragment(FilsDetailFragment(), "ACTIFS FILS ")
 
         binding.viewPageActif.adapter = adapter
         binding.tabDetailActif.setupWithViewPager(binding.viewPageActif)
