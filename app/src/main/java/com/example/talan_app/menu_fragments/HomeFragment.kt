@@ -86,46 +86,4 @@ import java.util.ArrayList
          binding.pieChart.animateXY(1000,1000)
      }
 
-//     private fun setupPieChart() {
-//         // Setup Pie Entries
-//         val pieEntries = arrayListOf<Entry>()
-//         pieEntries.add(Entry(30.0f,1))
-//         pieEntries.add(Entry(40.0f,2))
-//         pieEntries.add(Entry(60.0f,3))
-//
-//         // Setup Pie Chart Animation
-//         binding.pieChart.animateXY(1000, 1000) // This 1000 is time that how much time piechart chreated
-//
-//         // Setup PicChart Colors
-//         val pieDataSet = PieDataSet(pieEntries, "This is Pie Chart Label")
-//         pieDataSet.setColors(
-//             resources.getColor(R.color.teal_200),
-//             resources.getColor(R.color.purple_200),
-//             resources.getColor(R.color.colorAccent)
-//         )
-//
-//         // Setup Pie Data Set in PieData
-//         val pieData = PieData(pieDataSet)
-//         pieData.setDrawValues(true)     // This is for values in pie entries.
-//
-//         // Setup PieCharts Values and Ui
-//         binding.pieChart.description.isEnabled = true   // This is pie chart description that in below entries.
-//         binding.pieChart.setDescription("Pic Chart For TechnoFolk")
-//
-//         // This is for center text
-//         binding.pieChart.centerText = "Hello Pic Chart"
-//         binding.pieChart.setCenterTextSize(15f)
-//         binding.pieChart.setCenterTextColor(resources.getColor(android.R.color.black))
-//
-//         // This is because of tags of pie chart entries.
-//         binding.pieChart.legend.isEnabled = true
-//
-//
-//         // this is for space that is at the center of the pie chart.
-//         binding.pieChart.isDrawHoleEnabled = true
-//         binding.pieChart.holeRadius = 75f
-//
-//         // Finally Setup the add Values in PieChart.
-//         binding.pieChart.data = pieData
-//     }
 }
