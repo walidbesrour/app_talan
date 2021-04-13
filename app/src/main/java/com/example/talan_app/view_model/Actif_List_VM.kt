@@ -17,6 +17,7 @@ lateinit var context : Context
     var Code1 =""
     var Description1 =""
     var Code_emplacement1 =""
+    var children : Boolean = true
 
 
     constructor(): super()
@@ -24,6 +25,7 @@ lateinit var context : Context
         this.Code1 = actif.Code
         this.Description1 = actif.Description
         this.Code_emplacement1 = actif.Code_emplacement
+        this.children = actif.children
     }
 
     var arraylistmutablelivedata = MutableLiveData<ArrayList<Actif_List_VM>>()
@@ -33,14 +35,14 @@ lateinit var context : Context
 
     fun getArrayList() :MutableLiveData<ArrayList<Actif_List_VM>>{
 
-        arraylist.add(Actif_List_VM(Actif("1001","Fire Extinguisher xxz","CENTRAL1")))
-        arraylist.add(Actif_List_VM(Actif("1002","Fire Extinguisher xxz","CENTRAL2")))
-        arraylist.add(Actif_List_VM(Actif("1003","Fire Extinguisher xxz","CENTRAL3")))
-        arraylist.add(Actif_List_VM(Actif("1004","Fire Extinguisher xxz","CENTRAL4")))
-        arraylist.add(Actif_List_VM(Actif("1005","Fire Extinguisher xxz","CENTRAL5")))
-        arraylist.add(Actif_List_VM(Actif("1006","Fire Extinguisher xxz","CENTRAL6")))
-        arraylist.add(Actif_List_VM(Actif("1007","Fire Extinguisher xxz","CENTRAL7")))
-        arraylist.add(Actif_List_VM(Actif("1008","Fire Extinguisher xxz","CENTRAL8")))
+        arraylist.add(Actif_List_VM(Actif("1001","Fire Extinguisher xxz","CENTRAL1",true)))
+        arraylist.add(Actif_List_VM(Actif("1002","Fire Extinguisher xxz","CENTRAL2",false)))
+        arraylist.add(Actif_List_VM(Actif("1003","Fire Extinguisher xxz","CENTRAL3",false)))
+        arraylist.add(Actif_List_VM(Actif("1004","Fire Extinguisher xxz","CENTRAL4",true)))
+        arraylist.add(Actif_List_VM(Actif("1005","Fire Extinguisher xxz","CENTRAL5",true)))
+        arraylist.add(Actif_List_VM(Actif("1006","Fire Extinguisher xxz","CENTRAL6",true)))
+        arraylist.add(Actif_List_VM(Actif("1007","Fire Extinguisher xxz","CENTRAL7",true)))
+        arraylist.add(Actif_List_VM(Actif("1008","Fire Extinguisher xxz","CENTRAL8",true)))
 
 
                 arraylistmutablelivedata.value = arraylist

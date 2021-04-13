@@ -41,6 +41,10 @@ class Adapter_List_Actifs(private val context: Context, private val list_actif: 
         {
 
             this.actifBinding.actifmodel = actif_List_VM
+            if (actif_List_VM.children== false){
+                actifBinding.filsActif.visibility = View.GONE
+            }
+
 
             actifBinding.filsActif.setOnClickListener {
                     val p : Int = adapterPosition

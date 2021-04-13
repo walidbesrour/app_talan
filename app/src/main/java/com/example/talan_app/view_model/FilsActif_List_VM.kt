@@ -33,18 +33,18 @@ lateinit var context : Context
 
     fun getArrayList() :MutableLiveData<ArrayList<FilsActif_List_VM>>{
 
-        arraylist.add(FilsActif_List_VM(Actif("1001","Fire Extinguisher xxz","CENTRAL1")))
-        arraylist.add(FilsActif_List_VM(Actif("1002","Fire Extinguisher xxz","CENTRAL2")))
-        arraylist.add(FilsActif_List_VM(Actif("1003","Fire Extinguisher xxz","CENTRAL3")))
-        arraylist.add(FilsActif_List_VM(Actif("1004","Fire Extinguisher xxz","CENTRAL4")))
-        arraylist.add(FilsActif_List_VM(Actif("1005","Fire Extinguisher xxz","CENTRAL5")))
-        arraylist.add(FilsActif_List_VM(Actif("1006","Fire Extinguisher xxz","CENTRAL6")))
-        arraylist.add(FilsActif_List_VM(Actif("1007","Fire Extinguisher xxz","CENTRAL7")))
-        arraylist.add(FilsActif_List_VM(Actif("1008","Fire Extinguisher xxz","CENTRAL8")))
-        arraylist.add(FilsActif_List_VM(Actif("1009","Fire Extinguisher xxz","CENTRAL9")))
-        arraylist.add(FilsActif_List_VM(Actif("1010","Fire Extinguisher xxz","CENTRAL10")))
-        arraylist.add(FilsActif_List_VM(Actif("1011","Fire Extinguisher xxz","CENTRAL11")))
-        arraylist.add(FilsActif_List_VM(Actif("1012","Fire Extinguisher xxz","CENTRAL12")))
+        arraylist.add(FilsActif_List_VM(Actif("1001","Fire Extinguisher xxz","CENTRAL1",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1002","Fire Extinguisher xxz","CENTRAL2",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1003","Fire Extinguisher xxz","CENTRAL3",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1004","Fire Extinguisher xxz","CENTRAL4",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1005","Fire Extinguisher xxz","CENTRAL5",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1006","Fire Extinguisher xxz","CENTRAL6",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1007","Fire Extinguisher xxz","CENTRAL7",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1008","Fire Extinguisher xxz","CENTRAL8",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1009","Fire Extinguisher xxz","CENTRAL9",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1010","Fire Extinguisher xxz","CENTRAL10",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1011","Fire Extinguisher xxz","CENTRAL11",true)))
+        arraylist.add(FilsActif_List_VM(Actif("1012","Fire Extinguisher xxz","CENTRAL12",true)))
 
 
                 arraylistmutablelivedata.value = arraylist

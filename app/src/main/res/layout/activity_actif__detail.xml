@@ -44,23 +44,34 @@
             android:layout_marginLeft="10dp"
             android:textColor="@color/blue_talan"
             android:layout_toRightOf="@+id/N_actif"
+            android:layout_toLeftOf="@+id/btnDescription"
             android:text="Fire Extinguisher "
 
             />
 
         <ImageButton
-            android:id="@+id/btn_img"
+            android:id="@+id/btnDescription"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
+            android:background="@drawable/ic_baseline_description_24" />
+
+        <ImageButton
+            android:id="@+id/btnimg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/btnDescription"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/btn_piece"
             android:background="@drawable/ic_baseline_image_24" />
 
         <ImageButton
             android:id="@+id/btn_piece"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_below="@+id/btn_img"
+            android:layout_below="@+id/btnDescription"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
