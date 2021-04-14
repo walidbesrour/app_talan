@@ -34,34 +34,38 @@
                 android:paddingLeft="10dp"
                 android:orientation="horizontal">
 
-                <Button
+                <ImageView
                     android:id="@+id/btnjoint2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:background="#00000000"
-                    android:layout_marginBottom="2dp"
-                    app:icon="@drawable/ic_baseline_attach_file_24"
-                    app:iconGravity="textEnd"
-                    app:iconTint="#003BFF"
-                    android:text=""
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                   android:layout_marginTop="3dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/ic_baseline_attach_file_24"
                     android:layout_alignParentRight="true"
                     />
 
-
-                <Button
-                    android:id="@+id/cc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:background="#00000000"
-                    android:layout_marginBottom="2dp"
-                    app:icon="@drawable/workflow_icon"
-                    app:iconGravity="textEnd"
-                    app:iconTint="#26CCD3"
-                    android:text=""
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentRight="true"
+                <ImageButton
+                    android:id="@+id/btnworkflow1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/workflow_icon"
+                    android:backgroundTint="#26CCD3"
                     android:layout_below="@+id/btnjoint2"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
                     />
+                <ImageButton
+                    android:id="@+id/DescriptionInterv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnworkflow1"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/ic_baseline_description_24" />
+
+
                 <TextView
                     android:id="@+id/Ndemande"
                     android:layout_width="wrap_content"
@@ -79,7 +83,9 @@
                     android:textColor="@color/blue_talan"
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@+id/Ndemande"
+                    android:layout_toLeftOf="@+id/btnjoint2"
                     android:text="Fire Extinguisher "
+
                     />
 
                 <TextView
@@ -98,6 +104,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_below="@+id/description_detail"
+                    android:layout_toLeftOf="@+id/btnworkflow1"
                     android:layout_toRightOf="@+id/Statusadd1"
                     android:text="Active"
                     />
@@ -117,6 +124,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_below="@+id/Statusadd"
+                    android:layout_toLeftOf="@+id/DescriptionInterv"
                     android:layout_toRightOf="@+id/Descriptionadd1"
                     android:text="Fire Extinguisher"
                     />
