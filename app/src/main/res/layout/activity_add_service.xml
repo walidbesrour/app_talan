@@ -96,16 +96,16 @@
           android:layout_toRightOf="@+id/Statusadd1"
           android:text="Active"
           />
+
       <ImageButton
           android:id="@+id/DescriptionServ"
-          android:layout_width="24dp"
-          android:layout_height="24dp"
-          android:layout_marginBottom="2dp"
-          android:background="@drawable/ic_baseline_description_24"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/Statusadd"
           android:layout_alignParentRight="true"
           android:layout_marginRight="5dp"
-          android:layout_below="@+id/Statusadd"
-          />
+          android:layout_marginBottom="2dp"
+          android:background="@drawable/ic_baseline_description_24" />
       <TextView
           android:id="@+id/Descriptionadd1"
           android:layout_width="wrap_content"
