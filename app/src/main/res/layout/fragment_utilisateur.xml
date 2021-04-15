@@ -1,14 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/My_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".services.detail_service.UtilisateurFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
 
-</FrameLayout>
+                android:layout_below="@+id/card1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/consigne_par"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Consigné Par :"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="15sp"
+                        android:textStyle="bold" />
+                    <ImageButton
+                        android:id="@+id/lis3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rond"
+                        android:tint="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/prenomConsigne1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/consigne_par">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/prenomConsigne"
+                            android:hint="prénom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/nomConsigne1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/prenomConsigne1">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nomConsigne"
+                            android:hint="Nom"
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/telephoneConsigne1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/nomConsigne1">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/telephoneConsigne"
+                            android:hint="Téléphone "
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/emailConsigne1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/telephoneConsigne1"
+                        android:layout_marginBottom="15dp">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailConsigne"
+                            android:hint="Email"
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/affectee_par"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Personne affectée :"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="15sp"
+                        android:textStyle="bold" />
+                    <ImageButton
+                        android:id="@+id/btnaffectee_par"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rond"
+                        android:tint="@color/black"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/prenomAffectee1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/affectee_par">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/prenomAffectee"
+                            android:hint="prénom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/nomAffectee1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/prenomAffectee1">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nomAffectee"
+                            android:hint="Nom"
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/telephoneAffectee1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/nomAffectee1">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/telephoneAffectee"
+                            android:hint="Téléphone "
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/emailAffectee1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15sp"
+                        android:layout_below="@+id/telephoneAffectee1"
+                        android:layout_marginBottom="15dp">
+                        <!--       android:enabled="false"         -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailAffectee"
+                            android:hint="Email"
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
