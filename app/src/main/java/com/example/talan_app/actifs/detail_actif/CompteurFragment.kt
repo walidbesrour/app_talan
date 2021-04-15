@@ -1,4 +1,4 @@
-package com.example.talan_app.detail.detail_actif
+package com.example.talan_app.actifs.detail_actif
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.talan_app.R
-import com.example.talan_app.adapters.Adapter_List_Actifs
 import com.example.talan_app.adapters.Adapteur_List_Compteur
 import com.example.talan_app.databinding.FragmentCompteurBinding
 import com.example.talan_app.view_model.Compteur_List_VM

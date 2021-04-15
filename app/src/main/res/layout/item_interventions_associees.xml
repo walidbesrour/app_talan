@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="AssocieesBinding">
+        <variable
+            name="associeesmodel"
+            type="com.example.talan_app.view_model.InterventionsAssocieesVM" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RL_S2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F4F5FA"
+                    android:layout_margin="5dp"
+                    android:paddingStart="5dp"
+                    app:strokeColor="#707070"
+                    android:layout_below="@+id/RL_S1">
+
+                    <TextView
+                        android:id="@+id/codeAssociees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{associeesmodel.Code_Intervention}"
+                        android:textStyle="bold"
+                        android:paddingTop="2dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/AssocieesDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{associeesmodel.Description_Intervention}"
+                        android:paddingTop="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/mlight"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/codeAssociees"/>
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/AssocieesStatut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STATUS"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/RL_S2"/>
+                <TextView
+                    android:id="@+id/descriptionActif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{associeesmodel.Etat_Intervention}"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/AssocieesStatut"
+                    android:layout_below="@+id/RL_S2"
+                    />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

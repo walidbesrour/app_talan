@@ -16,7 +16,7 @@
         <activity android:name=".services.Service_Detail" />
         <activity android:name=".intervention.AddIntervention" />
         <activity android:name=".services.AddService" />
-        <activity android:name=".detail.Actif_Detail" />
+        <activity android:name=".actifs.Actif_Detail" />
         <activity android:name=".Menu_Activity" />
         <activity android:name=".ConfigurationActivity" />
         <activity android:name=".SplashScreenActivity">

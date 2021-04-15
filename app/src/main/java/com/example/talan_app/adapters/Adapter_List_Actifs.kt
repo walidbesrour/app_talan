@@ -2,17 +2,14 @@ package com.example.talan_app.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.talan_app.MainActivity
 import com.example.talan_app.R
 import com.example.talan_app.databinding.ActifBinding
-import com.example.talan_app.detail.Actif_Detail
+import com.example.talan_app.actifs.Actif_Detail
 
 import com.example.talan_app.view_model.Actif_List_VM
 

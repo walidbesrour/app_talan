@@ -1,14 +1,9 @@
 package com.example.talan_app.view_model
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.talan_app.MainActivity
-import com.example.talan_app.detail.Actif_Detail
-import com.example.talan_app.menu_fragments.ActifFragment
 import com.example.talan_app.model.Actif
 
 

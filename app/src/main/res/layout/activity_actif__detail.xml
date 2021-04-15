@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/My_background"
     app:layoutDescription="@xml/activity_actif__detail_scene"
-    tools:context=".detail.Actif_Detail">
+    tools:context=".actifs.Actif_Detail">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbaractif"
         android:layout_width="match_parent"

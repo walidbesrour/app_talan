@@ -1,4 +1,4 @@
-package com.example.talan_app.detail.detail_actif
+package com.example.talan_app.actifs.detail_actif
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -21,5 +21,13 @@ class Intervention {
         this.Priorite = Priorite
         this.actif_date = actif_date
     }
+
+    constructor(Code_Intervention: String?, Description_Intervention: String?, Etat_Intervention: String?) {
+        this.Code_Intervention = Code_Intervention
+        this.Description_Intervention = Description_Intervention
+        this.Etat_Intervention = Etat_Intervention
+    }
+
+
 }
 

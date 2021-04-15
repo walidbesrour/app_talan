@@ -1,15 +1,12 @@
-package com.example.talan_app.detail.detail_actif
+package com.example.talan_app.actifs.detail_actif
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.talan_app.R
 import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.FragmentRisquePrecautionBinding
-import com.example.talan_app.list_intervention.List_Favoris_List
-import com.example.talan_app.list_intervention.List_Intervention
 
 
 class RisquePrecautionFragment : Fragment() {

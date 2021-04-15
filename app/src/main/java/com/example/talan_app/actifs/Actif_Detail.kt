@@ -1,12 +1,12 @@
-package com.example.talan_app.detail
+package com.example.talan_app.actifs
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.ActivityActifDetailBinding
-import com.example.talan_app.detail.detail_actif.CompteurFragment
-import com.example.talan_app.detail.detail_actif.FilsDetailFragment
-import com.example.talan_app.detail.detail_actif.RisquePrecautionFragment
+import com.example.talan_app.actifs.detail_actif.CompteurFragment
+import com.example.talan_app.actifs.detail_actif.FilsDetailFragment
+import com.example.talan_app.actifs.detail_actif.RisquePrecautionFragment
 
 
 class Actif_Detail : AppCompatActivity() {

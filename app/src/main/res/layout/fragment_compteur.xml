@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/My_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".detail.detail_actif.CompteurFragment">
+    tools:context=".actifs.detail_actif.CompteurFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <Button

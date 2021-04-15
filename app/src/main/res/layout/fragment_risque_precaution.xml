@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".detail.detail_actif.RisquePrecautionFragment">
+    tools:context=".actifs.detail_actif.RisquePrecautionFragment">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutAct"
         android:layout_width="match_parent"
