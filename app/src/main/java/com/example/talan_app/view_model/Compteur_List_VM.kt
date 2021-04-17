@@ -17,6 +17,9 @@ class Compteur_List_VM : ViewModel {
     var arraylistmutablelivedata = MutableLiveData<ArrayList<Compteur_List_VM>>()
     var arraylist = ArrayList<Compteur_List_VM>()
 
+    var arraylistmutablelivedataInterv = MutableLiveData<ArrayList<Compteur_List_VM>>()
+    var arraylistInterv = ArrayList<Compteur_List_VM>()
+
 
     constructor(compteur :Compteur) : super() {
         this.codecompteur = compteur.codecompteur
@@ -44,5 +47,25 @@ class Compteur_List_VM : ViewModel {
 
         arraylistmutablelivedata.value = arraylist
         return arraylistmutablelivedata
+    }
+
+    fun getArrayListInterv() :MutableLiveData<ArrayList<Compteur_List_VM>>{
+
+        arraylistInterv.add(Compteur_List_VM(Compteur("1001","Fire Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1002","Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1003","Fire  xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1004","Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1005","Fire walid xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1006","besrour Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1001","Fire Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1002","Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1003","Fire  xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1004","Extinguisher xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1005","Fire walid xxz","10/10/2020")))
+        arraylistInterv.add(Compteur_List_VM(Compteur("1006","besrour Extinguisher xxz","10/10/2020")))
+
+
+        arraylistmutablelivedataInterv.value = arraylistInterv
+        return arraylistmutablelivedataInterv
     }
 }

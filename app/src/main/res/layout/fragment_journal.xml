@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,20 +8,24 @@
     android:background="@color/My_background"
     tools:context=".services.detail_service.JournalFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+    <Button
+        android:id="@+id/addjournal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Journal"
+        android:textSize="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        app:iconSize="18dp"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/bleu_btn" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp">
+            android:layout_below="@+id/addjournal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,8 +62,8 @@
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

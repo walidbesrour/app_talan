@@ -12,11 +12,7 @@ import com.example.talan_app.databinding.FragmentRisquePrecautionBinding
 class RisquePrecautionFragment : Fragment() {
 
     private lateinit var binding: FragmentRisquePrecautionBinding
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRisquePrecautionBinding.inflate(layoutInflater)
 
         setUpTabs()

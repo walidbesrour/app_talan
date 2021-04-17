@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/My_background"
     tools:context=".intervention.detail_intervention.CompteurIntervFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    <Button
+        android:id="@+id/addcompteur1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compteur"
+        android:textSize="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        app:iconSize="18dp"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/bleu_btn" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclecompteur1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="750dp"
-            android:background="@color/bleu_btn"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="750dp"
-            android:background="@color/black"/>
-    </LinearLayout>
-</ScrollView>
-</LinearLayout>
+        android:layout_below="@+id/addcompteur1"
+        android:clipToPadding="false"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        tools:listitem="@layout/item_compteur"/>
+
+</RelativeLayout>
