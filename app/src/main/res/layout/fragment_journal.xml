@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/My_background"
     tools:context=".services.detail_service.JournalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="500dp"
 
-</FrameLayout>
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+
+            <LinearLayout
+                android:id="@+id/titreJourn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EBEDFA"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    android:text="Journal des travaux"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/recycleJournal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titreJourn"
+                    android:layout_marginTop="5dp"
+                    tools:listitem="@layout/item_journal_traveau"/>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

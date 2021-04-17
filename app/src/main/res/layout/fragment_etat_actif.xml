@@ -216,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:background="#EBEDFA"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
+               >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="400dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginStart="5dp"
