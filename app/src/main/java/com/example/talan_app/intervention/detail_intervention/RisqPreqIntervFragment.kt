@@ -18,7 +18,7 @@ class RisqPreqIntervFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRisqPreqIntervBinding.inflate(layoutInflater)
-
+        setUpTabs()
         return binding.root
     }
 
@@ -28,8 +28,8 @@ class RisqPreqIntervFragment : Fragment() {
         adapter.addFragment(PrecautionIntervFragment(), "PRECAUTION")
 
         binding.viewPageActInt.adapter = adapter
-        binding.tabsAct.setupWithViewPager(binding.viewPageActInt)
-        binding.tabsAct.getTabAt(0)!!
-        binding.tabsAct.getTabAt(1)!!
+        binding.tabsActInt.setupWithViewPager(binding.viewPageActInt)
+        binding.tabsActInt.getTabAt(0)!!
+        binding.tabsActInt.getTabAt(1)!!
     }
 }
