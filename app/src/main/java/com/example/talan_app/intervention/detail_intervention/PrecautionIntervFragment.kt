@@ -5,14 +5,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talan_app.R
+import com.example.talan_app.adapters.Adapter_List_Precaution
+import com.example.talan_app.databinding.FragmentPrecautionIntervBinding
+import com.example.talan_app.view_model.PrecautionVM
 
 class PrecautionIntervFragment : Fragment() {
 
 
+    private lateinit var binding:FragmentPrecautionIntervBinding
+    private var adapter_List_Precaution : Adapter_List_Precaution?= null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_precaution_interv, container, false)
+       binding = FragmentPrecautionIntervBinding.inflate(layoutInflater)
+
+
+        val precautionVM : PrecautionVM = ViewModelProvider(this).get(PrecautionVM::class.java)
+
+        precautionVM.getArrayListInterv().observe(viewLifecycleOwner, Observer {compteur_vms ->
+
+            adapter_List_Precaution = Adapter_List_Precaution(requireContext(),compteur_vms!! )
+            binding.recyclerprecautionInterv.layoutManager = LinearLayoutManager(requireContext())
+            binding.recyclerprecautionInterv.adapter = adapter_List_Precaution
+
+
+
+        })
+
+
+        return binding.root
     }
 
 

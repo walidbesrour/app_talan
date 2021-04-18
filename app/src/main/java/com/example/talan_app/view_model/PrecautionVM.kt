@@ -7,12 +7,17 @@ import com.example.talan_app.model.Precaution
 
 
 class PrecautionVM : ViewModel {
+
+    var arraylistmutablelivedata = MutableLiveData<ArrayList<PrecautionVM>>()
+    var arraylist = ArrayList<PrecautionVM>()
+
+    var arraylistmutablelivedataInterv = MutableLiveData<ArrayList<PrecautionVM>>()
+    var arraylistInterv = ArrayList<PrecautionVM>()
+
     lateinit var context : Context
     var Code_precaution  :String = ""
     var Description_precaution  :String = ""
 
-    var arraylistmutablelivedata = MutableLiveData<ArrayList<PrecautionVM>>()
-    var arraylist = ArrayList<PrecautionVM>()
 
     constructor(precaution: Precaution) : super() {
         this.Code_precaution = precaution.Code_precaution
@@ -36,5 +41,21 @@ class PrecautionVM : ViewModel {
 
         arraylistmutablelivedata.value = arraylist
         return arraylistmutablelivedata
+    }
+
+    fun getArrayListInterv() :MutableLiveData<ArrayList<PrecautionVM>>{
+
+        arraylistInterv.add(PrecautionVM(Precaution("1001","Fire Extinguisher xxz")))
+        arraylistInterv.add(PrecautionVM(Precaution("1002","Extinguisher xxz")))
+        arraylistInterv.add(PrecautionVM(Precaution("1003","Fire xxz")))
+        arraylistInterv.add(PrecautionVM(Precaution("1004","Fire xxz")))
+        arraylistInterv.add(PrecautionVM(Precaution("1005","walid Extinguisher")))
+        arraylistInterv.add(PrecautionVM(Precaution("1006","Fire besrour")))
+        arraylistInterv.add(PrecautionVM(Precaution("1007","Fire xxz")))
+        arraylistInterv.add(PrecautionVM(Precaution("1008","walid Extinguisher")))
+        arraylistInterv.add(PrecautionVM(Precaution("1009","Fire besrour")))
+
+        arraylistmutablelivedataInterv.value = arraylistInterv
+        return arraylistmutablelivedataInterv
     }
 }
