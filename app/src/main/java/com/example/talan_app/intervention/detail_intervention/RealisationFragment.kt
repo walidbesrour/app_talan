@@ -6,17 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.talan_app.R
+import com.example.talan_app.databinding.FragmentRealisationBinding
 
 
 class RealisationFragment : Fragment() {
 
+        private lateinit var binding: FragmentRealisationBinding
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            binding = FragmentRealisationBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_realisation, container, false)
+
+
+        return binding.root
     }
 
 
