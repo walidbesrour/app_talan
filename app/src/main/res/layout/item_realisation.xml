@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="RealisationBinding">
+        <variable
+            name="realisationmodule"
+            type="com.example.talan_app.view_model.RealisationVM" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/My_background"
+            android:orientation="vertical">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                app:strokeColor="#AAA8A8"
+                app:strokeWidth="0.25dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp">
+
+
+                    <RelativeLayout
+                        android:id="@+id/libRelative"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp">
+                        <TextView
+                            android:id="@+id/rendu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Compte rendu : "
+                            android:textStyle="bold"
+                            android:paddingTop="2dp"
+                            android:fontFamily="@font/mmedium"
+                            android:textColor="@color/black" />
+                        <TextView
+                            android:id="@+id/CodeRendu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{realisationmodule.CodeRendu}"
+                            android:paddingTop="2dp"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/rendu"/>
+                        <TextView
+                            android:id="@+id/Rendudescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{realisationmodule.DescriptionRendu}"
+                            android:paddingTop="2dp"
+                            android:fontFamily="@font/mlight"
+                            android:textColor="@color/black"
+                            android:layout_below="@+id/rendu"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/invisibleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F4F5FA"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="10dp"
+                        app:strokeColor="#707070"
+                        android:visibility="gone"
+                        android:layout_below="@+id/libRelative"
+                        >
+                        <RelativeLayout
+                            android:id="@+id/r1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/codeEmployeRealitxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Code Employé :"
+                                android:textStyle="bold"
+                                android:paddingTop="2dp"
+                                android:fontFamily="@font/mmedium"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/codeEmployeReali"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{realisationmodule.CodeEmploye}"
+                                android:paddingTop="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/mlight"
+                                android:textColor="@color/black"
+                                android:layout_toRightOf="@+id/codeEmployeRealitxt"/>
+                            <TextView
+                                android:id="@+id/DescEmployeReali"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{realisationmodule.DescriptionEmploye}"
+                                android:paddingTop="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/mlight"
+                                android:textColor="@color/black"
+                                android:layout_below="@+id/codeEmployeRealitxt"/>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_below="@+id/DescEmployeReali"
+                                android:layout_margin="5dp"
+                                android:background="#AAA8A8"
+                                />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/r2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/r1">
+                            <TextView
+                                android:id="@+id/codeheureRealitxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nombre de heure :"
+                                android:textStyle="bold"
+                                android:paddingTop="2dp"
+                                android:fontFamily="@font/mmedium"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/heureReali"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{realisationmodule.NbreHeur}"
+                                android:paddingTop="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/mlight"
+                                android:textColor="@color/black"
+                                android:layout_toRightOf="@+id/codeheureRealitxt"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_below="@+id/codeheureRealitxt"
+                                android:layout_margin="5dp"
+                                android:paddingTop="2dp"
+                                android:background="#AAA8A8"
+                                />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/r3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_below="@+id/r2">
+                            <TextView
+                                android:id="@+id/DateRealitxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dare de realisation :"
+                                android:textStyle="bold"
+                                android:paddingTop="2dp"
+                                android:fontFamily="@font/mmedium"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/DateReali"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{realisationmodule.DateRealisation}"
+                                android:paddingTop="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/mlight"
+                                android:textColor="@color/black"
+                                android:layout_toRightOf="@+id/DateRealitxt"/>
+
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".intervention.detail_intervention.RealisationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerolation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30dp"
-        android:text="walid besrour" />
+        android:clipToPadding="false"
+        android:padding="4dp"
+        tools:listitem="@layout/item_realisation"/>
 
 </FrameLayout>
