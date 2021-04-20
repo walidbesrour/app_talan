@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="FillsBinding">
+
+        <variable
+            name="fillsmodel"
+            type="com.example.talan_app.view_model.InterventionsAssocieesVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RL_S2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F4F5FA"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                    app:strokeColor="#707070"
+                    android:layout_below="@+id/RL_S1">
+
+                    <TextView
+                        android:id="@+id/NunmIntervention"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N°intervention :"
+                        android:textStyle="bold"
+                        android:paddingTop="2dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/compteurdescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{fillsmodel.Code_Intervention}"
+                        android:paddingTop="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/mlight"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/NunmIntervention"/>
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/descriptiondIntervention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{fillsmodel.Description_Intervention}"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/RL_S2" />
+
+                <TextView
+                    android:id="@+id/StatusIntervention1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statut :"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/descriptiondIntervention"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:id="@+id/StatusIntervention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{fillsmodel.Etat_Intervention}"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/descriptiondIntervention"
+                    android:layout_toRightOf="@+id/StatusIntervention1"/>
+
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

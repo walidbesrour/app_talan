@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RL_S2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F4F5FA"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                    app:strokeColor="#707070"
+                    android:layout_below="@+id/RL_S1">
+
+                    <TextView
+                        android:id="@+id/Service1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Code Service :"
+                        android:textStyle="bold"
+                        android:paddingTop="2dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/Service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1500"
+                        android:paddingTop="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/mlight"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/Service1"/>
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/descriptiondService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="risquemodel.Description_risque"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/RL_S2" />
+
+                <TextView
+                    android:id="@+id/quantiteIntervention1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="quantité :"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/descriptiondService"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:id="@+id/quantiteIntervention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/descriptiondService"
+                    android:layout_toRightOf="@+id/quantiteIntervention1"/>
+
+
+                <TextView
+                    android:id="@+id/uniteIntervention1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unité :"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/quantiteIntervention"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/uniteIntervention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/quantiteIntervention"
+                    android:layout_toRightOf="@+id/uniteIntervention1"/>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

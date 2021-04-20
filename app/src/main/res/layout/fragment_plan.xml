@@ -8,74 +8,27 @@
     android:background="@color/My_background"
     tools:context=".intervention.detail_intervention.PlanFragment">
 
-
-    <LinearLayout
-        android:id="@+id/titreJourn"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabplan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#EBEDFA"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latout_btn2"
+        app:tabMode="scrollable"
+       >
 
-            >
-            <TextView
-                android:id="@+id/CodeActifjournal"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="1005"
-                android:textStyle="bold"
-                android:paddingTop="5dp"
-                android:layout_marginLeft="2dp"
-                android:fontFamily="@font/mmedium"
-                android:textColor="@color/black" />
+    </com.google.android.material.tabs.TabLayout>
 
-            <TextView
-                android:id="@+id/codejournal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description Fire Extinguisher xxz"
-                android:paddingTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/black"
-                android:layout_toRightOf="@+id/CodeActifjournal"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewplan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabDetailinterv">
 
+    </androidx.viewpager.widget.ViewPager>
 
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            >
-            <TextView
-                android:id="@+id/SiteActifjournal"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="Site :"
-                android:textStyle="bold"
-                android:layout_marginLeft="2dp"
-                android:paddingTop="5dp"
-                android:fontFamily="@font/mmedium"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/codeDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="BEDFORD"
-                android:paddingTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/black"
-                android:layout_toRightOf="@+id/SiteActifjournal"/>
-
-
-        </RelativeLayout>
-    </LinearLayout>
 </LinearLayout>

@@ -16,6 +16,7 @@ class Intervention_Detail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState)
      binding = ActivityInterventionDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setUpTabs()
 
     }

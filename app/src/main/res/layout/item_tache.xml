@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="TacheBinding">
+        <variable
+            name="tachemodel"
+            type="com.example.talan_app.view_model.TacheVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RL_S2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F4F5FA"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                    app:strokeColor="#707070"
+                    android:layout_below="@+id/RL_S1">
+
+                    <TextView
+                        android:id="@+id/Sequence1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Séquence :"
+                        android:textStyle="bold"
+                        android:paddingTop="2dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/Sequence"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{tachemodel.CodeTache}"
+                        android:paddingTop="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/mlight"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/Sequence1"/>
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/descriptiondSequence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{tachemodel.DescriptionTache}"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/RL_S2" />
+
+                <TextView
+                    android:id="@+id/DureeIntervention1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Durée :"
+                    android:textStyle="bold"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/descriptiondSequence"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:id="@+id/DureeIntervention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{tachemodel.DureeTache}"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/descriptiondSequence"
+                    android:layout_toRightOf="@+id/DureeIntervention1"/>
+
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>
