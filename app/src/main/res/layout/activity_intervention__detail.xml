@@ -284,7 +284,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/latout_btn2"
         app:tabMode="scrollable"
+        app:tabRippleColor="@color/black"
+        app:tabIndicatorColor="@color/black"
         app:tabTextColor="@color/black">
+
 
     </com.google.android.material.tabs.TabLayout>
 
