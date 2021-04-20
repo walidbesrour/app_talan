@@ -29,8 +29,9 @@ class PlanFragment : Fragment() {
         adapter.addFragment(TachesFragment(), "TACHES")
         adapter.addFragment(MainDoeuvreFragment(), "MAIN D'OEUVRE")
         adapter.addFragment(ArticlesFragment(), "ARTICLES")
-        adapter.addFragment(OutilsFragment(), "OUTILS")
         adapter.addFragment(ServicesPlanFragment(), "SERVICES")
+        adapter.addFragment(OutilsFragment(), "OUTILS")
+
 
 
         binding.viewplan.adapter = adapter

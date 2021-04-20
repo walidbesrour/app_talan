@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="PlanServiceBinding">
+        <variable
+            name="planservicemodel"
+            type="com.example.talan_app.view_model.ServicePlanVM" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,7 +50,7 @@
                         android:id="@+id/Service"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1500"
+                        android:text="@{planservicemodel.CodeArticles}"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -60,7 +65,7 @@
                     android:id="@+id/descriptiondService"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="risquemodel.Description_risque"
+                    android:text="@{planservicemodel.DescriptionArticles}"
                     android:textStyle="normal"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="@font/mlight"
@@ -84,7 +89,7 @@
                     android:id="@+id/quantiteIntervention"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="150"
+                    android:text="@{planservicemodel.QuantiteArticles}"
                     android:paddingTop="2dp"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/mlight"
@@ -109,7 +114,7 @@
                     android:id="@+id/uniteIntervention"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="150"
+                    android:text="@{planservicemodel.UniteArticles}"
                     android:paddingTop="2dp"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/mlight"
