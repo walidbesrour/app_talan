@@ -15,6 +15,7 @@ import com.example.talan_app.menu_fragments.ServiceFragment
 class Menu_Activity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
 
+
     private val asetFragment = ActifFragment()
     private val homeFragment = HomeFragment()
     private val interventionFragment = InterventionFragment()
@@ -25,8 +26,12 @@ class Menu_Activity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         setSupportActionBar(binding.toolbar)
         replaceFragment(homeFragment)
+
+
         binding.chipNavigation.setOnItemSelectedListener {
             when (it){
                 R.id.home ->  replaceFragment(homeFragment)
