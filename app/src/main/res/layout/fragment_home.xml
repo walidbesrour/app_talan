@@ -15,6 +15,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ServiceNOM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Demande de service"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="2dp"
+                android:fontFamily="@font/mmedium"
+                android:textColor="@color/black" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                app:cardElevation="2dp"
+                android:layout_margin="5dp"
+                app:strokeColor="#707070"
+                android:layout_marginBottom="20dp"
+                app:strokeWidth="0.5dp">
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:id="@+id/StatusInterv"
                 android:layout_width="wrap_content"
@@ -44,38 +78,7 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/ServiceNOM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Statut des interventions "
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:paddingTop="2dp"
-                android:fontFamily="@font/mmedium"
-                android:textColor="@color/black" />
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardBar2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                app:cardElevation="2dp"
-                android:layout_margin="5dp"
-                app:strokeColor="#707070"
-                android:layout_marginBottom="20dp"
-                app:strokeWidth="0.5dp">
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/pieChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
 
-            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 

@@ -44,6 +44,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/NDemande"
             android:text="1500 "
+            android:layout_toLeftOf="@+id/WorkflowService"
             android:textColor="@color/blue_talan"
 
             />
@@ -57,31 +58,39 @@
             android:background="@drawable/ic_baseline_attach_file_24" />
 
         <ImageButton
-            android:id="@+id/btnWorkflowService"
+           android:id="@+id/WorkflowService"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_below="@+id/btnPieceService"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@+id/btnPieceService"
+            android:background="@drawable/workflow_icon"
+            android:backgroundTint="#26CCD3" />
+
+        <ImageButton
+            android:id="@+id/btnDescriptionService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/DemandeDesc"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/workflow_icon"
-            android:backgroundTint="#26CCD3" />
+            android:background="@drawable/ic_baseline_description_24" />
 
         <ImageButton
             android:id="@+id/InterventionService"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_below="@+id/btnWorkflowService"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/DemandeDesc"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/btnDescriptionService"
+            android:layout_marginRight="30dp"
             android:background="@drawable/ic_baseline_addchart_24"
             android:backgroundTint="#0064FE" />
 
 
         <TextView
             android:id="@+id/DemandeDesc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/NDemande"
             android:layout_marginTop="8dp"

@@ -36,7 +36,7 @@ import java.util.ArrayList
         entries.add(BarEntry(15f, 4))
         entries.add(BarEntry(19f, 5))
 
-        val barDataSet = BarDataSet(entries, "intervention")
+        val barDataSet = BarDataSet(entries, "Intervention")
 
         val labels = ArrayList<String>()
 
@@ -50,7 +50,7 @@ import java.util.ArrayList
         val data = BarData(labels, barDataSet)
 
         binding.barChart.data = data // set the data and list of lables into chart
-        binding.barChart.setDescription("statut intervention")
+        binding.barChart.setDescription("Statut Intervention")
 
 //        binding.barChart.description.text ="statut intervention"
 
@@ -68,17 +68,17 @@ import java.util.ArrayList
          binding.pieChart.animateXY(1000, 1000) // This 1000 is time that how much time piechart chreated
 
          // Setup PicChart Colors
-         val pieDataSet = PieDataSet(pieEntries, "Demande de service")
+         val pieDataSet = PieDataSet(pieEntries, "Demande de Service")
 
          val labels = ArrayList<String>()
-         labels.add("18-Jan")
-         labels.add("19-Jan")
-         labels.add("21-Jan")
+         labels.add("Demande en Cours")
+         labels.add("Demande Traitée")
+         labels.add("Demande Suspendue")
 
          val data = PieData(labels, pieDataSet)
          binding.pieChart.data = data
 
-         binding.pieChart.setDescription("statut service")
+         binding.pieChart.setDescription("Statut Service")
 
          pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS)
 
