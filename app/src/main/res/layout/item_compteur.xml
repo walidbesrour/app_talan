@@ -76,6 +76,15 @@
                     android:textColor="@color/black"
                     android:layout_below="@+id/RL_S2"
                     />
+                <ImageButton
+                    android:id="@+id/btnRelever"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/RL_S2"
+                    android:background="@drawable/ic_baseline_add_24"
+                    android:backgroundTint="#0064FE"/>
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 

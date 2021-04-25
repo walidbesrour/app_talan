@@ -70,9 +70,9 @@
             android:id="@+id/btnDescriptionService"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_below="@+id/DemandeDesc"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
+            android:layout_below="@+id/NDemande"
+            android:layout_alignParentLeft="true"
+           android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_baseline_description_24" />
 
@@ -82,8 +82,8 @@
             android:layout_height="24dp"
             android:layout_below="@+id/DemandeDesc"
             android:layout_marginTop="5dp"
-            android:layout_toLeftOf="@+id/btnDescriptionService"
-            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
             android:background="@drawable/ic_baseline_addchart_24"
             android:backgroundTint="#0064FE" />
 
@@ -94,6 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/NDemande"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/btnDescriptionService"
             android:text="Description de la demande" />
 
         <TextView
@@ -101,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/DemandeDesc"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:text="Status :"
             android:textColor="@color/black"
             android:textStyle="bold" />
@@ -112,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/DemandeDesc"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@+id/actifService1"
             android:text="ACTIVE" />
 
@@ -327,6 +329,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabMode="scrollable"
+        app:tabRippleColor="@color/black"
+        app:tabIndicatorColor="@color/black"
         app:tabTextColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/latout_btn1">
 

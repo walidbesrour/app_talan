@@ -110,7 +110,7 @@
                 android:padding="12dp"
                 app:strokeColor="@color/blue_talan"
                 app:strokeWidth="3dp"
-                android:text="Retoure"
+                android:text="Retour"
                 android:textColor="@color/blue_talan" />
 
 
