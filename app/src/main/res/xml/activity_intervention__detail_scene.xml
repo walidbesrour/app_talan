@@ -13,14 +13,7 @@
                motion:framePosition="100"
                android:alpha="0.5" />
        </KeyFrameSet>
-        <OnSwipe motion:touchAnchorId="@+id/latout_btn2" />
-        <OnSwipe motion:touchAnchorId="@+id/latout_btn2" />
-        <OnSwipe />
-        <OnSwipe />
-        <OnSwipe motion:touchAnchorId="@+id/layout_min2" />
-        <OnSwipe motion:touchAnchorId="@+id/layout_min2" />
-        <OnSwipe motion:touchAnchorId="@+id/layout_min2" />
-        <OnSwipe motion:touchAnchorId="@+id/layout_min2" />
+
         <OnSwipe
             motion:touchAnchorId="@+id/layout_min2"
             motion:touchAnchorSide="bottom" />
