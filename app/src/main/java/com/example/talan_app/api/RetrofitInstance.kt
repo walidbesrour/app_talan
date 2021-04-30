@@ -1,19 +1,30 @@
 package com.example.talan_app.api
 
-import com.example.talan_app.api.Constants.Companion.BASE_URL
+
+import android.util.Log
+import com.example.talan_app.MainActivity
+import com.example.talan_app.MainActivity.Companion.URL_BASE
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitInstance {
+object RetrofitInstance{
+
+
+//    var BASE_URL  ="http://192.168.111.10:80/"
+//    private  const val BASE_URL  ="http://192.168.111.10:80/maximo/oslc/apitoken/"
 
     private val client = OkHttpClient.Builder().apply {
         addInterceptor(MyInterceptor())
-    }.build()
+    }
+        .build()
 
     private val retrofit by lazy {
+
+        Log.e("****** new url ********", MainActivity.URL_BASE)
+
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(URL_BASE)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -22,5 +33,9 @@ object RetrofitInstance {
     val api: SimpleApi by lazy {
         retrofit.create(SimpleApi::class.java)
     }
+
+
+
+
 
 }

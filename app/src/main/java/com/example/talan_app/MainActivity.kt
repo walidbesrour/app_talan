@@ -1,6 +1,8 @@
 package com.example.talan_app
 
+import android.content.Context
 import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -42,45 +44,18 @@ class MainActivity : AppCompatActivity() {
         binding.passwordProfile.startAnimation(btt2)
         binding.b1.startAnimation(btt3)
         binding.b2.startAnimation(btt4)
-        println("//////////////////////////////////////////////")
-///////////////////////////////////// test Retrofit ////////////////////////////////////////////
-//        val repository = RetrofitRepository()
-//        val viewModelFactory = LoginFactory_VM(repository)
-//        viewModel = ViewModelProvider(this, viewModelFactory).get(Login_VM::class.java)
-////        val expiration = Expiration(-1)
-//        val jsonObject = JSONObject()
-//        jsonObject.put("expiration", -1)
-//        val jsonObjectString = jsonObject.toString()
-//        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
-//
-//        viewModel.getloginAPI(requestBody)
-//
-//        viewModel.myResponse.observe(this, Observer { response ->
-//            if (response.isSuccessful) {
-////                Log.d("response **", response.body().toString())
-//                println("*********************************")
-//            } else {
-//                Log.d("response --", response.code().toString())
-//                Log.d("response --", response.message().toString())
-//                println("+++++++++++++++++++++++++++++++++++++")
-//            }
-//        })
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         binding.b1.setOnClickListener {
 
             var name = binding.FirstName1.text.toString()
             var password = binding.passwordProfile1.text.toString()
-            base64(name,password)
-            val i = Intent(this , Menu_Activity::class.java)
-            startActivity(i)
-            overridePendingTransition(android.R.anim.fade_in ,android.R.anim.fade_out)
-            finish()
+//            login(name,password)
+
         }
 
         binding.b2.setOnClickListener {
+
             val i = Intent(this , ConfigurationActivity::class.java)
             startActivity(i)
             overridePendingTransition(android.R.anim.fade_in ,android.R.anim.fade_out)
@@ -89,10 +64,59 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun base64( a : String , b :String){
+
+    fun login( a : String , b :String){
+
+        val sharedPreferences = getSharedPreferences("MY_URL", Context.MODE_PRIVATE)
+        val saveString = sharedPreferences.getString("SAVE_MY_URL",null)
+        URL_BASE = saveString.toString()
+        ///////// if url base is null then //////////////////////
+
+        ////////////////////////////////////////////////
         var c = "$a:$b"
         val encodedString: String = Base64.getEncoder().encodeToString(c.toByteArray())
+        /////////// LOGIN IS STATIC //////////
+//        var mybase64 = encodedString
+        var mybase64 = "Qi5XQUxJRDpXYjEyMzQ1Njs="
 
-        println(encodedString)
+        val repository = RetrofitRepository()
+        val viewModelFactory = LoginFactory_VM(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(Login_VM::class.java)
+//        val expiration = Expiration(-1)
+        val jsonObject = JSONObject()
+        jsonObject.put("expiration", -1)
+        val jsonObjectString = jsonObject.toString()
+        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+
+        viewModel.getloginAPI(requestBody,mybase64)
+
+        viewModel.myResponse.observe(this, Observer { response ->
+            if (response.isSuccessful) {
+
+                Log.d("*****", response.body()!!.apikey)
+                println("*********************************")
+                ///////////// save apikey //////////////////
+                val sharedPreferences = getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
+                val editor  = sharedPreferences.edit()
+                editor.apply(){ putString("SAVE_APIKEY",response.body()!!.apikey) }.apply()
+                ///////// to go at menu //////////
+                val i = Intent(this , Menu_Activity::class.java)
+                startActivity(i)
+                overridePendingTransition(android.R.anim.fade_in ,android.R.anim.fade_out)
+                finish()
+
+
+            } else {
+                Log.d("response --", response.code().toString())
+                Log.d("response --", response.message().toString())
+                println("+++++++++++++++++++++++++++++++++++++")
+            }
+        })
+
     }
+    companion object{
+        var URL_BASE  ="http://192.168.111.10:80/"
+
+    }
+
 }

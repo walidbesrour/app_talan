@@ -36,7 +36,7 @@ class ConfigurationVM (application: Application): AndroidViewModel(application){
         }
     }
 
-    fun getconfiguration(context: Context) : LiveData<List<ConfigurationEntity>>? {
+    fun getconfiguration() : LiveData<List<ConfigurationEntity>>? {
 
         readAllData = repository.readAllData
         return readAllData

@@ -8,9 +8,9 @@ import retrofit2.http.*
 
 
 interface SimpleApi {
-//    @Headers("Content-Type: application/json","MAXAUTH: Qi5XQUxJRDpXYjEyMzQ1Njs=")
-    @POST("create")
-    suspend fun getlogin(@Body expiration: RequestBody): Response<Apikey>
+
+    @POST("maximo/oslc/apitoken/create")
+    suspend fun getlogin(@Body expiration: RequestBody,@Header("MAXAUTH") base64: String): Response<Apikey>
 
 
 }

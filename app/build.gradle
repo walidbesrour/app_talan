@@ -114,4 +114,9 @@ dependencies {
         //Code scanner
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
+
+
+    // KOIN
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+    implementation 'org.koin:koin-android:2.0.1'
 }

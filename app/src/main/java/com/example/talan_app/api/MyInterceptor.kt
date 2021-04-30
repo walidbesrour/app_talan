@@ -8,8 +8,9 @@ class MyInterceptor : Interceptor{
         val request = chain.request()
                 .newBuilder()
                 .addHeader("Content-Type","application/json")
-                .addHeader("MAXAUTH","Qi5XQUxJRDpXYjEyMzQ1Njs=")
+//                .addHeader("MAXAUTH","Qi5XQUxJRDpXYjEyMzQ1Njs=")
                 .build()
         return chain.proceed(request)
     }
+
 }

@@ -13,9 +13,10 @@ class Login_VM (private val repository: RetrofitRepository): ViewModel(){
 
     var myResponse: MutableLiveData<Response<Apikey>> = MutableLiveData()
 
-    fun getloginAPI(expiration: RequestBody){
+    fun getloginAPI(expiration: RequestBody,base64: String){
         viewModelScope.launch {
-            val response = repository.getlogin(expiration)
+
+            val response = repository.getlogin(expiration,base64)
             myResponse.value = response
         }
     }

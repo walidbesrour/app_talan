@@ -8,7 +8,7 @@ import retrofit2.Response
 
 class RetrofitRepository {
 
-    suspend fun getlogin(expiration: RequestBody): Response<Apikey> {
-        return RetrofitInstance.api.getlogin(expiration)
+    suspend fun getlogin(expiration: RequestBody,base64: String): Response<Apikey> {
+        return RetrofitInstance.api.getlogin(expiration,base64)
     }
 }
