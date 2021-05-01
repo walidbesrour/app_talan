@@ -63,4 +63,7 @@ class Adapter_List_Actifs(private val context: Context, private val list_actif: 
 
         }
     }
+    fun addActif(actif : ArrayList<Actif_List_VM>){
+        list_actif.addAll(actif)
+    }
 }

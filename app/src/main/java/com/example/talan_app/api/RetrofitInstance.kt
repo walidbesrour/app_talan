@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance{
 
 
-//    var BASE_URL  ="http://192.168.111.10:80/"
+    var BASE_URL  ="http://192.168.111.10:80/"
 //    private  const val BASE_URL  ="http://192.168.111.10:80/maximo/oslc/apitoken/"
 
     private val client = OkHttpClient.Builder().apply {
@@ -24,7 +24,7 @@ object RetrofitInstance{
         Log.e("****** new url ********", MainActivity.URL_BASE)
 
         Retrofit.Builder()
-            .baseUrl(URL_BASE)
+            .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

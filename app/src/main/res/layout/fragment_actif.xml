@@ -49,6 +49,15 @@
             android:tint="@color/black"
             app:srcCompat="@drawable/ic_baseline_keyboard_voice_24" />
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_actif"
         android:layout_width="match_parent"
@@ -56,5 +65,10 @@
         android:clipToPadding="false"
         android:padding="4dp"
         tools:listitem="@layout/item_list_actifs"/>
-
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

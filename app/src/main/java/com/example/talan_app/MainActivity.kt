@@ -75,6 +75,11 @@ class MainActivity : AppCompatActivity() {
         ////////////////////////////////////////////////
         var c = "$a:$b"
         val encodedString: String = Base64.getEncoder().encodeToString(c.toByteArray())
+        val sharedPreferences2 = getSharedPreferences("Base64", Context.MODE_PRIVATE)
+        val editor  = sharedPreferences2.edit()
+        editor.apply(){ putString("Login_Base64",encodedString) }.apply()
+
+
         /////////// LOGIN IS STATIC //////////
 //        var mybase64 = encodedString
         var mybase64 = "Qi5XQUxJRDpXYjEyMzQ1Njs="

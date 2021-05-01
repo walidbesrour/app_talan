@@ -50,6 +50,18 @@ lateinit var context : Context
                 Log.d("TAG", "filsActifList: ")
             }
 
+    fun newdata(): ArrayList<Actif_List_VM> {
+        arraylist.add(Actif_List_VM(Actif("1001","Fire Extinguisher xxz","CENTRAL1",true)))
+        arraylist.add(Actif_List_VM(Actif("1002","Fire Extinguisher xxz","CENTRAL2",false)))
+        arraylist.add(Actif_List_VM(Actif("1003","Fire Extinguisher xxz","CENTRAL3",false)))
+        arraylist.add(Actif_List_VM(Actif("1004","Fire Extinguisher xxz","CENTRAL4",true)))
+        arraylist.add(Actif_List_VM(Actif("1005","Fire Extinguisher xxz","CENTRAL5",true)))
+        arraylist.add(Actif_List_VM(Actif("1006","Fire Extinguisher xxz","CENTRAL6",true)))
+        arraylist.add(Actif_List_VM(Actif("1007","Fire Extinguisher xxz","CENTRAL7",true)))
+        arraylist.add(Actif_List_VM(Actif("1008","Fire Extinguisher xxz","CENTRAL8",true)))
+
+        return  arraylist
+    }
 
 
 }
