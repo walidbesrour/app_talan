@@ -34,7 +34,6 @@ class ActifFragment : Fragment() {
 //        private val adapter_list_actifs   by lazy {Adapter_List_Actifs(this)}
  var adapter_list_actifs :Adapter_List_Actifs ?=null
 
-
     private lateinit var viewModel: Actif_List_VM
     private var resultScan : String = ""
     var isLoading = false
