@@ -67,7 +67,8 @@ class ConfigurationActivity : AppCompatActivity() {
                         configurationVM.getconfiguration()!!.observe(this, Observer {
 
                             ///////////// save URL //////////////////
-                            var myUrl = it[0].hostname+"://"+it[0].protocol+":"+it[0].port+"/"
+                            var myUrl = it[0].hostname+"://"+it[0].protocol+":"+it[0].port+"/maximo/oslc/"
+
                             val sharedPreferences = getSharedPreferences("MY_URL", Context.MODE_PRIVATE)
                             val editor  = sharedPreferences.edit()
                             editor.apply(){ putString("SAVE_MY_URL",myUrl) }.apply()

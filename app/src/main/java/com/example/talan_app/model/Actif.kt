@@ -1,5 +1,7 @@
 package com.example.talan_app.model
 
+import com.google.gson.annotations.SerializedName
+
 class Actif {
 
     var Code =""
@@ -13,4 +15,17 @@ class Actif {
         this.Code_emplacement = Code_emplacement
         this.children = children
     }
+
+    data class NamberActif (
+            @SerializedName("member")
+            val member : ArrayList<ActifsList> )
+    data class ActifsList(
+            val assetnum : String ,
+            val description : String,
+            val siteid : String,
+            val parent : String,
+            val children : Boolean ,
+    )
+
+
 }

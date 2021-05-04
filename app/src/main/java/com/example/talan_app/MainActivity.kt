@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
             var name = binding.FirstName1.text.toString()
             var password = binding.passwordProfile1.text.toString()
-//            login(name,password)
+            login(name,password)
 
         }
 
@@ -73,16 +73,16 @@ class MainActivity : AppCompatActivity() {
         ///////// if url base is null then //////////////////////
 
         ////////////////////////////////////////////////
-        var c = "$a:$b"
-        val encodedString: String = Base64.getEncoder().encodeToString(c.toByteArray())
+        var logAndPas = "$a:$b"
+        val encodedString: String = Base64.getEncoder().encodeToString(logAndPas.toByteArray())
         val sharedPreferences2 = getSharedPreferences("Base64", Context.MODE_PRIVATE)
         val editor  = sharedPreferences2.edit()
         editor.apply(){ putString("Login_Base64",encodedString) }.apply()
 
 
         /////////// LOGIN IS STATIC //////////
-//        var mybase64 = encodedString
-        var mybase64 = "Qi5XQUxJRDpXYjEyMzQ1Njs="
+        var mybase64 = encodedString
+//        var mybase64 = "Qi5XQUxJRDpXYjEyMzQ1Njs="
 
         val repository = RetrofitRepository()
         val viewModelFactory = LoginFactory_VM(repository)

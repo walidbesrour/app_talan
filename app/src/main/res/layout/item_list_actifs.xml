@@ -6,7 +6,7 @@
 
         <variable
             name="actifmodel"
-            type="com.example.talan_app.view_model.Actif_List_VM" />
+            type="com.example.talan_app.model.ActifsListmember" />
     </data>
 
     <LinearLayout
@@ -45,7 +45,7 @@
                 android:id="@+id/code_actif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{actifmodel.code1}"
+                android:text="@{actifmodel.assetnum}"
                 android:textStyle="bold"
                 android:fontFamily="@font/mmedium"
                 android:textColor="@color/black" />
@@ -54,7 +54,7 @@
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{actifmodel.description1}"
+                android:text="@{actifmodel.description}"
                 android:textStyle="normal"
                 android:fontFamily="@font/mlight"
                 android:layout_marginLeft="10dp"
@@ -66,7 +66,7 @@
                 android:id="@+id/emplacement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{actifmodel.code_emplacement1}"
+                android:text="@{actifmodel.siteid}"
                 android:textStyle="normal"
                 android:fontFamily="@font/mlight"
                 android:layout_marginLeft="10dp"

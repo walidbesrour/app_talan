@@ -1,6 +1,7 @@
 package com.example.talan_app.menu_fragments
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -11,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 
@@ -20,70 +20,114 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.talan_app.adapters.Adapter_List_Actifs
 import com.example.talan_app.databinding.FragmentActifBinding
+import com.example.talan_app.model.Apikey
+import com.example.talan_app.repository.RetrofitRepository
+import com.example.talan_app.view_model.Actif_ListFactory_VM
 
 import com.example.talan_app.view_model.Actif_List_VM
 import com.google.zxing.integration.android.IntentIntegrator
-import java.util.*
 
 class ActifFragment : Fragment() {
 
+
         private lateinit var binding: FragmentActifBinding
-        private var adapter_list_actifs: Adapter_List_Actifs?= null
+//        private val adapter_list_actifs   by lazy {Adapter_List_Actifs(this)}
+ var adapter_list_actifs :Adapter_List_Actifs ?=null
+
+
+    private lateinit var viewModel: Actif_List_VM
     private var resultScan : String = ""
     var isLoading = false
-    var limit = 10
+    var pageSize = 50
+    var pageno = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentActifBinding.inflate(layoutInflater)
-
-        val actif_List_vm : Actif_List_VM =  ViewModelProvider(this).get(Actif_List_VM::class.java)
-
-        actif_List_vm.getArrayList().observe(viewLifecycleOwner, Observer { actif_List_vms ->
-
-            adapter_list_actifs = Adapter_List_Actifs(requireContext(), actif_List_vms!!)
-            binding.recycleActif.layoutManager = LinearLayoutManager(requireContext())
-            binding.recycleActif.adapter = adapter_list_actifs
-
-            binding.recycleActif.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
-
-                    if (!isLoading) {
-                        if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == (actif_List_vms.size - 1)) {
-                            isLoading = true
-                            binding.progressBar.visibility = View.VISIBLE
-                            Handler(Looper.getMainLooper()).postDelayed({
-                                println("****************nnnnnnnnnnnnnnnnnnnnnnn*****************************")
-                                adapter_list_actifs?.addActif(actif_List_vm.newdata())
-                                recyclerView.post { adapter_list_actifs?.notifyDataSetChanged() }
-
-                                binding.progressBar.visibility = View.GONE
-                                isLoading = false
-
-                            }, 2000)
+        adapter_list_actifs = Adapter_List_Actifs(requireContext())
+        binding.recycleActif.adapter = adapter_list_actifs
+        binding.recycleActif.layoutManager = LinearLayoutManager(requireContext())
+        val repository = RetrofitRepository()
+        val viewModelFactory = Actif_ListFactory_VM(repository)
 
 
+        val sharedPreferences = this.getActivity()!!.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
+        val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
+
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(Actif_List_VM::class.java)
+        if (Apikey != null) {
+            viewModel.getListActifs(Apikey,"*",pageSize,pageno)
+
+
+
+        viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+            if (Myresponse.isSuccessful) {
+                println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
+                Myresponse.body()?.let { adapter_list_actifs!!.setData(it.member) }
+
+                binding.recycleActif.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        super.onScrolled(recyclerView, dx, dy)
+
+                        val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
+                        if (!isLoading) {
+                            val sizeList : Int? = Myresponse.body()?.let { adapter_list_actifs!!.list_actif.size }
+
+                            if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == (sizeList!! - 1)) {
+
+                                isLoading = true
+                                binding.progressBar.visibility = View.VISIBLE
+                                Handler(Looper.getMainLooper()).postDelayed({
+                                    var  newpageno  = pageno++
+                                    viewModel.getListActifs(Apikey,"*",pageSize,newpageno)
+                                    viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
+                                        if (Myresponse1.isSuccessful) {
+                                            Myresponse.body()?.let { adapter_list_actifs!!.addActif(it.member) }
+                                            recyclerView.post { adapter_list_actifs?.notifyDataSetChanged() }
+                                        } else {
+                                            Log.d("response --", Myresponse.code().toString())
+                                            Log.d("response --", Myresponse.message().toString())
+                                            Log.d("ajouter des nouveau element ", "error")
+                                        }
+
+
+                                    })
+
+
+
+
+
+
+
+                                    binding.progressBar.visibility = View.GONE
+                                    isLoading = false
+                                }, 1000)
+
+                            }
 
                         }
+
+
+
                     }
-                    super.onScrolled(recyclerView, dx, dy)
-                }
-            })
+                })
 
 
+            } else {
+                Log.d("response --", Myresponse.code().toString())
+                Log.d("response --", Myresponse.message().toString())
+                println("+++++++++++++++++++++++++++++++++++++")
+            }
         })
+
+
+        }
+
+
 
         binding.camera.setOnClickListener {
 
-//            activity?.let{
-//                val intent = Intent (it, CameraActivity::class.java)
-//                intent.putExtra("samplename", "abd")
-//                it.startActivity(intent)
-//
-//            }
-
-//            val scanner = IntentIntegrator(requireActivity())
             val scanner = IntentIntegrator.forSupportFragment(this)
             scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
             scanner.setBeepEnabled(false)
@@ -94,6 +138,11 @@ class ActifFragment : Fragment() {
 
         return binding.root
     }
+
+
+
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
@@ -113,11 +162,7 @@ class ActifFragment : Fragment() {
         }
     }
 
-    fun getpage(){
-        isLoading = true
-        binding.progressBar.visibility = View.VISIBLE
 
 
-    }
 
 }
