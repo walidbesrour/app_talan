@@ -2,15 +2,13 @@ package com.example.talan_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.talan_app.databinding.ActivityMenuBinding
-import com.example.talan_app.menu_fragments.ActifFragment
-import com.example.talan_app.menu_fragments.HomeFragment
-import com.example.talan_app.menu_fragments.InterventionFragment
-import com.example.talan_app.menu_fragments.ServiceFragment
+import com.example.talan_app.menu_fragments.*
 
 class Menu_Activity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
@@ -21,15 +19,24 @@ class Menu_Activity : AppCompatActivity() {
     private val interventionFragment = InterventionFragment()
     private val serviceFragment = ServiceFragment()
 
+    private val actifFilsFragment = ActifFilsFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val assetnum = intent.getStringExtra("parent")
+        Log.d("TAG parent", assetnum.toString())
+        if(assetnum == null){
+            setSupportActionBar(binding.toolbar)
+            replaceFragment(homeFragment)
+        }else{
+            setSupportActionBar(binding.toolbar)
+            replaceFragment(actifFilsFragment)
+        }
 
 
-        setSupportActionBar(binding.toolbar)
-        replaceFragment(homeFragment)
 
 
         binding.chipNavigation.setOnItemSelectedListener {

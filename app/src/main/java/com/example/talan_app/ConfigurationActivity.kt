@@ -23,9 +23,9 @@ class ConfigurationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConfigurationBinding
 
     private lateinit var configurationVM: ConfigurationVM
-    lateinit var httptxt : String
-    lateinit var localhost1 : String
-    lateinit var port1: String
+     var httptxt  =""
+     var localhost1  =""
+     var port1 =""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +52,7 @@ class ConfigurationActivity : AppCompatActivity() {
         binding.b21.setOnClickListener {
 
             httptxt = binding.protocole2.text.toString()
+            Log.d("TAG httptxt", httptxt)
             localhost1 = binding.numlocalhost.text.toString()
             port1 = binding.numport1.text.toString()
 

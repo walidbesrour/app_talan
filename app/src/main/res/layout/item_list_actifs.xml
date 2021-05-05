@@ -59,6 +59,7 @@
                 android:fontFamily="@font/mlight"
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
+                android:layout_toLeftOf="@+id/filsActif"
                 android:layout_toRightOf="@+id/code_actif"/>
 
 

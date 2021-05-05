@@ -6,7 +6,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.example.talan_app.databinding.ActivityMainBinding
 import com.example.talan_app.repository.RetrofitRepository
@@ -24,7 +27,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var viewModel: Login_VM
-
+    var name =""
+    var password = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -48,9 +52,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.b1.setOnClickListener {
 
-            var name = binding.FirstName1.text.toString()
-            var password = binding.passwordProfile1.text.toString()
-            login(name,password)
+            name = binding.FirstName1.text.toString()
+            password = binding.passwordProfile1.text.toString()
+            if(name == "" || password == ""){
+                viewError()
+            }else{
+                login(name,password)
+
+            }
+
 
         }
 
@@ -118,6 +128,18 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+    fun viewError(){
+        val view = View.inflate(this,R.layout.dialog_view_erreur_configurer,null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+        dialog.findViewById<Button>(R.id.btnok)?.setOnClickListener { dialog.dismiss() }
     }
     companion object{
         var URL_BASE  ="http://192.168.111.10:80/"

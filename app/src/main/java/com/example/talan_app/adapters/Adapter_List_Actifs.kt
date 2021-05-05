@@ -2,11 +2,14 @@ package com.example.talan_app.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.talan_app.Menu_Activity
 import com.example.talan_app.R
 import com.example.talan_app.databinding.ActifBinding
 import com.example.talan_app.intervention.Intervention_Detail
@@ -39,18 +42,33 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
 
     /////////////////////////////// Class Actif_View_Holder  /////////////////////////////////////////////
     inner class Actif_View_Holder(val actifBinding : ActifBinding) :RecyclerView.ViewHolder(actifBinding.root){
+
         fun bind(actifsListmember :ActifsListmember){
             this.actifBinding.actifmodel = actifsListmember
 
             actifBinding.cardbtn.setOnClickListener {
+
+
                 val intent = Intent(context, Intervention_Detail::class.java)
                 context.startActivity(intent)
             }
+
             if (actifsListmember.children){
                 actifBinding.filsActif.visibility = View.VISIBLE
             }
             else
                 actifBinding.filsActif.visibility = View.GONE
+
+            actifBinding.filsActif.setOnClickListener {
+
+//                val p : Int = adapterPosition
+                val assetnum = actifsListmember.assetnum
+                Log.e("TAG parent", assetnum )
+
+                val intent = Intent(context, Menu_Activity::class.java)
+                intent.putExtra("parent",assetnum)
+                context.startActivity(intent)
+            }
 
             actifBinding.executePendingBindings()
         }
