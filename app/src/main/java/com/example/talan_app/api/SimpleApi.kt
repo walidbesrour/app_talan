@@ -1,10 +1,9 @@
 package com.example.talan_app.api
 
 
-import com.example.talan_app.model.Actif
+
 import com.example.talan_app.model.Actifs
 import com.example.talan_app.model.Apikey
-import com.example.talan_app.view_model.Actif_List_VM
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*

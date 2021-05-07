@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         ///////// if url base is null then //////////////////////
 
         ////////////////////////////////////////////////
-        var logAndPas = "$a:$b"
+        val logAndPas = "$a:$b"
         val encodedString: String = Base64.getEncoder().encodeToString(logAndPas.toByteArray())
         val sharedPreferences2 = getSharedPreferences("Base64", Context.MODE_PRIVATE)
         val editor  = sharedPreferences2.edit()
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
 
         /////////// LOGIN IS STATIC //////////
-        var mybase64 = encodedString
+        val mybase64 = encodedString
 //        var mybase64 = "Qi5XQUxJRDpXYjEyMzQ1Njs="
 
         val repository = RetrofitRepository()

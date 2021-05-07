@@ -35,7 +35,7 @@ class ActifFilsFragment(siteid: String?, assetnum: String?) : Fragment() {
     private var resultScan : String = ""
     var isLoading = false
     var pageSize = 50
-    var pageno = 1
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -57,7 +57,7 @@ class ActifFilsFragment(siteid: String?, assetnum: String?) : Fragment() {
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(Actif_List_VM::class.java)
         if (Apikey != null) {
-            var Myparent ="parent="+assetnum
+            val Myparent ="parent="+assetnum
             println(Myparent)
 
             Log.e("TAG ActifFilsFragment", "   $Apikey   $Myparent   $siteid    " )

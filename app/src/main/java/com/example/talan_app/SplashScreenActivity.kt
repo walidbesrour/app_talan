@@ -8,31 +8,25 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.example.talan_app.databinding.ActivitySplashScreenBinding
 import com.example.talan_app.repository.RetrofitRepository
-import com.example.talan_app.view_model.Actif_ListFactory_VM
-import com.example.talan_app.view_model.Actif_List_VM
 import com.example.talan_app.view_model.LoginFactory_VM
 import com.example.talan_app.view_model.Login_VM
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
-import java.util.*
+
 
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashScreenBinding
 
     private lateinit var viewModel: Login_VM
-    private lateinit var viewModel2: Actif_List_VM
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//            val i = Intent(this , Menu_Activity::class.java)
-//        startActivity(i)
-//        overridePendingTransition(android.R.anim.fade_in ,android.R.anim.fade_out)
-//        finish()
 
 
         binding.test1.alpha = 0f
@@ -41,7 +35,6 @@ class SplashScreenActivity : AppCompatActivity() {
             val APikye = sharedPreferences_APikye.getString("SAVE_APIKEY", null)
             if (APikye == null) {
                 val i = Intent(this, MainActivity::class.java)
-//            val i = Intent(this , Menu_Activity::class.java)
                 startActivity(i)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()

@@ -2,7 +2,7 @@ package com.example.talan_app.repository
 
 import android.util.Log
 import com.example.talan_app.api.RetrofitInstance
-import com.example.talan_app.model.Actif
+
 import com.example.talan_app.model.Actifs
 import com.example.talan_app.model.Apikey
 import okhttp3.RequestBody
