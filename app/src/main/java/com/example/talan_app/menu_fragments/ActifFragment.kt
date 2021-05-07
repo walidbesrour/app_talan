@@ -43,6 +43,7 @@ class ActifFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentActifBinding.inflate(layoutInflater)
+
         adapter_list_actifs = Adapter_List_Actifs(requireContext())
         binding.recycleActif.adapter = adapter_list_actifs
         binding.recycleActif.layoutManager = LinearLayoutManager(requireContext())
@@ -62,6 +63,7 @@ class ActifFragment : Fragment() {
 
         viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
             if (Myresponse.isSuccessful) {
+                println("****** test  Actif **** ${Myresponse.body()} ")
                 println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
                 Myresponse.body()?.let { adapter_list_actifs!!.setData(it.member) }
 

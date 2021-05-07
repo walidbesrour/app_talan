@@ -19,15 +19,18 @@ class Menu_Activity : AppCompatActivity() {
     private val interventionFragment = InterventionFragment()
     private val serviceFragment = ServiceFragment()
 
-    private val actifFilsFragment = ActifFilsFragment()
+//    private val actifFilsFragment = ActifFilsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val assetnum = intent.getStringExtra("parent")
-        Log.d("TAG parent", assetnum.toString())
+        val assetnum = intent.getStringExtra("assetnum")
+        val siteid = intent.getStringExtra("siteid")
+
+        val actifFilsFragment = ActifFilsFragment(siteid , assetnum)
+
         if(assetnum == null){
             setSupportActionBar(binding.toolbar)
             replaceFragment(homeFragment)
@@ -71,4 +74,5 @@ class Menu_Activity : AppCompatActivity() {
         transaction.replace(R.id.fragment_container, fragment)
         transaction.commit()
     }
+
 }

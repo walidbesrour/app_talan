@@ -47,8 +47,6 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
             this.actifBinding.actifmodel = actifsListmember
 
             actifBinding.cardbtn.setOnClickListener {
-
-
                 val intent = Intent(context, Intervention_Detail::class.java)
                 context.startActivity(intent)
             }
@@ -63,10 +61,12 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
 
 //                val p : Int = adapterPosition
                 val assetnum = actifsListmember.assetnum
+                val siteid = actifsListmember.siteid
                 Log.e("TAG parent", assetnum )
 
                 val intent = Intent(context, Menu_Activity::class.java)
-                intent.putExtra("parent",assetnum)
+                intent.putExtra("assetnum",assetnum)
+                intent.putExtra("siteid",siteid)
                 context.startActivity(intent)
             }
 
@@ -80,6 +80,8 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
         list_actif = newList
         notifyDataSetChanged()
     }
+
+
 
     fun addActif(actif : ArrayList<ActifsListmember>){
         list_actif.addAll(actif)
