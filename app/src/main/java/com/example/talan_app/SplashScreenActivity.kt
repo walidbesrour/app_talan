@@ -50,8 +50,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
     fun AutoLogin() {
 
-        val sharedPreferences = getSharedPreferences("MY_URL", Context.MODE_PRIVATE)
-        val saveString = sharedPreferences.getString("SAVE_MY_URL", null)
+        val sharedPreferences1 = getSharedPreferences("MY_URL", Context.MODE_PRIVATE)
+        val saveString = sharedPreferences1.getString("SAVE_MY_URL", null)
         MainActivity.URL_BASE = saveString.toString()
         ///////// if url base is null then //////////////////////
 

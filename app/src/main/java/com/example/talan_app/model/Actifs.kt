@@ -4,9 +4,51 @@ import com.google.gson.annotations.SerializedName
 
 data class Actifs (@SerializedName("member") val member : ArrayList<ActifsListmember> )
 data class ActifsListmember(
+        // 1
         val assetnum : String ,
+        // 2
         val description : String,
-        val siteid : String,
+        // 3 status
+        val status : String ,
+        // 4
         val parent : String,
+        // 5 site ( ajouter au detail)
+        val siteid : String,
+        // emplacement
+
+        @SerializedName("locations")
+        val locations : ArrayList<Mylocation> ,
+
+        // 9 numéro de série
+        val serialnum : String ,
+
+        // information adresse
+        @SerializedName("serviceaddress")
+        val serviceaddress : ArrayList<serviceaddress> ,
+
         val children : Boolean ,
+
+
+
+
+
+
+)
+data class Mylocation (
+        // 6
+        val location : String,
+        // 7
+        val description : String,
+        // 8
+        val status : String,
+)
+data class serviceaddress(
+        // 10 adresse service
+        val addresscode : String,
+        // 11
+        val county : String,
+        // 12 ville
+        val formattedaddress : String,
+        // 13 rue
+        val regiondistrict : String,
 )

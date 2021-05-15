@@ -28,7 +28,14 @@ interface SimpleApi {
         @Query("apikey") apikey: String,
         @Query("oslc.select") select: String,
         @Query("oslc.where") parent: String,
-        @Query("siteid") siteid: String,)
-    : Response<Actifs>
+        @Query("siteid") siteid: String,): Response<Actifs>
+
+    @GET("os/PFEWB_ACTIFDET/?lean=1")
+    suspend fun getDetailActif(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String,): Response<Actifs>
+
+
 }
 

@@ -1,11 +1,13 @@
 package com.example.talan_app.menu_fragments
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.speech.RecognizerIntent
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.talan_app.R
 
 import com.example.talan_app.adapters.Adapter_List_Actifs
 import com.example.talan_app.databinding.FragmentActifBinding
@@ -26,6 +29,7 @@ import com.example.talan_app.view_model.Actif_ListFactory_VM
 
 import com.example.talan_app.view_model.Actif_List_VM
 import com.google.zxing.integration.android.IntentIntegrator
+import java.util.*
 
 class ActifFragment : Fragment() {
 
@@ -39,6 +43,8 @@ class ActifFragment : Fragment() {
     var isLoading = false
     var pageSize = 50
     var pageno = 1
+
+    private val REQ_CODE_SPEECH_INPUT = 100
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -135,16 +141,46 @@ class ActifFragment : Fragment() {
             scanner.initiateScan()
 
         }
+        binding.voiceflis.setOnClickListener {   speechInput()  }
 
 
         return binding.root
     }
 
 
+    fun speechInput() {
 
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speech_alert))
+
+
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT)
+        } catch (a: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), getString(R.string.not_supported), Toast.LENGTH_SHORT).show()
+        }
+
+    }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when (requestCode) {
+
+            REQ_CODE_SPEECH_INPUT -> if (resultCode == Activity.RESULT_OK && null != data) {
+                val result: ArrayList<String> = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
+                binding.numPort1.setText(result.get(0))
+            }
+
+        }
+
+
+
         if (resultCode == Activity.RESULT_OK) {
             val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
             if (result != null) {

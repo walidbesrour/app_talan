@@ -18,6 +18,9 @@ class Actif_List_VM (private val repository: RetrofitRepository): ViewModel() {
 
     var myResponsefils : MutableLiveData<Response<Actifs>> = MutableLiveData()
 
+    var myResponseDetail : MutableLiveData<Response<Actifs>> = MutableLiveData()
+
+
     fun getListActifs(apikey: String,select: String,pageSize: Int,pageno: Int){
         viewModelScope.launch {
 
@@ -28,11 +31,16 @@ class Actif_List_VM (private val repository: RetrofitRepository): ViewModel() {
 
     fun getListActifFils(apikey: String,select: String,parent: String,siteid: String){
         viewModelScope.launch {
-            Log.e("TAG Actif_List_VM ", "Actif_List_VM : getListActifFils", )
             val response1 = repository.getListActifFils(apikey,select,parent,siteid)
             myResponsefils.value = response1
         }
     }
 
+    fun getDetailActif(apikey: String,ASSETNUM: String ,Myselect: String){
+        viewModelScope.launch {
+            val response1 = repository.getDetailActif(apikey,ASSETNUM,Myselect)
+            myResponseDetail.value = response1
+        }
+    }
 
 }

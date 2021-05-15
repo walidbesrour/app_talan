@@ -20,7 +20,12 @@ class RetrofitRepository {
     }
 
     suspend fun getListActifFils(apikey: String,select: String,parent: String,siteid: String): Response<Actifs> {
-        Log.e("TAG Repository ", "Repository : getListActifFils", )
+
         return RetrofitInstance.Myapi.getListFils(apikey,select,parent,siteid)
+    }
+
+    suspend fun getDetailActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<Actifs> {
+
+        return RetrofitInstance.Myapi.getDetailActif(apikey,ASSETNUM,Myselect)
     }
 }

@@ -2,6 +2,8 @@
     <string name="app_name">Talan_App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_supported">Your device don\t support this feature. </string>
+    <string name="speech_alert">Say something...</string>
     <string-array name="protocoleHTTP">
         <item>http</item>
         <item>https</item>
