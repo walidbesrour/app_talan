@@ -10,10 +10,11 @@ data class ActifsListmember(
         val description : String,
         // 3 status
         val status : String ,
-        // 4
-        val parent : String,
-        // 5 site ( ajouter au detail)
+        // 4 site ( ajouter au detail)
         val siteid : String,
+        // 5
+        val parent : String,
+
         // emplacement
 
         @SerializedName("locations")

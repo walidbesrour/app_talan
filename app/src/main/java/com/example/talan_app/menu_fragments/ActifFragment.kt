@@ -69,8 +69,8 @@ class ActifFragment : Fragment() {
 
         viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
             if (Myresponse.isSuccessful) {
-                println("****** test  Actif **** ${Myresponse.body()} ")
-                println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
+//                println("****** test  Actif **** ${Myresponse.body()} ")
+//                println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
                 Myresponse.body()?.let { adapter_list_actifs!!.setData(it.member) }
 
                 binding.recycleActif.addOnScrollListener(object : RecyclerView.OnScrollListener(){

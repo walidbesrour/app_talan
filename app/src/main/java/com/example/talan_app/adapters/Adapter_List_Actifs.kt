@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.Menu_Activity
 import com.example.talan_app.R
+import com.example.talan_app.actifs.Actif_Detail
 import com.example.talan_app.databinding.ActifBinding
 import com.example.talan_app.intervention.Intervention_Detail
 import com.example.talan_app.menu_fragments.ActifFragment
@@ -47,7 +48,9 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
             this.actifBinding.actifmodel = actifsListmember
 
             actifBinding.cardbtn.setOnClickListener {
-                val intent = Intent(context, Intervention_Detail::class.java)
+                val assetnumD = actifsListmember.assetnum
+                val intent = Intent(context, Actif_Detail::class.java)
+                intent.putExtra("assetnumD",assetnumD)
                 context.startActivity(intent)
             }
 
