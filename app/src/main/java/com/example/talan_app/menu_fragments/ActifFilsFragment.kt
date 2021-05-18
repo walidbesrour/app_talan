@@ -58,7 +58,7 @@ class ActifFilsFragment(siteid: String?, assetnum: String?) : Fragment() {
         val sharedPreferences = this.getActivity()!!.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
         val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
 
-        Log.e("TAG ActifFilsFragment", "  $siteid    $assetnum     $Apikey", )
+        Log.e("TAG ActifFilsFragment", "  $siteid    $assetnum     $Apikey" )
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(Actif_List_VM::class.java)
         if (Apikey != null) {

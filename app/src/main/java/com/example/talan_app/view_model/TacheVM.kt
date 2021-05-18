@@ -27,18 +27,18 @@ class TacheVM: ViewModel {
 
     fun getArrayList() :MutableLiveData<ArrayList<TacheVM>>{
 
-        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","020", )))
-        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","125", )))
-        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","541", )))
-        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","125", )))
-        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","569", )))
-        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","189", )))
-        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","158", )))
-        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","139", )))
-        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","754", )))
-        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","108", )))
-        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","196", )))
-        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","102", )))
+        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","020" )))
+        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","125" )))
+        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","541" )))
+        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","125" )))
+        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","569" )))
+        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","189" )))
+        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","158" )))
+        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","139" )))
+        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","754" )))
+        arraylist.add(TacheVM(Tache("1001","Fire Extinguisher xxz","108" )))
+        arraylist.add(TacheVM(Tache("1105","Fire Extinguisher xxz","196" )))
+        arraylist.add(TacheVM(Tache("2586","Fire Extinguisher xxz","102" )))
 
         arraylistmutablelivedata.value = arraylist
         return arraylistmutablelivedata

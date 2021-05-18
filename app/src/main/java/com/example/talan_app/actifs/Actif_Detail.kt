@@ -91,10 +91,11 @@ class Actif_Detail : AppCompatActivity() {
 //                    var x = Myresponse1.body()!!.member[0].locations[0].
 
 
+
                 } else {
                     Log.d("response --", Myresponse1.code().toString())
                     Log.d("response --", Myresponse1.message().toString())
-                    Log.e("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", "onCreate: ", )
+                    Log.e("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", "onCreate: " )
 
 
                 }
@@ -107,7 +108,6 @@ class Actif_Detail : AppCompatActivity() {
     }
 
 
-
     private fun setUpTabs() {
         val adapter = ViewAdapterPageView(supportFragmentManager)
         adapter.addFragment(CompteurFragment(), "COMPTEURS")
@@ -118,6 +118,7 @@ class Actif_Detail : AppCompatActivity() {
         binding.tabDetailActif.setupWithViewPager(binding.viewPageActif)
         binding.tabDetailActif.getTabAt(0)!!
         binding.tabDetailActif.getTabAt(1)!!
+
 
 
     }

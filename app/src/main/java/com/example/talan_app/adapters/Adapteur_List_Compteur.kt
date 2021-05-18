@@ -7,15 +7,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.CompteurBinding
+import com.example.talan_app.model.*
 import com.example.talan_app.view_model.Compteur_List_VM
 
-class Adapteur_List_Compteur (private val context: Context, private val list_compteur: ArrayList<Compteur_List_VM> ): RecyclerView.Adapter<Adapteur_List_Compteur.Compteur_Holder>() {
+class Adapteur_List_Compteur (private val context: Context): RecyclerView.Adapter<Adapteur_List_Compteur.Compteur_Holder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapteur_List_Compteur.Compteur_Holder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val compteurBinding:CompteurBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_compteur,parent,false)
-        return Compteur_Holder(compteurBinding)
-    }
+      var list_compteur = ArrayList<Assetmeter>()
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = Compteur_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_compteur,parent,false))
+
+
+
+
 
     override fun onBindViewHolder(holder: Adapteur_List_Compteur.Compteur_Holder, position: Int) {
          val compteurList = list_compteur[position]
@@ -26,11 +31,15 @@ class Adapteur_List_Compteur (private val context: Context, private val list_com
 
     /////////////////////////////// Class Compteur_Holder  /////////////////////////////////////////////
     inner class Compteur_Holder(private val compteurBinding : CompteurBinding) :RecyclerView.ViewHolder(compteurBinding.root){
-           fun bind(compteur_List_VM: Compteur_List_VM){
-                 this.compteurBinding.compteurmodel = compteur_List_VM
+           fun bind(assetmeter: Assetmeter){
+                 this.compteurBinding.compteurmodel = assetmeter
                  compteurBinding.executePendingBindings()
 
         }
 
 }
+    fun setData(newList: ArrayList<Assetmeter>){
+        list_compteur = newList
+        notifyDataSetChanged()
+    }
 }

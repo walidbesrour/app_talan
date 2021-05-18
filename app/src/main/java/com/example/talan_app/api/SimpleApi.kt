@@ -4,6 +4,7 @@ package com.example.talan_app.api
 
 import com.example.talan_app.model.Actifs
 import com.example.talan_app.model.Apikey
+import com.example.talan_app.model.Compteurs
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -19,7 +20,7 @@ interface SimpleApi {
             @Query("apikey") apikey: String,
             @Query("oslc.select") select: String,
             @Query("oslc.pageSize") pageSize: Int,
-            @Query("pageno") pageno: Int,): Response<Actifs>
+            @Query("pageno") pageno: Int): Response<Actifs>
 
 
 
@@ -28,14 +29,18 @@ interface SimpleApi {
         @Query("apikey") apikey: String,
         @Query("oslc.select") select: String,
         @Query("oslc.where") parent: String,
-        @Query("siteid") siteid: String,): Response<Actifs>
+        @Query("siteid") siteid: String): Response<Actifs>
 
     @GET("os/PFEWB_ACTIFDET/?lean=1")
     suspend fun getDetailActif(
         @Query("apikey") apikey: String,
         @Query("oslc.where") ASSETNUM : String,
-        @Query("oslc.select") Myselect: String,): Response<Actifs>
+        @Query("oslc.select") Myselect: String): Response<Actifs>
 
-
+    @GET("os/PFEWB_ACTIFDET/?lean=1")
+    suspend fun getCompteurActif(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String): Response<Compteurs>
 }
 

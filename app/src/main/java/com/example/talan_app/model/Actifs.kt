@@ -27,7 +27,7 @@ data class ActifsListmember(
         @SerializedName("serviceaddress")
         val serviceaddress : ArrayList<serviceaddress> ,
 
-        val children : Boolean ,
+        val children : Boolean
 
 
 
@@ -41,7 +41,7 @@ data class Mylocation (
         // 7
         val description : String,
         // 8
-        val status : String,
+        val status : String
 )
 data class serviceaddress(
         // 10 adresse service
@@ -51,5 +51,5 @@ data class serviceaddress(
         // 12 ville
         val formattedaddress : String,
         // 13 rue
-        val regiondistrict : String,
+        val regiondistrict : String
 )

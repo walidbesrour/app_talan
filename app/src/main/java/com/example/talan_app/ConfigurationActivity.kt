@@ -51,36 +51,40 @@ class ConfigurationActivity : AppCompatActivity() {
 
         binding.b21.setOnClickListener {
 
+
+            println("***************************************")
+
             httptxt = binding.protocole2.text.toString()
-            Log.d("TAG httptxt", httptxt)
+            println("****************** $httptxt *********************")
             localhost1 = binding.numlocalhost.text.toString()
             port1 = binding.numport1.text.toString()
 
                 if ((httptxt== "")||(localhost1== "")||(port1== "")){
                     viewError()
-                }else{
-                    configurationVM.addconfiguration(ConfigurationEntity(1,"httptxt","localhost","port"))
-                    var config = ConfigurationEntity(1,httptxt,localhost1,port1)
-                    configurationVM.updateconfiguration(config)
-                    if (configurationVM.updateconfiguration(config) != null){
-                        viewOk()
-
-                        configurationVM.getconfiguration()!!.observe(this, Observer {
+                }
+                else{
+//                    configurationVM.addconfiguration(ConfigurationEntity(1,"httptxt","localhost","port"))
+//                    var config = ConfigurationEntity(1,httptxt,localhost1,port1)
+//                    configurationVM.updateconfiguration(config)
+//                    if (configurationVM.updateconfiguration(config) != null){
+//                        viewOk()
+//
+//                        configurationVM.getconfiguration()!!.observe(this, Observer {
 
                             ///////////// save URL //////////////////
-                            var myUrl = it[0].hostname+"://"+it[0].protocol+":"+it[0].port+"/maximo/oslc/"
+                            var myUrl = "$httptxt://$localhost1:$port1/maximo/oslc/"
 
                             val sharedPreferences = getSharedPreferences("MY_URL", Context.MODE_PRIVATE)
                             val editor  = sharedPreferences.edit()
                             editor.apply(){ putString("SAVE_MY_URL",myUrl) }.apply()
 
-                            Log.d("===> : ", it[0].hostname+"://"+it[0].protocol+":"+it[0].port)
+                    println("===> : $myUrl ")
 
-                        })
-                    }
-                    else{
-                        viewError()
-                    }
+//                        })
+
+
+
+
                 }
 
 

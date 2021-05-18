@@ -122,8 +122,8 @@ class MainActivity : AppCompatActivity() {
 
 
             } else {
-                Log.d("response --", response.code().toString())
-                Log.d("response --", response.message().toString())
+                println("response --$response.code().toString()")
+                println("response -- $response.message().toString()")
                 println("+++++++++++++++++++++++++++++++++++++")
             }
         })
