@@ -4,7 +4,7 @@
     <data class="RisqueBinding">
         <variable
             name="risquemodel"
-            type="com.example.talan_app.view_model.RisqueVM" />
+            type="com.example.talan_app.model.Hazard" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,28 +33,18 @@
                     android:layout_margin="5dp"
                     android:paddingLeft="10dp"
                     app:strokeColor="#707070"
-                    android:layout_below="@+id/RL_S1">
+                   >
 
                     <TextView
                         android:id="@+id/codecompteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Risque : "
+                        android:text="@{risquemodel.hazardid}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:fontFamily="@font/mmedium"
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/compteurdescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@{risquemodel.Code_risque}"
-                        android:paddingTop="2dp"
-                        android:layout_marginLeft="5dp"
-                        android:fontFamily="@font/mlight"
-                        android:textColor="@color/black"
-                        android:layout_toRightOf="@+id/codecompteur"/>
 
 
 
@@ -64,7 +54,7 @@
                     android:id="@+id/descriptionActif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{risquemodel.Description_risque}"
+                    android:text="@{risquemodel.description}"
                     android:textStyle="normal"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="@font/mlight"

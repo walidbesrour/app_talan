@@ -1,11 +1,18 @@
 package com.example.talan_app.model
 
-class Risque {
-    var Code_risque =""
-    var Description_risque =""
+import com.google.gson.annotations.SerializedName
 
-    constructor(Code_risque: String, Description_risque: String) {
-        this.Code_risque = Code_risque
-        this.Description_risque = Description_risque
-    }
-}
+data class Risque (@SerializedName("member") val member : ArrayList<LesRisque> )
+
+data class LesRisque( @SerializedName("safetylexicon") val safetylexicon : ArrayList<MyRisque>)
+
+data class MyRisque( @SerializedName("hazard") val hazard : ArrayList<Hazard>)
+
+data class Hazard(
+    @SerializedName("description")
+    val description : String ,
+    @SerializedName("hazardid")
+    val hazardid : String ,
+
+)
+

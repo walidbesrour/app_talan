@@ -118,7 +118,7 @@ class Actif_Detail : AppCompatActivity() {
     private fun setUpTabs(num :String, siteid : String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
         adapter.addFragment(CompteurFragment(num), "COMPTEURS")
-        adapter.addFragment(RisquePrecautionFragment(), "RISQUES PRECAUTION")
+        adapter.addFragment(RisquePrecautionFragment(num), "RISQUES PRECAUTION")
         adapter.addFragment(PieceDetacheeFragment(num), "PIECE DETACHEES")
         adapter.addFragment(FilsDetailFragment(num,siteid), "ACTIFS FILS ")
 

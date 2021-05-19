@@ -1,12 +1,8 @@
 package com.example.talan_app.repository
 
-import android.util.Log
 import com.example.talan_app.api.RetrofitInstance
+import com.example.talan_app.model.*
 
-import com.example.talan_app.model.Actifs
-import com.example.talan_app.model.Apikey
-import com.example.talan_app.model.Compteurs
-import com.example.talan_app.model.PieceD
 import okhttp3.RequestBody
 import retrofit2.Response
 
@@ -40,4 +36,10 @@ class RetrofitRepository {
 
         return RetrofitInstance.Myapi.getPieceDetachee(apikey,ASSETNUM,Myselect)
     }
+    suspend fun getRisqueActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<Risque> {
+
+        return RetrofitInstance.Myapi.getRisqueActif(apikey,ASSETNUM,Myselect)
+    }
 }
+
+

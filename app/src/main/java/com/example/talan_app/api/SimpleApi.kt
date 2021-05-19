@@ -2,10 +2,7 @@ package com.example.talan_app.api
 
 
 
-import com.example.talan_app.model.Actifs
-import com.example.talan_app.model.Apikey
-import com.example.talan_app.model.Compteurs
-import com.example.talan_app.model.PieceD
+import com.example.talan_app.model.*
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -50,5 +47,11 @@ interface SimpleApi {
         @Query("apikey") apikey: String,
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<PieceD>
+
+    @GET("os/PFEWB_ACTIFDET/?lean=1")
+    suspend fun getRisqueActif(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String): Response<Risque>
 }
 

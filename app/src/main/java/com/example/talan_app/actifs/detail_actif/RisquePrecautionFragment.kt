@@ -9,19 +9,21 @@ import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.FragmentRisquePrecautionBinding
 
 
-class RisquePrecautionFragment : Fragment() {
+class RisquePrecautionFragment(num: String?) : Fragment() {
 
     private lateinit var binding: FragmentRisquePrecautionBinding
+    var siteid = num.toString()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRisquePrecautionBinding.inflate(layoutInflater)
 
-        setUpTabs()
+        setUpTabs(siteid)
         return binding.root
     }
 
-    private fun setUpTabs() {
+    private fun setUpTabs(num :String) {
         val adapter = ViewAdapterPageView(childFragmentManager)
-        adapter.addFragment(RisqueFragment(), "RISQUES")
+        adapter.addFragment(RisqueFragment(num), "RISQUES")
         adapter.addFragment(PrecautionFragment(), "PRECAUTION")
 
         binding.viewPageAct.adapter = adapter
