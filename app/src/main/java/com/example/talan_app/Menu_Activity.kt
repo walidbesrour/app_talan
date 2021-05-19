@@ -26,12 +26,20 @@ class Menu_Activity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val assetnum = intent.getStringExtra("assetnum")
+
+
+        val asset = intent.getStringExtra("assetnum")
+        val assetnum = "\"$asset\""
         val siteid = intent.getStringExtra("siteid")
+
+
+
+
+
 
         val actifFilsFragment = ActifFilsFragment(siteid , assetnum)
 
-        if(assetnum == null){
+        if(asset == null){
             setSupportActionBar(binding.toolbar)
             replaceFragment(homeFragment)
         }else{

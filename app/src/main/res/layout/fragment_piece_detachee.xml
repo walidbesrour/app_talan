@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/My_background"
+    android:orientation="vertical"
+    tools:context=".actifs.detail_actif.PieceDetacheeFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclePiece"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/addcompteur"
+        android:clipToPadding="false"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        tools:listitem="@layout/item_piece_detachee"/>
+
+</LinearLayout>

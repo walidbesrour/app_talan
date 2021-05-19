@@ -49,8 +49,9 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
 
             actifBinding.cardbtn.setOnClickListener {
                 val assetnumD = actifsListmember.assetnum
+                val assetD = "\"$assetnumD\""
                 val intent = Intent(context, Actif_Detail::class.java)
-                intent.putExtra("assetnumD",assetnumD)
+                intent.putExtra("assetnumD",assetD)
                 context.startActivity(intent)
             }
 

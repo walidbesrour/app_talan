@@ -14,6 +14,7 @@ import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.ActivityActifDetailBinding
 import com.example.talan_app.actifs.detail_actif.CompteurFragment
 import com.example.talan_app.actifs.detail_actif.FilsDetailFragment
+import com.example.talan_app.actifs.detail_actif.PieceDetacheeFragment
 import com.example.talan_app.actifs.detail_actif.RisquePrecautionFragment
 import com.example.talan_app.repository.RetrofitRepository
 import com.example.talan_app.view_model.Actif_ListFactory_VM
@@ -34,7 +35,11 @@ class Actif_Detail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
           binding = ActivityActifDetailBinding.inflate(layoutInflater)
       setContentView(binding.root)
-        setUpTabs()
+
+        val num = intent.getStringExtra("assetnumD")
+        val assetnum = "ASSETNUM=$num"
+        println("########################    $num ")
+        setUpTabs(num.toString())
         binding.btnDescription.setOnClickListener {
             val txt = "Le Bitcoin, depuis quelques années déjà, fait beaucoup parler de lui. "
             descriptioview(txt)
@@ -48,8 +53,7 @@ class Actif_Detail : AppCompatActivity() {
         val sharedAPI = this.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
         val Apikey = sharedAPI.getString("SAVE_APIKEY", null)
 
-        val num = intent.getStringExtra("assetnumD")
-        val assetnum = "ASSETNUM=$num"
+
         if (Apikey != null){
             viewModel.getDetailActif(Apikey,assetnum,"assetnum,description,status,parent,siteid,locations,serialnum,serviceaddress")
             viewModel.myResponseDetail.observe(this, androidx.lifecycle.Observer { Myresponse1 ->
@@ -108,16 +112,18 @@ class Actif_Detail : AppCompatActivity() {
     }
 
 
-    private fun setUpTabs() {
+    private fun setUpTabs(num :String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
-        adapter.addFragment(CompteurFragment(), "COMPTEURS")
+        adapter.addFragment(CompteurFragment(num), "COMPTEURS")
         adapter.addFragment(RisquePrecautionFragment(), "RISQUES PRECAUTION")
+        adapter.addFragment(PieceDetacheeFragment(num), "PIECE DETACHEES")
         adapter.addFragment(FilsDetailFragment(), "ACTIFS FILS ")
 
         binding.viewPageActif.adapter = adapter
         binding.tabDetailActif.setupWithViewPager(binding.viewPageActif)
         binding.tabDetailActif.getTabAt(0)!!
         binding.tabDetailActif.getTabAt(1)!!
+        binding.tabDetailActif.getTabAt(2)!!
 
 
 

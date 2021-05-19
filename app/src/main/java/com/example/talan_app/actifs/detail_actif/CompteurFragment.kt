@@ -14,17 +14,23 @@ import com.example.talan_app.databinding.FragmentCompteurBinding
 import com.example.talan_app.repository.RetrofitRepository
 import com.example.talan_app.view_model.CompteurFactory_VM
 import com.example.talan_app.view_model.Compteur_List_VM
+import java.lang.Exception
 
 
-class CompteurFragment : Fragment() {
+class CompteurFragment(num: String?) : Fragment() {
 
     private lateinit var binding: FragmentCompteurBinding
+
+    var siteid = num.toString()
+
     private  var adapteurlistCompteur : Adapteur_List_Compteur?= null
     private lateinit var VIEWMODEL : Compteur_List_VM
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
          binding = FragmentCompteurBinding.inflate(layoutInflater)
 
+
+        Log.d("test num in compteur ", "$siteid ")
         adapteurlistCompteur = Adapteur_List_Compteur(requireContext())
         binding.recyclecompteur.adapter = adapteurlistCompteur
         binding.recyclecompteur.layoutManager = LinearLayoutManager(requireContext())
@@ -36,12 +42,17 @@ class CompteurFragment : Fragment() {
         val sharedPreferences = this.getActivity()!!.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
         val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
         if(Apikey != null){
-            VIEWMODEL.getCompteurActif(Apikey,"ASSETNUM=13143","assetmeter")
+            VIEWMODEL.getCompteurActif(Apikey,"ASSETNUM=$siteid","assetmeter")
             VIEWMODEL.myResponse.observe(viewLifecycleOwner,{ MyResponse ->
                 if (MyResponse.isSuccessful){
                     println("=======================================")
                     println(MyResponse.body())
-                    MyResponse.body()?.let { adapteurlistCompteur!!.setData(it.member[0].assetmeter) }
+                    try {
+                        MyResponse.body()?.let { adapteurlistCompteur!!.setData(it.member[0].assetmeter) }
+                    }catch(e:Exception){
+                        Log.e("eureur", "onCreateView: ", )
+                    }
+
                 }else  {
                     Log.d("une erreur dans le compteur des actif", MyResponse.code().toString())
                     Log.d("response --", MyResponse.message().toString())
