@@ -50,7 +50,7 @@ class RisqueFragment(num: String?) : Fragment() {
                         println("************  les risque *********************")
                         println(MyResponse.body())
 
-                        var zz : Int = MyResponse.body()!!.member[0].safetylexicon.size -1
+                        val zz : Int = MyResponse.body()!!.member[0].safetylexicon.size -1
                         MyResponse.body()?.let { adapter_List_Risque!!.setData(it.member[0].safetylexicon[zz].hazard) }
                         println("$zz")
                         for (i in 0 until zz){
