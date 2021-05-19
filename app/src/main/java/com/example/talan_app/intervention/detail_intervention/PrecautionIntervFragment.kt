@@ -23,17 +23,6 @@ class PrecautionIntervFragment : Fragment() {
        binding = FragmentPrecautionIntervBinding.inflate(layoutInflater)
 
 
-        val precautionVM : PrecautionVM = ViewModelProvider(this).get(PrecautionVM::class.java)
-
-        precautionVM.getArrayListInterv().observe(viewLifecycleOwner, Observer {compteur_vms ->
-
-            adapter_List_Precaution = Adapter_List_Precaution(requireContext(),compteur_vms!! )
-            binding.recyclerprecautionInterv.layoutManager = LinearLayoutManager(requireContext())
-            binding.recyclerprecautionInterv.adapter = adapter_List_Precaution
-
-
-
-        })
 
 
         return binding.root

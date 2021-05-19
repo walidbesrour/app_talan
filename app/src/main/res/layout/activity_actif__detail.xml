@@ -74,7 +74,7 @@
             android:textColor="@color/blue_talan"
             android:layout_toRightOf="@+id/N_actif"
             android:layout_toLeftOf="@+id/btn_piece"
-            android:text="1500"
+            android:text=""
 
             />
         <TextView
@@ -86,7 +86,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="4dp"
             android:layout_toRightOf="@+id/btnDescription"
-            android:text="Description de la demande" />
+            android:text="" />
 
 
         <TextView
@@ -107,7 +107,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/txtstatus"
-            android:text="ACTIVE" />
+            android:text="" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -135,7 +135,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/codeparent1"
-            android:text="DJERBA"
+            android:text=""
             />
 
         <TextView
@@ -154,7 +154,7 @@
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/codesite"
             android:layout_toRightOf="@+id/codeparent1"
-            android:text="1988"
+            android:text=""
             />
 
 
@@ -177,7 +177,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/Emplacement1"
-            android:text="9662" />
+            android:text="" />
 
         <TextView
             android:id="@+id/descEmplacement"
@@ -185,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Emplacement"
             android:layout_marginTop="3dp"
-            android:text="Description : Run Hours" />
+            android:text="" />
 
         <TextView
             android:id="@+id/EtatActif1"
@@ -205,7 +205,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/EtatActif1"
-            android:text="ACTIVE" />
+            android:text="" />
         <TextView
             android:id="@+id/NSERIE1"
             android:layout_width="wrap_content"
@@ -224,7 +224,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/NSERIE1"
-            android:text="N1F25" />
+            android:text="" />
         <LinearLayout
             android:id="@+id/titreInf"
             android:layout_width="match_parent"
@@ -263,7 +263,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/Address1"
-            android:text="Service Address" />
+            android:text="" />
         <TextView
             android:id="@+id/city1"
             android:layout_width="wrap_content"
@@ -282,7 +282,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/city1"
-            android:text="My City" />
+            android:text="" />
         <TextView
             android:id="@+id/adress1"
             android:layout_width="wrap_content"
@@ -301,7 +301,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/adress1"
-            android:text="My steet adress" />
+            android:text="" />
         <TextView
             android:id="@+id/Province1"
             android:layout_width="wrap_content"
@@ -320,7 +320,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/Province1"
-            android:text="Province" />
+            android:text="" />
 
     </RelativeLayout>
 

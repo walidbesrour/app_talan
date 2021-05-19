@@ -24,7 +24,7 @@ class RisquePrecautionFragment(num: String?) : Fragment() {
     private fun setUpTabs(num :String) {
         val adapter = ViewAdapterPageView(childFragmentManager)
         adapter.addFragment(RisqueFragment(num), "RISQUES")
-        adapter.addFragment(PrecautionFragment(), "PRECAUTION")
+        adapter.addFragment(PrecautionFragment(num), "PRECAUTION")
 
         binding.viewPageAct.adapter = adapter
         binding.tabsAct.setupWithViewPager(binding.viewPageAct)

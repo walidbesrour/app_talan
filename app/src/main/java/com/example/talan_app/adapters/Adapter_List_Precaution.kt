@@ -7,17 +7,21 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.PrecautionBinding
+import com.example.talan_app.model.Hazard
+import com.example.talan_app.model.Hazardprec
 
 import com.example.talan_app.view_model.PrecautionVM
 
 
-class Adapter_List_Precaution (private val context: Context, private val list_Precaution: ArrayList<PrecautionVM> ) : RecyclerView.Adapter<Adapter_List_Precaution.Precaution_Holder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_Precaution.Precaution_Holder {
+class Adapter_List_Precaution (private val context: Context ) : RecyclerView.Adapter<Adapter_List_Precaution.Precaution_Holder>() {
 
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val precautionBinding: PrecautionBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_precaution,parent,false)
-        return Precaution_Holder(precautionBinding)
-    }
+     var list_Precaution= ArrayList<Hazardprec>()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =Precaution_Holder (
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_precaution,parent,false))
+
+
+
 
     override fun onBindViewHolder(holder: Adapter_List_Precaution.Precaution_Holder, position: Int) {
         val precaution = list_Precaution[position]
@@ -28,12 +32,20 @@ class Adapter_List_Precaution (private val context: Context, private val list_Pr
 
     /////////////////////////////// Class Precaution_Holder  /////////////////////////////////////////////
     inner class Precaution_Holder(private val precautionBinding : PrecautionBinding) : RecyclerView.ViewHolder(precautionBinding.root){
-        fun bind(precautionVM: PrecautionVM){
-            this.precautionBinding.precautionmodel = precautionVM
+        fun bind(hazardprec: Hazardprec){
+            this.precautionBinding.precautionmodel = hazardprec
             precautionBinding.executePendingBindings()
         }
 
     }
 
+    fun setData(newList: ArrayList<Hazardprec>){
+        list_Precaution = newList
+        notifyDataSetChanged()
+    }
 
+    fun addActif(actif : ArrayList<Hazardprec>){
+        list_Precaution.addAll(actif)
+        notifyDataSetChanged()
+    }
 }

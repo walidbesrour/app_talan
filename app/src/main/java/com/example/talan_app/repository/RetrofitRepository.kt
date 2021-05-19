@@ -40,6 +40,11 @@ class RetrofitRepository {
 
         return RetrofitInstance.Myapi.getRisqueActif(apikey,ASSETNUM,Myselect)
     }
+
+    suspend fun getPrecautionActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<Precaution> {
+
+        return RetrofitInstance.Myapi.getPrecautionActif(apikey,ASSETNUM,Myselect)
+    }
 }
 
 

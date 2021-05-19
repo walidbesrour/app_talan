@@ -53,5 +53,13 @@ interface SimpleApi {
         @Query("apikey") apikey: String,
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<Risque>
+
+
+    @GET("os/PFEWB_ACTIFDET/?lean=1")
+    suspend fun getPrecautionActif(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String): Response<Precaution>
+
 }
 
