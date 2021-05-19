@@ -47,11 +47,16 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
         fun bind(actifsListmember :ActifsListmember){
             this.actifBinding.actifmodel = actifsListmember
 
+
+    ////////////////////////////// go to actif Detail ///////////////////////////
             actifBinding.cardbtn.setOnClickListener {
                 val assetnumD = actifsListmember.assetnum
                 val assetD = "\"$assetnumD\""
+                val siteid = actifsListmember.siteid
+
                 val intent = Intent(context, Actif_Detail::class.java)
                 intent.putExtra("assetnumD",assetD)
+                intent.putExtra("siteidD",siteid)
                 context.startActivity(intent)
             }
 
@@ -60,6 +65,8 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
             }
             else
                 actifBinding.filsActif.visibility = View.GONE
+
+        ////////////////////////////// go to actif children ///////////////////////////
 
             actifBinding.filsActif.setOnClickListener {
 
@@ -92,35 +99,3 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
     }
 
 }
-//    fun addActif(actif : ArrayList<Actif_List_VM>){
-//        list_actif.addAll(actif)
-//    }
-
-//         fun bind (actif_List_VM: Actif_List_VM)
-//        {
-//
-//            this.actifBinding.actifmodel = actif_List_VM
-//            if (actif_List_VM.children== false){
-//                actifBinding.filsActif.visibility = View.GONE
-//            }
-//
-//
-//            actifBinding.filsActif.setOnClickListener {
-//                    val p : Int = adapterPosition
-//               actif_List_VM.filsActifList(p)
-//            }
-//            actifBinding.cardbtn.setOnClickListener {
-//                println("/////////////////////////////////")
-////                val p : Int = adapterPosition
-//                val i = Intent(context , Actif_Detail::class.java)
-//                context.startActivity(i)
-////                    overridePendingTransition(android.R.anim.fade_in ,android.R.anim.fade_out)
-////                finish()
-////                actif_List_VM.detailActif(p)
-//            }
-//
-//
-//            actifBinding.executePendingBindings()
-//
-//
-//        }

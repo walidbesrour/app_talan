@@ -374,6 +374,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/latout_btn"
+        app:tabMode="scrollable"
         app:tabRippleColor="@color/black"
         app:tabIndicatorColor="@color/black"
         app:tabTextColor="@color/black">

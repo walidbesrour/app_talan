@@ -38,8 +38,11 @@ class Actif_Detail : AppCompatActivity() {
 
         val num = intent.getStringExtra("assetnumD")
         val assetnum = "ASSETNUM=$num"
-        println("########################    $num ")
-        setUpTabs(num.toString())
+
+       val siteid = intent.getStringExtra("siteidD")
+
+
+        setUpTabs(num.toString(),siteid.toString())
         binding.btnDescription.setOnClickListener {
             val txt = "Le Bitcoin, depuis quelques années déjà, fait beaucoup parler de lui. "
             descriptioview(txt)
@@ -112,12 +115,12 @@ class Actif_Detail : AppCompatActivity() {
     }
 
 
-    private fun setUpTabs(num :String) {
+    private fun setUpTabs(num :String, siteid : String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
         adapter.addFragment(CompteurFragment(num), "COMPTEURS")
         adapter.addFragment(RisquePrecautionFragment(), "RISQUES PRECAUTION")
         adapter.addFragment(PieceDetacheeFragment(num), "PIECE DETACHEES")
-        adapter.addFragment(FilsDetailFragment(), "ACTIFS FILS ")
+        adapter.addFragment(FilsDetailFragment(num,siteid), "ACTIFS FILS ")
 
         binding.viewPageActif.adapter = adapter
         binding.tabDetailActif.setupWithViewPager(binding.viewPageActif)

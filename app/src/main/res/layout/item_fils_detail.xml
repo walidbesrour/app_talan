@@ -4,7 +4,7 @@
     <data class="FilsActifBinding">
         <variable
             name="filsactifmodel"
-            type="com.example.talan_app.view_model.FilsActif_List_VM" />
+            type="com.example.talan_app.model.ActifsListmember" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,28 +33,18 @@
                     android:layout_margin="5dp"
                     android:paddingLeft="10dp"
                     app:strokeColor="#707070"
-                    android:layout_below="@+id/RL_S1">
+                    >
 
                     <TextView
                         android:id="@+id/codecompteur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{filsactifmodel.Code1}"
+                        android:text="@{filsactifmodel.assetnum}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:fontFamily="@font/mmedium"
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/compteurdescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@{filsactifmodel.Description1}"
-                        android:paddingTop="2dp"
-                        android:layout_marginLeft="5dp"
-                        android:fontFamily="@font/mlight"
-                        android:textColor="@color/black"
-                        android:layout_toRightOf="@+id/codecompteur"/>
 
 
 
@@ -64,7 +54,7 @@
                     android:id="@+id/descriptionActif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{filsactifmodel.Code_emplacement1}"
+                    android:text="@{filsactifmodel.description}"
                     android:textStyle="normal"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="@font/mlight"
