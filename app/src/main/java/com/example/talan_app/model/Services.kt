@@ -1,22 +1,26 @@
 package com.example.talan_app.model
 
-class Services {
+import com.google.gson.annotations.SerializedName
 
-    var Code_service =""
-    var Description_service =""
-    var Consigne_service=""
-    var Etat_service =""
-    var Code_actif =""
-    var Description_actif =""
+data class Services (@SerializedName("member") val member : ArrayList<ServiceList>)
+data class ServiceList(
 
-    constructor(Code_service: String, Description_service: String, Consigne_service: String, Etat_service: String, Code_actif: String, Description_actif: String) {
-        this.Code_service = Code_service
-        this.Description_service = Description_service
-        this.Consigne_service = Consigne_service
-        this.Etat_service = Etat_service
-        this.Code_actif = Code_actif
-        this.Description_actif = Description_actif
-    }
-
-
-}
+    @SerializedName("ticketid")
+    val ticketid : String ,
+    @SerializedName("description")
+    val description : String ,
+    @SerializedName("reportedby")
+    val reportedby : String ,
+    @SerializedName("status")
+    val status : String ,
+    @SerializedName("siteid")
+    val siteid : String ,
+    @SerializedName("asset")
+    val asset : ArrayList<AssetS>
+)
+data class AssetS(
+    @SerializedName("assetnum")
+    val assetnum : String ,
+    @SerializedName("description")
+    val description : String
+)
