@@ -31,10 +31,11 @@ class Service_Detail : AppCompatActivity() {
         binding = ActivityServiceDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setUpTabs()
 
         val num = intent.getStringExtra("ticketid")
         val ticketid = "ticketid=$num"
+
+        setUpTabs(ticketid.toString())
 
         val repository = RetrofitRepositoryService()
         val viewModelFactory = Service_ListFactory_VM(repository)
@@ -107,9 +108,9 @@ class Service_Detail : AppCompatActivity() {
     }
 
 
-    private fun setUpTabs() {
+    private fun setUpTabs(num :String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
-        adapter.addFragment(DateFragment(), "Planification")
+        adapter.addFragment(DateFragment(num), "Planification")
         adapter.addFragment(UtilisateurFragment(), "AFFECTATION")
         adapter.addFragment(EtatActifFragment(), "Etat de l'actif")
         adapter.addFragment(JournalFragment(), "Journal des travaux")

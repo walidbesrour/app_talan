@@ -43,6 +43,7 @@
                     android:id="@+id/rapport"
                     android:hint="Date de rapport "
                     android:enabled="false"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -60,6 +61,7 @@
                     android:id="@+id/affectation"
                     android:hint="Date d'affectation "
                     android:enabled="false"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -78,6 +80,7 @@
                     android:id="@+id/objectif"
                     android:hint="Date objectif de fin "
                     android:enabled="false"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

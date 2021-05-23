@@ -15,6 +15,7 @@ class Service_List_VM (private val repository: RetrofitRepositoryService): ViewM
 
     var myResponse : MutableLiveData<Response<Services>> = MutableLiveData()
     var myResponseService : MutableLiveData<Response<Services>> = MutableLiveData()
+    var myResponsePlanification : MutableLiveData<Response<Services>> = MutableLiveData()
 
 
     fun getListService(apikey: String,select: String,pageSize: Int,pageno: Int){
@@ -33,4 +34,10 @@ class Service_List_VM (private val repository: RetrofitRepositoryService): ViewM
         }
     }
 
+    fun getServicePlanification(apikey: String,ASSETNUM: String ,Myselect: String){
+        viewModelScope.launch {
+            val response1 = repository.getServicePlanification(apikey,ASSETNUM,Myselect)
+            myResponsePlanification.value = response1
+        }
+    }
 }

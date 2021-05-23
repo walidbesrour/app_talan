@@ -13,4 +13,8 @@ class RetrofitRepositoryService {
     suspend fun getDetailService(apikey: String,ASSETNUM: String ,Myselect: String): Response<Services> {
         return RetrofitInstance.Myapi.getDetailService(apikey,ASSETNUM,Myselect)
     }
+
+    suspend fun getServicePlanification(apikey: String,ASSETNUM: String ,Myselect: String): Response<Services> {
+        return RetrofitInstance.Myapi.getServicePlanification(apikey,ASSETNUM,Myselect)
+    }
 }
