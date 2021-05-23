@@ -29,7 +29,7 @@ class Actif_Detail : AppCompatActivity() {
     private lateinit var binding: ActivityActifDetailBinding
 
      private lateinit var viewModel: Actif_List_VM
-
+    var descripActif =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +44,8 @@ class Actif_Detail : AppCompatActivity() {
 
         setUpTabs(num.toString(),siteid.toString())
         binding.btnDescription.setOnClickListener {
-            val txt = "Le Bitcoin, depuis quelques années déjà, fait beaucoup parler de lui. "
-            descriptioview(txt)
+
+            descriptioview(descripActif)
         }
 
 
@@ -87,6 +87,9 @@ class Actif_Detail : AppCompatActivity() {
                         binding.Province.text = ""
                     }
 
+                        if( Myresponse1.body()!!.member[0].description_longdescription != null){
+                            descripActif = Myresponse1.body()!!.member[0].description_longdescription
+                        }
 
 
 

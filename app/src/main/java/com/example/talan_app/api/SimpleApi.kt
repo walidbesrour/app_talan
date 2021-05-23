@@ -70,5 +70,12 @@ interface SimpleApi {
         @Query("oslc.pageSize") pageSize: Int,
         @Query("pageno") pageno: Int): Response<Services>
 
+
+    @GET("os/PFEWA_SR/?lean=1")
+    suspend fun getDetailService(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String): Response<Services>
+
 }
 

@@ -39,7 +39,11 @@ class Adapter_List_Service(var context: Context  ) : RecyclerView.Adapter<Adapte
 
 
             service_Binding.cardbtnservice.setOnClickListener {
+              val ticke = service.ticketid
+                val ticketid = "\"$ticke\""
+
                 val intent = Intent(context,Service_Detail::class.java)
+                intent.putExtra("ticketid",ticketid)
                 context.startActivity(intent)
             }
 

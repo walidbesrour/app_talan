@@ -1,32 +1,106 @@
 package com.example.talan_app.services
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import com.example.talan_app.R
 import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.ActivityServiceDetailBinding
+import com.example.talan_app.repository.RetrofitRepositoryService
 import com.example.talan_app.services.detail_service.DateFragment
 import com.example.talan_app.services.detail_service.EtatActifFragment
 import com.example.talan_app.services.detail_service.JournalFragment
 import com.example.talan_app.services.detail_service.UtilisateurFragment
+import com.example.talan_app.view_model.Service_ListFactory_VM
+import com.example.talan_app.view_model.Service_List_VM
 import com.google.android.material.textfield.TextInputEditText
 
 class Service_Detail : AppCompatActivity() {
 
     private lateinit var binding: ActivityServiceDetailBinding
+    private lateinit var viewModel: Service_List_VM
+    var descriptionService =""
 
     override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState)
         binding = ActivityServiceDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setUpTabs()
+
+        val num = intent.getStringExtra("ticketid")
+        val ticketid = "ticketid=$num"
+
+        val repository = RetrofitRepositoryService()
+        val viewModelFactory = Service_ListFactory_VM(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(Service_List_VM::class.java)
+
+        val sharedAPI = this.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
+        val Apikey = sharedAPI.getString("SAVE_APIKEY", null)
+
+        if (Apikey != null){
+            viewModel.getDetailService(Apikey,ticketid,"ticketid,description,status,asset,locations,tkserviceaddress,description_longdescription")
+            viewModel.myResponseService.observe(this, androidx.lifecycle.Observer { Myresponse1 ->
+
+                if (Myresponse1.isSuccessful) {
+
+                    binding.codeDemande.text = Myresponse1.body()!!.member[0].ticketid
+                    binding.DemandeDesc.text = Myresponse1.body()!!.member[0].description
+                    binding.actifService.text = Myresponse1.body()!!.member[0].status
+
+                    if(Myresponse1.body()!!.member[0].asset != null){
+                        binding.codeActif.text = Myresponse1.body()!!.member[0].asset[0].assetnum
+                        binding.descAtif.text = Myresponse1.body()!!.member[0].asset[0].description
+                    }else{
+                        binding.codeActif.text = ""
+                        binding.descAtif.text = ""
+                    }
+
+                    if(Myresponse1.body()!!.member[0].locations != null){
+                        binding.Emplacement.text = Myresponse1.body()!!.member[0].locations[0].location
+                        binding.descEmplacement.text = Myresponse1.body()!!.member[0].locations[0].description
+                    }else{
+                        binding.Emplacement.text = ""
+                        binding.descEmplacement.text = ""
+                    }
+
+                    if(Myresponse1.body()!!.member[0].address != null){
+                        binding.Address.text = Myresponse1.body()!!.member[0].address[0].addressline3
+                        binding.city.text = Myresponse1.body()!!.member[0].address[0].regiondistrict
+                        binding.adress.text = Myresponse1.body()!!.member[0].address[0].city
+                        binding.Province.text = Myresponse1.body()!!.member[0].address[0].streetaddress
+                    }else{
+                        binding.Address.text = ""
+                        binding.city.text = ""
+                        binding.adress.text = ""
+                        binding.Province.text = ""
+                    }
+
+                    if( Myresponse1.body()!!.member[0].description_longdescription != null){
+                        descriptionService = Myresponse1.body()!!.member[0].description_longdescription
+                    }
+
+
+                } else {
+                    Log.d("response --", Myresponse1.code().toString())
+                    Log.d("response --", Myresponse1.message().toString())
+                    Log.e("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", "onCreate: " )
+
+
+                }
+            })
+
+        }
+
+
         binding.btnDescriptionService.setOnClickListener {
-            var txt : String = "Apple wasn’t even expected to HAVE an event this Spring, but they surprised us by not only doing "
-            descriptioview(txt)
+
+            descriptioview(descriptionService)
         }
 
 

@@ -14,6 +14,7 @@ import retrofit2.Response
 class Service_List_VM (private val repository: RetrofitRepositoryService): ViewModel() {
 
     var myResponse : MutableLiveData<Response<Services>> = MutableLiveData()
+    var myResponseService : MutableLiveData<Response<Services>> = MutableLiveData()
 
 
     fun getListService(apikey: String,select: String,pageSize: Int,pageno: Int){
@@ -21,6 +22,14 @@ class Service_List_VM (private val repository: RetrofitRepositoryService): ViewM
 
             val response = repository.getListService(apikey,select,pageSize,pageno)
             myResponse.value = response
+        }
+    }
+
+
+    fun getDetailService(apikey: String,ASSETNUM: String ,Myselect: String){
+        viewModelScope.launch {
+            val response1 = repository.getDetailService(apikey,ASSETNUM,Myselect)
+            myResponseService.value = response1
         }
     }
 

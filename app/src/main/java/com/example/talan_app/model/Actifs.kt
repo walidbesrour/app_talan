@@ -27,9 +27,10 @@ data class ActifsListmember(
         @SerializedName("serviceaddress")
         val serviceaddress : ArrayList<serviceaddress> ,
 
-        val children : Boolean
+        val children : Boolean ,
 
-
+        @SerializedName("description_longdescription")
+        val description_longdescription : String
 
 
 

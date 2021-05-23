@@ -16,11 +16,44 @@ data class ServiceList(
     @SerializedName("siteid")
     val siteid : String ,
     @SerializedName("asset")
-    val asset : ArrayList<AssetS>
+    val asset : ArrayList<AssetS>,
+    @SerializedName("locations")
+    val locations : ArrayList<Location>,
+    @SerializedName("tkserviceaddress")
+    val address : ArrayList<Addresse>,
+    @SerializedName("description_longdescription")
+    val description_longdescription : String,
+
+
+    @SerializedName("reportdate")
+    val reportdate : String,
+    @SerializedName("affecteddate")
+    val affecteddate : String,
+    @SerializedName("actualfinish")
+    val actualfinish : String
+
 )
 data class AssetS(
     @SerializedName("assetnum")
     val assetnum : String ,
     @SerializedName("description")
     val description : String
+    )
+
+data class Location(
+    @SerializedName("location")
+    val location : String ,
+    @SerializedName("description")
+    val description : String
+)
+
+data class Addresse(
+    @SerializedName("addressline3")
+    val addressline3 : String ,
+    @SerializedName("regiondistrict")
+    val regiondistrict : String,
+    @SerializedName("city")
+    val city : String ,
+    @SerializedName("streetaddress")
+    val streetaddress : String
 )
