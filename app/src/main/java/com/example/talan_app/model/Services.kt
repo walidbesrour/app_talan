@@ -9,8 +9,7 @@ data class ServiceList(
     val ticketid : String ,
     @SerializedName("description")
     val description : String ,
-    @SerializedName("reportedby")
-    val reportedby : String ,
+
     @SerializedName("status")
     val status : String ,
     @SerializedName("siteid")
@@ -30,7 +29,26 @@ data class ServiceList(
     @SerializedName("affecteddate")
     val affecteddate : String,
     @SerializedName("actualfinish")
-    val actualfinish : String
+    val actualfinish : String,
+
+
+
+    ///////// affecter par
+    @SerializedName("affectedperson")
+    val affectedperson : String,
+    @SerializedName("affectedphone")
+    val affectedphone : String,
+    @SerializedName("affectedemail")
+    val affectedemail : String,
+
+    ///////// consigné par
+    @SerializedName("reportedby")
+    val reportedby : String ,
+    @SerializedName("reportedphone")
+    val reportedphone : String,
+    @SerializedName("reportedemail")
+    val reportedemail : String
+
 
 )
 data class AssetS(

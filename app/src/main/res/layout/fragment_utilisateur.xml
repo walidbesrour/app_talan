@@ -46,23 +46,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="20dp"
                         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:id="@+id/prenomConsigne1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="15sp"
-                        android:layout_below="@+id/consigne_par">
-                        <!--       android:enabled="false"         -->
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/prenomConsigne"
-                            android:hint="prénom"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:id="@+id/nomConsigne1"
@@ -71,7 +55,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="15sp"
-                        android:layout_below="@+id/prenomConsigne1">
+                        android:layout_below="@+id/consigne_par">
                         <!--       android:enabled="false"         -->
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/nomConsigne"
@@ -152,23 +136,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="20dp"
                         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:id="@+id/prenomAffectee1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="15sp"
-                        android:layout_below="@+id/affectee_par">
-                        <!--       android:enabled="false"         -->
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/prenomAffectee"
-                            android:hint="prénom"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:id="@+id/nomAffectee1"
@@ -177,7 +145,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="15sp"
-                        android:layout_below="@+id/prenomAffectee1">
+                        android:layout_below="@+id/affectee_par">
                         <!--       android:enabled="false"         -->
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/nomAffectee"

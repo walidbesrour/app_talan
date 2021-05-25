@@ -111,7 +111,7 @@ class Service_Detail : AppCompatActivity() {
     private fun setUpTabs(num :String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
         adapter.addFragment(DateFragment(num), "Planification")
-        adapter.addFragment(UtilisateurFragment(), "AFFECTATION")
+        adapter.addFragment(UtilisateurFragment(num), "AFFECTATION")
         adapter.addFragment(EtatActifFragment(), "Etat de l'actif")
         adapter.addFragment(JournalFragment(), "Journal des travaux")
 
