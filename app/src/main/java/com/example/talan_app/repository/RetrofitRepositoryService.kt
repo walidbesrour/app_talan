@@ -21,4 +21,8 @@ class RetrofitRepositoryService {
     suspend fun getServiceAffecter(apikey: String,ASSETNUM: String ,Myselect: String): Response<Services> {
         return RetrofitInstance.Myapi.getServiceAffecter(apikey,ASSETNUM,Myselect)
     }
+
+    suspend fun getServiceActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<Services> {
+        return RetrofitInstance.Myapi.getServiceActif(apikey,ASSETNUM,Myselect)
+    }
 }

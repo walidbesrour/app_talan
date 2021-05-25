@@ -23,6 +23,9 @@ data class ServiceList(
     @SerializedName("description_longdescription")
     val description_longdescription : String,
 
+    @SerializedName("parent")
+    val parent : String,
+
 
     @SerializedName("reportdate")
     val reportdate : String,
@@ -54,8 +57,12 @@ data class ServiceList(
 data class AssetS(
     @SerializedName("assetnum")
     val assetnum : String ,
+    @SerializedName("siteid")
+    val siteid : String,
     @SerializedName("description")
-    val description : String
+    val description : String,
+    @SerializedName("status")
+    val status : String
     )
 
 data class Location(
@@ -63,6 +70,7 @@ data class Location(
     val location : String ,
     @SerializedName("description")
     val description : String
+
 )
 
 data class Addresse(

@@ -112,7 +112,7 @@ class Service_Detail : AppCompatActivity() {
         val adapter = ViewAdapterPageView(supportFragmentManager)
         adapter.addFragment(DateFragment(num), "Planification")
         adapter.addFragment(UtilisateurFragment(num), "AFFECTATION")
-        adapter.addFragment(EtatActifFragment(), "Etat de l'actif")
+        adapter.addFragment(EtatActifFragment(num), "Etat de l'actif")
         adapter.addFragment(JournalFragment(), "Journal des travaux")
 
         binding.viewPageService.adapter = adapter
