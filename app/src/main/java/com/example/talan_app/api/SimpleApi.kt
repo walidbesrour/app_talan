@@ -96,6 +96,12 @@ interface SimpleApi {
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<Services>
 
+    @GET("os/PFEWA_SR/?lean=1")
+    suspend fun getServiceJournal(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String): Response<Journal>
+
     @GET("os/PFEWB_ACTIFDET/?lean=1")
     suspend fun getDetailInterv(
         @Query("apikey") apikey: String,

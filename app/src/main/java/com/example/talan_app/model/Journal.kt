@@ -1,15 +1,24 @@
 package com.example.talan_app.model
 
-class Journal {
-    var n_journal :String = ""
-    var datajournal :String = ""
-    var typejournal : String = ""
-    var creejournal : String = ""
+import com.google.gson.annotations.SerializedName
 
-    constructor(n_journal: String, datajournal: String, typejournal: String, creejournal: String) {
-        this.n_journal = n_journal
-        this.datajournal = datajournal
-        this.typejournal = typejournal
-        this.creejournal = creejournal
-    }
-}
+data class Journal(@SerializedName("member") val member : ArrayList<Worklogs> )
+
+data class Worklogs(
+
+    @SerializedName("worklog")
+    val worklog : ArrayList<Journals> ,
+
+)
+
+
+data class Journals(
+    @SerializedName("worklogid")
+    val worklogid : String ,
+    @SerializedName("createdate")
+    val createdate : String ,
+    @SerializedName("createby")
+    val createby : String ,
+    @SerializedName("description")
+    val description : String
+)

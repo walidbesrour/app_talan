@@ -116,7 +116,7 @@ class Service_Detail : AppCompatActivity() {
         adapter.addFragment(DateFragment(num), "Planification")
         adapter.addFragment(UtilisateurFragment(num), "AFFECTATION")
         adapter.addFragment(EtatActifFragment(num ,assetNum), "Etat de l'actif")
-        adapter.addFragment(JournalFragment(), "Journal des travaux")
+        adapter.addFragment(JournalFragment(num), "Journal des travaux")
 
         binding.viewPageService.adapter = adapter
         binding.tabDetailService.setupWithViewPager(binding.viewPageService)

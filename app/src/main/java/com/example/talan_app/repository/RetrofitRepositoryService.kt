@@ -1,6 +1,7 @@
 package com.example.talan_app.repository
 
 import com.example.talan_app.api.RetrofitInstance
+import com.example.talan_app.model.Journal
 
 import com.example.talan_app.model.Services
 import retrofit2.Response
@@ -24,5 +25,9 @@ class RetrofitRepositoryService {
 
     suspend fun getServiceActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<Services> {
         return RetrofitInstance.Myapi.getServiceActif(apikey,ASSETNUM,Myselect)
+    }
+
+    suspend fun getServiceJournal(apikey: String,ASSETNUM: String ,Myselect: String): Response<Journal> {
+        return RetrofitInstance.Myapi.getServiceJournal(apikey,ASSETNUM,Myselect)
     }
 }

@@ -4,7 +4,7 @@
     <data class="JournalBinding">
             <variable
                 name="journalmodel"
-                type="com.example.talan_app.view_model.JournalVM" />
+                type="com.example.talan_app.model.Journals" />
     </data>
 
     <LinearLayout
@@ -41,7 +41,7 @@
                     android:id="@+id/codejournal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{journalmodel.n_journal}"
+                    android:text="@{journalmodel.worklogid}"
                     android:paddingTop="2dp"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/mlight"
@@ -69,7 +69,7 @@
                         android:id="@+id/codeDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{journalmodel.datajournal}"
+                        android:text="@{journalmodel.createdate}"
                         android:paddingTop="5dp"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/mlight"
@@ -97,7 +97,7 @@
                         android:id="@+id/codeTYPE"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{journalmodel.typejournal}"
+                        android:text="@{journalmodel.description}"
                         android:paddingTop="5dp"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/mlight"
@@ -125,7 +125,7 @@
                         android:id="@+id/codecree"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{journalmodel.creejournal}"
+                        android:text="@{journalmodel.createby}"
                         android:paddingTop="5dp"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/mlight"

@@ -1,5 +1,6 @@
 package com.example.talan_app.services.detail_service
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,27 +18,64 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.talan_app.R
 import com.example.talan_app.adapters.Adapter_List_Journal
 import com.example.talan_app.databinding.FragmentJournalBinding
+import com.example.talan_app.repository.RetrofitRepositoryService
+import com.example.talan_app.view_model.JournalFactoryVM
 import com.example.talan_app.view_model.JournalVM
+import com.example.talan_app.view_model.Service_ListFactory_VM
+import com.example.talan_app.view_model.Service_List_VM
 import com.google.android.material.datepicker.MaterialDatePicker
+import java.lang.Exception
 
 
-class JournalFragment : Fragment() {
+class JournalFragment (num: String?) : Fragment() {
 
     private lateinit var binding: FragmentJournalBinding
+    private lateinit var viewModel: JournalVM
      private var adapter_List_Journal : Adapter_List_Journal?= null
+    var ticketid = num.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentJournalBinding.inflate(layoutInflater)
 
 
-          val journalVM : JournalVM = ViewModelProvider(this).get(JournalVM::class.java)
-        journalVM.getArrayList().observe(viewLifecycleOwner, {jourvm ->
+        adapter_List_Journal = Adapter_List_Journal(requireContext())
+        binding.recycleJournal.adapter = adapter_List_Journal
+        binding.recycleJournal.layoutManager = LinearLayoutManager(requireContext())
+
+        val repository = RetrofitRepositoryService()
+        val viewModelFactory = JournalFactoryVM(repository)
+
+        val sharedPreferences = this.getActivity()!!.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
+        val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(JournalVM::class.java)
+
+        if (Apikey != null) {
+            viewModel.getServiceJournal(Apikey,ticketid,"worklog")
+
+            viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+
+                if (Myresponse.isSuccessful) {
+
+                    println("*************** ${Myresponse.body()} ***************")
+
+                    try {
+                        Myresponse.body()?.let { adapter_List_Journal!!.setData(it.member[0].worklog) }
+                    }catch(e: Exception){
+                        Log.e("eureur ", "onCreateView: ", )
+                    }
 
 
-            adapter_List_Journal = Adapter_List_Journal(requireContext(),jourvm!! )
-            binding.recycleJournal.layoutManager = LinearLayoutManager(requireContext())
-            binding.recycleJournal.adapter = adapter_List_Journal
-        })
+                } else {
+                    Log.d("error journal response --", Myresponse.code().toString())
+                    Log.d("error journal response  --", Myresponse.message().toString())
+
+
+
+                }
+            })
+
+        }
 
         binding.addjournal.setOnClickListener {
             viewOk()
