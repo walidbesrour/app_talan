@@ -30,9 +30,10 @@ data class ActifsListmember(
         val children : Boolean ,
 
         @SerializedName("description_longdescription")
-        val description_longdescription : String
+        val description_longdescription : String ,
 
-
+        @SerializedName("workorder")
+        val workorder : ArrayList<Workorder>
 
 
 )
@@ -53,4 +54,13 @@ data class serviceaddress(
         val formattedaddress : String,
         // 13 rue
         val regiondistrict : String
+)
+data class Workorder(
+
+        @SerializedName("wonum")
+        val wonum : String,
+        @SerializedName("description")
+        val description : String,
+        @SerializedName("status")
+        val status : String
 )

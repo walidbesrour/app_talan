@@ -2,6 +2,7 @@ package com.example.talan_app.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,11 +40,20 @@ class Adapter_List_Service(var context: Context  ) : RecyclerView.Adapter<Adapte
 
 
             service_Binding.cardbtnservice.setOnClickListener {
-              val ticke = service.ticketid
+                var assetNum = ""
+             if (service.asset == null){
+                  assetNum = ""
+             }else{
+                 assetNum = service.asset[0].assetnum
+             }
+
+                Log.e("adapter", "=====>: $assetNum", )
+                val ticke = service.ticketid
                 val ticketid = "\"$ticke\""
 
                 val intent = Intent(context,Service_Detail::class.java)
                 intent.putExtra("ticketid",ticketid)
+                intent.putExtra("assetNum",assetNum)
                 context.startActivity(intent)
             }
 

@@ -27,15 +27,16 @@ class InterventionsFillesFragment : Fragment() {
 
         val fillesInterventionVM : InterventionsAssocieesVM = ViewModelProvider(this).get(InterventionsAssocieesVM::class.java)
 
-        fillesInterventionVM.getArrayList().observe(viewLifecycleOwner, Observer {fillesvm ->
 
-            adapter_List_InterventionsFilles = Adapter_List_InterventionsFilles(requireContext(),fillesvm!! )
-            binding.recyclefilles.layoutManager = LinearLayoutManager(requireContext())
-            binding.recyclefilles.adapter = adapter_List_InterventionsFilles
-
-
-
-        })
+//        fillesInterventionVM.getArrayList().observe(viewLifecycleOwner, Observer {fillesvm ->
+//
+//            adapter_List_InterventionsFilles = Adapter_List_InterventionsFilles(requireContext(),fillesvm!! )
+//            binding.recyclefilles.layoutManager = LinearLayoutManager(requireContext())
+//            binding.recyclefilles.adapter = adapter_List_InterventionsFilles
+//
+//
+//
+//        })
 
         return binding.root
     }

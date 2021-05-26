@@ -4,7 +4,7 @@
     <data class="AssocieesBinding">
         <variable
             name="associeesmodel"
-            type="com.example.talan_app.view_model.InterventionsAssocieesVM" />
+            type="com.example.talan_app.model.Workorder" />
 
     </data>
     <LinearLayout
@@ -33,13 +33,13 @@
                     android:layout_margin="5dp"
                     android:paddingStart="5dp"
                     app:strokeColor="#707070"
-                    android:layout_below="@+id/RL_S1">
+                 >
 
                     <TextView
                         android:id="@+id/codeAssociees"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{associeesmodel.Code_Intervention}"
+                        android:text="@{associeesmodel.wonum}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:fontFamily="@font/mmedium"
@@ -49,7 +49,7 @@
                         android:id="@+id/AssocieesDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{associeesmodel.Description_Intervention}"
+                        android:text="@{associeesmodel.description}"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -75,7 +75,7 @@
                     android:id="@+id/descriptionActif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{associeesmodel.Etat_Intervention}"
+                    android:text="@{associeesmodel.status}"
                     android:textStyle="normal"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/mlight"

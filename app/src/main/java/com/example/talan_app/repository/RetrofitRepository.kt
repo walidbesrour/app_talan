@@ -45,6 +45,11 @@ class RetrofitRepository {
 
         return RetrofitInstance.Myapi.getPrecautionActif(apikey,ASSETNUM,Myselect)
     }
+
+    suspend fun getDetailInterv(apikey: String,ASSETNUM: String ,Myselect: String): Response<Actifs> {
+
+        return RetrofitInstance.Myapi.getDetailInterv(apikey,ASSETNUM,Myselect)
+    }
 }
 
 

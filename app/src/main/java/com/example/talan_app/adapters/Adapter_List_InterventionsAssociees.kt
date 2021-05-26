@@ -7,17 +7,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.AssocieesBinding
+import com.example.talan_app.model.ActifsListmember
+import com.example.talan_app.model.Workorder
 import com.example.talan_app.view_model.InterventionsAssocieesVM
 
-class Adapter_List_InterventionsAssociees (private val context: Context, private val list_InterventionsAssociees: ArrayList<InterventionsAssocieesVM> ): RecyclerView.Adapter<Adapter_List_InterventionsAssociees.InterventionsAssociees_Holder>()  {
+class Adapter_List_InterventionsAssociees (private val context: Context ): RecyclerView.Adapter<Adapter_List_InterventionsAssociees.InterventionsAssociees_Holder>()  {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_InterventionsAssociees.InterventionsAssociees_Holder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val InterventionsAssocieesBinding: AssocieesBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_interventions_associees ,parent,false)
-        return InterventionsAssociees_Holder(InterventionsAssocieesBinding)
+     var list_InterventionsAssociees = ArrayList<Workorder>()
 
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = InterventionsAssociees_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_interventions_associees ,parent,false)
+    )
+
+
 
     override fun onBindViewHolder(holder: Adapter_List_InterventionsAssociees.InterventionsAssociees_Holder, position: Int) {
         val  associeesList = list_InterventionsAssociees[position]
@@ -29,10 +32,15 @@ class Adapter_List_InterventionsAssociees (private val context: Context, private
 
     inner class InterventionsAssociees_Holder(private val associeesBinding :AssocieesBinding): RecyclerView.ViewHolder(associeesBinding.root){
 
-        fun bind(asssocieesVM : InterventionsAssocieesVM){
-            this.associeesBinding.associeesmodel = asssocieesVM
+        fun bind(workorder : Workorder){
+            this.associeesBinding.associeesmodel = workorder
             associeesBinding.executePendingBindings()
         }
 
+    }
+
+    fun setData(newList: ArrayList<Workorder>){
+        list_InterventionsAssociees = newList
+        notifyDataSetChanged()
     }
 }
