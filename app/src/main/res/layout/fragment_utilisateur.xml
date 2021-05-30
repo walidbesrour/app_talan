@@ -61,6 +61,7 @@
                             android:id="@+id/nomConsigne"
                             android:hint="Nom"
                             android:enabled="false"
+                            android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -79,6 +80,7 @@
                             android:id="@+id/telephoneConsigne"
                             android:hint="Téléphone "
                             android:enabled="false"
+                            android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -97,6 +99,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/emailConsigne"
                             android:hint="Email"
+                            android:textColor="@color/black"
                             android:enabled="false"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -151,6 +154,7 @@
                             android:id="@+id/nomAffectee"
                             android:hint="Nom"
                             android:enabled="false"
+                            android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -169,6 +173,7 @@
                             android:id="@+id/telephoneAffectee"
                             android:hint="Téléphone "
                             android:enabled="false"
+                            android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -187,6 +192,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/emailAffectee"
                             android:hint="Email"
+                            android:textColor="@color/black"
                             android:enabled="false"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />

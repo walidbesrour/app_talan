@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -97,5 +98,30 @@ class Adapter_List_Actifs(var context: Context) :RecyclerView.Adapter<Adapter_Li
     fun addActif(actif : ArrayList<ActifsListmember>){
         list_actif.addAll(actif)
     }
+    fun searchActif(actif : ArrayList<ActifsListmember>){
 
-}
+        list_actif = actif
+        notifyDataSetChanged()
+    }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

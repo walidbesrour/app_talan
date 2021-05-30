@@ -10,8 +10,10 @@ import android.speech.RecognizerIntent
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.SearchEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -92,7 +94,21 @@ class ActifFilsFragment(siteid: String?, assetnum: String?) : Fragment() {
             speechInput()
         }
 
+        binding.numPortflis.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
 
+                println("************ $query ***********************")
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                println("************ $newText ***********************")
+                return true
+
+            }
+
+        })
 
         return binding.root
     }
@@ -123,7 +139,7 @@ class ActifFilsFragment(siteid: String?, assetnum: String?) : Fragment() {
 
             REQ_CODE_SPEECH_INPUT -> if (resultCode == Activity.RESULT_OK && null != data) {
                 val result: ArrayList<String> = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
-                binding.numPortflis.setText(result.get(0))
+                binding.numPortflis.setQuery(result.get(0), false)
             }
 
         }

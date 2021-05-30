@@ -82,7 +82,7 @@ class ConfigurationActivity : AppCompatActivity() {
 
 //                        })
 
-
+                    viewOk()
 
 
                 }

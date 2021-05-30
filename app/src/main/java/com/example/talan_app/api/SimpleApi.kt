@@ -20,7 +20,13 @@ interface SimpleApi {
             @Query("oslc.pageSize") pageSize: Int,
             @Query("pageno") pageno: Int): Response<Actifs>
 
+    @GET("os/PFE_LISTACTIF/?lean=1")
+    suspend fun getActif(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") parent: String,
+        @Query("oslc.select") select: String
 
+    ): Response<Actifs>
 
     @GET("os/PFE_LISTACTIF/?lean=1")
     suspend fun getListFils(

@@ -57,14 +57,13 @@
 
 
 
-        <EditText
-            android:id="@+id/num_portflis"
+        <SearchView
+            android:id="@+id/numPortflis"
             android:hint="Search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:drawableRight="@drawable/ic_baseline_search_24"
             android:layout_margin="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="10dp"

@@ -8,11 +8,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.speech.RecognizerIntent
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
@@ -53,6 +56,7 @@ class ActifFragment : Fragment() {
         adapter_list_actifs = Adapter_List_Actifs(requireContext())
         binding.recycleActif.adapter = adapter_list_actifs
         binding.recycleActif.layoutManager = LinearLayoutManager(requireContext())
+
         val repository = RetrofitRepository()
         val viewModelFactory = Actif_ListFactory_VM(repository)
 
@@ -67,66 +71,68 @@ class ActifFragment : Fragment() {
 
 
 
-        viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
-            if (Myresponse.isSuccessful) {
+            viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+                if (Myresponse.isSuccessful) {
 //                println("****** test  Actif **** ${Myresponse.body()} ")
 //                println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
-                Myresponse.body()?.let { adapter_list_actifs!!.setData(it.member) }
+                    Myresponse.body()?.let { adapter_list_actifs!!.setData(it.member) }
 
-                binding.recycleActif.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                        super.onScrolled(recyclerView, dx, dy)
+                    binding.recycleActif.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                            super.onScrolled(recyclerView, dx, dy)
 
-                        val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                        if (!isLoading) {
-                            val sizeList : Int? = Myresponse.body()?.let { adapter_list_actifs!!.list_actif.size }
+                            val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
+                            if (!isLoading) {
+                                val sizeList : Int? = Myresponse.body()?.let { adapter_list_actifs!!.list_actif.size }
 
-                            if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == (sizeList!! - 1)) {
+                                if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == (sizeList!! - 1) ) {
 
-                                isLoading = true
-                                binding.progressBar.visibility = View.VISIBLE
-                                Handler(Looper.getMainLooper()).postDelayed({
-                                    var  newpageno  = pageno++
-                                    viewModel.getListActifs(Apikey,"*",pageSize,newpageno)
-                                    viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
-                                        if (Myresponse1.isSuccessful) {
-                                            Myresponse.body()?.let { adapter_list_actifs!!.addActif(it.member) }
-                                            recyclerView.post { adapter_list_actifs?.notifyDataSetChanged() }
-                                        } else {
-                                            Log.d("response --", Myresponse.code().toString())
-                                            Log.d("response --", Myresponse.message().toString())
-                                            Log.d("ajouter des nouveau element ", "error")
-                                        }
-
-
-                                    })
+                                    isLoading = true
+                                    binding.progressBar.visibility = View.VISIBLE
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        var  newpageno  = pageno++
+                                        viewModel.getListActifs(Apikey,"*",pageSize,newpageno)
+                                        viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
+                                            if (Myresponse1.isSuccessful) {
+                                                Myresponse.body()?.let { adapter_list_actifs!!.addActif(it.member) }
+                                                recyclerView.post { adapter_list_actifs?.notifyDataSetChanged() }
+                                            } else {
+                                                Log.d("response --", Myresponse.code().toString())
+                                                Log.d("response --", Myresponse.message().toString())
+                                                Log.d("ajouter des nouveau element ", "error")
+                                            }
 
 
+                                        })
 
 
 
 
 
-                                    binding.progressBar.visibility = View.GONE
-                                    isLoading = false
-                                }, 1000)
+
+
+                                        binding.progressBar.visibility = View.GONE
+                                        isLoading = false
+
+
+                                    }, 2000)
+
+                                }
 
                             }
 
+
+
                         }
+                    })
 
 
-
-                    }
-                })
-
-
-            } else {
-                Log.d("response --", Myresponse.code().toString())
-                Log.d("response --", Myresponse.message().toString())
-                println("+++++++++++++++++++++++++++++++++++++")
-            }
-        })
+                } else {
+                    Log.d("response --", Myresponse.code().toString())
+                    Log.d("response --", Myresponse.message().toString())
+                    println("+++++++++++++++++++++++++++++++++++++")
+                }
+            })
 
 
         }
@@ -142,7 +148,61 @@ class ActifFragment : Fragment() {
 
         }
         binding.voiceflis.setOnClickListener {   speechInput()  }
+        binding.numport1.addTextChangedListener(object  :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+                if (binding.numport1.text.length == 0){
+                    binding.recycleActif.visibility = View.VISIBLE
+                    binding.recycleSerache.visibility = View.GONE
+                }else{
+                    binding.recycleActif.visibility = View.GONE
+                    binding.recycleSerache.visibility = View.VISIBLE
+                    if (Apikey != null) {
+
+                        binding.recycleSerache.adapter = adapter_list_actifs
+                        binding.recycleSerache.layoutManager = LinearLayoutManager(requireContext())
+                        var txt = binding.numport1.text
+                        viewModel.getActif(Apikey,"assetnum=\"%$txt%\"","*")
+
+
+
+                        viewModel.myResponse1.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+                            if (Myresponse.isSuccessful) {
+                                println(Myresponse.body())
+                                Myresponse.body()?.let { adapter_list_actifs!!.searchActif(it.member) }
+
+
+
+
+                            } else {
+                                Log.d("response --", Myresponse.code().toString())
+                                Log.d("response --", Myresponse.message().toString())
+                                Log.d("response --", Myresponse.errorBody().toString())
+
+                                println("+++++++++++++++++++++++++++++++++++++")
+                            }
+                        })
+
+
+                    }
+                }
+
+            }
+
+        })
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////
 
         return binding.root
     }
@@ -174,7 +234,7 @@ class ActifFragment : Fragment() {
 
             REQ_CODE_SPEECH_INPUT -> if (resultCode == Activity.RESULT_OK && null != data) {
                 val result: ArrayList<String> = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
-                binding.numPort1.setText(result.get(0))
+                binding.numport1.setText(result.get(0))
             }
 
         }

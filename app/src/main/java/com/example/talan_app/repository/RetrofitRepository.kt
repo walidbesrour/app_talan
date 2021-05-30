@@ -17,6 +17,10 @@ class RetrofitRepository {
         return RetrofitInstance.Myapi.getListActif(apikey,select,pageSize,pageno)
     }
 
+    suspend fun getActif(apikey: String,parent: String,select: String): Response<Actifs> {
+        return RetrofitInstance.Myapi.getActif(apikey,parent,select)
+    }
+
     suspend fun getListActifFils(apikey: String,select: String,parent: String,siteid: String): Response<Actifs> {
 
         return RetrofitInstance.Myapi.getListFils(apikey,select,parent,siteid)
