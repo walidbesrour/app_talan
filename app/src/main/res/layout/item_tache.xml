@@ -34,7 +34,7 @@
                     android:layout_margin="5dp"
                     android:paddingLeft="10dp"
                     app:strokeColor="#707070"
-                    android:layout_below="@+id/RL_S1">
+                  >
 
                     <TextView
                         android:id="@+id/Sequence1"

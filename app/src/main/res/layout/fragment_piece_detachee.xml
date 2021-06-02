@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".actifs.detail_actif.PieceDetacheeFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclePiece"
         android:layout_width="match_parent"
@@ -16,5 +17,6 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         tools:listitem="@layout/item_piece_detachee"/>
+
 
 </LinearLayout>

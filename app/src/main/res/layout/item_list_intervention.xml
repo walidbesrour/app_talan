@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-  >
     <data class="InterventionBinding">
         <variable
             name="interventionmodel"
-            type="com.example.talan_app.view_model.Intervention_List_VM" />
+            type="com.example.talan_app.model.Inter" />
 
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             <RelativeLayout
                 android:id="@+id/RLI1"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="#F4F5FA"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
@@ -43,38 +43,39 @@
                     android:id="@+id/code_intervention"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.Code_Intervention}"
-                    android:layout_marginLeft="5dp"
+                    android:text="@{interventionmodel.wonum}"
+                    android:layout_marginLeft="1dp"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/code_actif_in_service"
+                    android:id="@+id/IntervDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.Description_Intervention}"
+                    android:text="@{interventionmodel.description}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/black"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@+id/code_intervention"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/code_intervention"
+                    android:layout_toLeftOf="@+id/iconbtn"/>
 
 
                 <TextView
-                    android:id="@+id/Active_intervention"
+                    android:id="@+id/StatusInter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.Etat_Intervention}"
+                    android:text="@{interventionmodel.status}"
                     android:paddingTop="2dp"
-                    android:layout_marginLeft="20sp"
-                    android:fontFamily="@font/mmedium"
-                    android:textColor="#2196F3"
-                    android:layout_below="@+id/code_intervention"/>
+                    android:layout_marginLeft="1sp"
+                    android:fontFamily="@font/msemibold"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/IntervDesc"/>
                 <CheckBox
-                    android:id="@+id/icon"
+                    android:id="@+id/iconbtn"
                     android:layout_width="35sp"
                     android:layout_height="wrap_content"
                     android:button="@drawable/sl_favourite_24dp"
@@ -89,38 +90,54 @@
                 android:layout_marginBottom="5dp"
                 android:layout_below="@+id/RLI1">
                 <TextView
-                    android:id="@+id/Ac"
+                    android:id="@+id/Site"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Actif : "
+                    android:text="Site : "
+                    android:layout_marginLeft="5dp"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/mmedium"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/C_actif_int"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.Code_actif}"
-                    android:paddingTop="2dp"
-                    android:textStyle="normal"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black"
-                    android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@+id/Ac"/>
 
+                    />
                 <TextView
-                    android:id="@+id/D_actif_int"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/SiteInter"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.Description_actif}"
+                    android:text="@{interventionmodel.siteid}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/black"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@+id/C_actif_int"/>
+                    android:layout_toRightOf="@+id/Site"/>
+
+                <TextView
+                    android:id="@+id/ActifInter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.asset[0].assetnum}"
+                    android:paddingTop="2dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/blue_talan"
+                    android:layout_marginLeft="5dp"
+                    android:layout_below="@+id/Site"
+                    />
+
+                <TextView
+                    android:id="@+id/DescriptionInter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{interventionmodel.asset[0].description}"
+                    android:paddingTop="2dp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/ActifInter"
+                    android:layout_below="@+id/Site"/>
 
 
 
@@ -134,46 +151,46 @@
                     android:paddingTop="2dp"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/Ac"/>
+                    android:layout_below="@+id/ActifInter"/>
 
                 <TextView
                     android:id="@+id/type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.type_inter}"
+                    android:text="@{interventionmodel.worktype}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/black"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@+id/type1"
-                    android:layout_below="@+id/C_actif_int"/>
+                    android:layout_below="@+id/ActifInter"/>
 
 
                 <TextView
                     android:id="@+id/Priorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.Priorite}"
+                    android:text="@{Integer.toString(interventionmodel.wopriority)}"
                     android:paddingTop="2dp"
-                    android:textStyle="normal"
-                    android:fontFamily="@font/mlight"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/msemibold"
                     android:textColor="@color/black"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="3dp"
-                    android:layout_below="@+id/D_actif_int"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@+id/DescriptionInter"
                     android:layout_alignParentRight="true"/>
                 <TextView
                     android:id="@+id/Priorite1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Priorite:"
+                    android:text="P:"
                     android:layout_marginLeft="5dp"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
-                    android:fontFamily="@font/mmedium"
+                    android:fontFamily="@font/msemibold"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/Ac"
+                    android:layout_below="@+id/DescriptionInter"
                     android:layout_toLeftOf="@+id/Priorite"/>
 
 
@@ -193,7 +210,7 @@
                     android:id="@+id/date_obj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{interventionmodel.actif_date}"
+                    android:text="@{interventionmodel.targstartdate}"
                     android:paddingTop="2dp"
                     android:textStyle="normal"
                     android:fontFamily="@font/mlight"

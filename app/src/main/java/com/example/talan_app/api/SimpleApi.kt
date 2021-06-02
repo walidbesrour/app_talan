@@ -114,5 +114,14 @@ interface SimpleApi {
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<Actifs>
 
+
+
+    @GET("os/PFEWA_LISINV/?lean=1")
+    suspend fun getListIntervention(
+        @Query("apikey") apikey: String,
+        @Query("oslc.select") select: String,
+        @Query("oslc.pageSize") pageSize: Int,
+        @Query("pageno") pageno: Int): Response<Intervention>
+
 }
 

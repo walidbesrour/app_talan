@@ -35,7 +35,8 @@ class Adapter_List_favorisINTER(private val context: Context, private val list_f
 
     inner class FavorisHolder(private val favorisBinding :FavorisBinding) : RecyclerView.ViewHolder(favorisBinding.root){
         fun bind(favoris_intervention_VM : Favoris_intervention_VM){
-            this.favorisBinding.favorismodel = favoris_intervention_VM
+//            this.favorisBinding.favorismodel = favoris_intervention_VM
+
 
             favorisBinding.cardfilsintervention.setOnClickListener {
                 val intent = Intent(context, Intervention_Detail::class.java)

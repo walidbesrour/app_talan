@@ -16,18 +16,18 @@ import com.example.talan_app.view_model.Favoris_intervention_VM
 class List_Favoris_List : Fragment() {
 
 private lateinit var binding : FragmentListFavorisListBinding
-private var adapter_List_favorisINTER: Adapter_List_favorisINTER? = null
+//private var adapter_List_favorisINTER: Adapter_List_favorisINTER? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             binding = FragmentListFavorisListBinding.inflate(layoutInflater)
 
-        val favoris_intervention_VM : Favoris_intervention_VM = ViewModelProvider(this).get(Favoris_intervention_VM::class.java)
-
-        favoris_intervention_VM.getArrayList().observe(viewLifecycleOwner,{ favorisList ->
-            adapter_List_favorisINTER = Adapter_List_favorisINTER(requireContext(),favorisList)
-            binding.recyclefavorisinter.layoutManager = LinearLayoutManager(requireContext())
-            binding.recyclefavorisinter.adapter = adapter_List_favorisINTER
-        })
+//        val favoris_intervention_VM : Favoris_intervention_VM = ViewModelProvider(this).get(Favoris_intervention_VM::class.java)
+//
+//        favoris_intervention_VM.getArrayList().observe(viewLifecycleOwner,{ favorisList ->
+//            adapter_List_favorisINTER = Adapter_List_favorisINTER(requireContext(),favorisList)
+//            binding.recyclefavorisinter.layoutManager = LinearLayoutManager(requireContext())
+//            binding.recyclefavorisinter.adapter = adapter_List_favorisINTER
+//        })
 
 
 
