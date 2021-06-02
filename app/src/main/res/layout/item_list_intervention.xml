@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:button="@drawable/sl_favourite_24dp"
                     app:buttonTint="#003BFF"
-                    android:text=" "
+                    android:text=""
                     android:layout_alignParentRight="true"
                     />
             </RelativeLayout>

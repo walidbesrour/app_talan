@@ -40,8 +40,9 @@ class ServiceFragment : Fragment()  {
     private val REQ_CODE_SPEECH_INPUT = 100
 
     var LoadingSer = false
-    var pageSizes = 50
+    var pageSizes = 150
     var pageno = 1
+    var newpageno =2
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -82,11 +83,12 @@ class ServiceFragment : Fragment()  {
                                     LoadingSer = true
                                     binding.progressBar.visibility = View.VISIBLE
                                     Handler(Looper.getMainLooper()).postDelayed({
-                                        var  newpageno  = pageno++
-                                        viewModel.getListService(Apikey,"*",pageSizes,newpageno)
-                                        viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
+                                          newpageno
+                                        viewModel.getListService1(Apikey,"*",pageSizes,newpageno)
+                                        viewModel.myResponse1.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
                                             if (Myresponse1.isSuccessful) {
-                                                Myresponse.body()?.let { adapter_List_Service!!.addActif(it.member) }
+                                                newpageno++
+                                                Myresponse1.body()?.let { adapter_List_Service!!.addActif(it.member) }
                                                 recyclerView.post { adapter_List_Service?.notifyDataSetChanged() }
                                             } else {
                                                 Log.d("response --", Myresponse.code().toString())

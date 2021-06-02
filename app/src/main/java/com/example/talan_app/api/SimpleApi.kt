@@ -123,5 +123,15 @@ interface SimpleApi {
         @Query("oslc.pageSize") pageSize: Int,
         @Query("pageno") pageno: Int): Response<Intervention>
 
+
+
+    @GET("os/PFEWA_LISINV/?lean=1")
+    suspend fun getListInterventionFavoris(
+        @Query("apikey") apikey: String,
+        @Query("oslc.select") select: String,
+        @Query("oslc.pageSize") pageSize: Int,
+        @Query("pageno") pageno: Int): Response<Intervention>
+
+
 }
 

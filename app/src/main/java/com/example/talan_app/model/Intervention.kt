@@ -27,9 +27,21 @@ data class Inter(
     val wopriority : Int,
 
     @SerializedName("targstartdate")
-    val targstartdate : String
+    val targstartdate : String,
 
+    @SerializedName("bookmark")
+    val bookmark : ArrayList<Bookmark>
+)
 
+data class Bookmark(
+    @SerializedName("keyvalue")
+    val keyvalue : Int ,
+
+    @SerializedName("userid")
+    val userid : String ,
+
+    @SerializedName("app")
+    val app : String
 )
 
 data class Asset(
@@ -37,6 +49,6 @@ data class Asset(
     val assetnum : String ,
 
     @SerializedName("description")
-    val description : String,
+    val description : String
 )
 

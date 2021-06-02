@@ -15,6 +15,7 @@ class Actif_List_VM (private val repository: RetrofitRepository): ViewModel() {
 
 
     var myResponse : MutableLiveData<Response<Actifs>> = MutableLiveData()
+    var myResponse11 : MutableLiveData<Response<Actifs>> = MutableLiveData()
 
     var myResponse1 : MutableLiveData<Response<Actifs>> = MutableLiveData()
 
@@ -39,6 +40,15 @@ class Actif_List_VM (private val repository: RetrofitRepository): ViewModel() {
             myResponse.value = response
         }
     }
+
+    fun getListActifs11(apikey: String,select: String,pageSize: Int,pageno: Int){
+        viewModelScope.launch {
+
+            val response = repository.getListActif(apikey,select,pageSize,pageno)
+            myResponse11.value = response
+        }
+    }
+
 
     fun getListActifFils(apikey: String,select: String,parent: String,siteid: String){
         viewModelScope.launch {

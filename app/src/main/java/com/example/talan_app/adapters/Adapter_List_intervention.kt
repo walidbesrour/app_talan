@@ -61,6 +61,25 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
                 inter_Binding.SiteInter.visibility = View.GONE
             }
 
+
+
+            if (inter.bookmark != null){
+                var j = inter.bookmark.size - 1
+                for (i in 0..j){
+                    if (inter.bookmark[i].userid == "B.WALID" && inter.bookmark[i].app == "WOTRACK"){
+                        println("======> ${inter.bookmark[0].userid}")
+                        println("======> ${inter.wonum}")
+                        inter_Binding.iconbtn.isChecked = true
+                    }
+                }
+
+            }else{
+                inter_Binding.iconbtn.isChecked = false
+            }
+
+//            inter_Binding.iconbtn.isChecked = inter.bookmark != null
+
+
             inter_Binding.executePendingBindings()
         }
 
@@ -74,6 +93,6 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
 
     fun addActif(serv : ArrayList<Inter>){
         list_intervention.addAll(serv)
+        notifyDataSetChanged()
     }
-
 }

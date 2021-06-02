@@ -44,8 +44,9 @@ class ActifFragment : Fragment() {
     private lateinit var viewModel: Actif_List_VM
     private var resultScan : String = ""
     var isLoading = false
-    var pageSize = 50
+    var pageSize = 150
     var pageno = 1
+    var newpageno = 2
 
     private val REQ_CODE_SPEECH_INPUT = 100
 
@@ -90,11 +91,12 @@ class ActifFragment : Fragment() {
                                     isLoading = true
                                     binding.progressBar.visibility = View.VISIBLE
                                     Handler(Looper.getMainLooper()).postDelayed({
-                                        var  newpageno  = pageno++
-                                        viewModel.getListActifs(Apikey,"*",pageSize,newpageno)
-                                        viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
+
+                                        viewModel.getListActifs11(Apikey,"*",pageSize,newpageno)
+                                        viewModel.myResponse11.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
                                             if (Myresponse1.isSuccessful) {
-                                                Myresponse.body()?.let { adapter_list_actifs!!.addActif(it.member) }
+                                                newpageno++
+                                                Myresponse1.body()?.let { adapter_list_actifs!!.addActif(it.member) }
                                                 recyclerView.post { adapter_list_actifs?.notifyDataSetChanged() }
                                             } else {
                                                 Log.d("response --", Myresponse.code().toString())

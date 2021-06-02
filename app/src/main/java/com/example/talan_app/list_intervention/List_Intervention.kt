@@ -25,6 +25,7 @@ import com.example.talan_app.view_model.Intervention_List_VM
 import com.example.talan_app.view_model.Service_ListFactory_VM
 import com.example.talan_app.view_model.Service_List_VM
 import com.google.zxing.integration.android.IntentIntegrator
+import kotlin.math.log
 
 
 class List_Intervention : Fragment() {
@@ -34,8 +35,13 @@ private var adapterListIntervention : Adapter_List_intervention? =null
     private lateinit var viewModel: Intervention_List_VM
 
     var LoadingSer = false
-    var pageSizes = 20
+    var pageSizes = 150
     var pageno = 1
+
+    var newpage = 2
+
+
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentListInterventionBinding.inflate(layoutInflater)
@@ -59,8 +65,8 @@ private var adapterListIntervention : Adapter_List_intervention? =null
             viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
                 if (Myresponse.isSuccessful) {
 
-                    println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
-                    println(Myresponse.body())
+                    println("111111111111111111111111111111111111")
+
                     Myresponse.body()?.let { adapterListIntervention!!.setData(it.member) }
 
                     binding.recycleIntervention.addOnScrollListener(object : RecyclerView.OnScrollListener(){
@@ -68,20 +74,28 @@ private var adapterListIntervention : Adapter_List_intervention? =null
                             super.onScrolled(recyclerView, dx, dy)
 
                             val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
+
+
+
+
                             if (!LoadingSer) {
 
                                 val sizeList : Int? = Myresponse.body()?.let { adapterListIntervention!!.list_intervention.size }
-
                                 if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == (sizeList!! - 1)) {
+
 
                                     LoadingSer = true
                                     binding.progressBar.visibility = View.VISIBLE
                                     Handler(Looper.getMainLooper()).postDelayed({
-                                        var  newpageno  = pageno++
-                                        viewModel.getListIntervention(Apikey,"*",pageSizes,newpageno)
-                                        viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
+
+                                        viewModel.getListIntervention1(Apikey,"*",pageSizes,newpage)
+                                        viewModel.myResponse1.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse1 ->
                                             if (Myresponse1.isSuccessful) {
-                                                Myresponse.body()?.let { adapterListIntervention!!.addActif(it.member) }
+
+                                                newpage++
+                                                LoadingSer = false
+
+                                                Myresponse1.body()?.let { adapterListIntervention!!.addActif(it.member) }
                                                 recyclerView.post { adapterListIntervention?.notifyDataSetChanged() }
                                             } else {
                                                 Log.d("response --", Myresponse.code().toString())
@@ -92,15 +106,12 @@ private var adapterListIntervention : Adapter_List_intervention? =null
 
                                         })
 
-
-
-
-
-
-
                                         binding.progressBar.visibility = View.GONE
-                                        LoadingSer = false
+
                                     }, 1000)
+
+
+
 
                                 }
 
