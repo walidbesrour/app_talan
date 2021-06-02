@@ -71,7 +71,7 @@
                     android:paddingTop="2dp"
                     android:layout_marginLeft="20sp"
                     android:fontFamily="@font/mmedium"
-                    android:textColor="#02FF07"
+                    android:textColor="@color/black"
                     android:layout_below="@+id/code_intervention"/>
 
             </RelativeLayout>

@@ -25,7 +25,7 @@ class InterventionsFillesFragment : Fragment() {
         binding = FragmentInterventionsFillsBinding.inflate(layoutInflater)
 
 
-        val fillesInterventionVM : InterventionsAssocieesVM = ViewModelProvider(this).get(InterventionsAssocieesVM::class.java)
+//        val fillesInterventionVM : InterventionsAssocieesVM = ViewModelProvider(this).get(InterventionsAssocieesVM::class.java)
 
 
 //        fillesInterventionVM.getArrayList().observe(viewLifecycleOwner, Observer {fillesvm ->
