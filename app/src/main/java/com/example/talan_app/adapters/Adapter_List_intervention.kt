@@ -12,9 +12,7 @@ import com.example.talan_app.R
 import com.example.talan_app.databinding.InterventionBinding
 import com.example.talan_app.intervention.Intervention_Detail
 import com.example.talan_app.model.Inter
-import com.example.talan_app.model.ServiceList
 
-import com.example.talan_app.view_model.Intervention_List_VM
 
 class Adapter_List_intervention(private val context: Context ) : RecyclerView.Adapter<Adapter_List_intervention.Intervention_View_Holder>(){
 

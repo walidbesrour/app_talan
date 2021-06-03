@@ -100,7 +100,7 @@ private var adapterListIntervention : Adapter_List_intervention? =null
                                             } else {
                                                 Log.d("response --", Myresponse.code().toString())
                                                 Log.d("response --", Myresponse.message().toString())
-                                                Log.d("ajouter des nouveau element  Sevice", "error")
+                                                Log.d("intervention list ", "error")
                                             }
 
 

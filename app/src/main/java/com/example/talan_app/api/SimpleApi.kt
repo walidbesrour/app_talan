@@ -129,8 +129,7 @@ interface SimpleApi {
     suspend fun getListInterventionFavoris(
         @Query("apikey") apikey: String,
         @Query("oslc.select") select: String,
-        @Query("oslc.pageSize") pageSize: Int,
-        @Query("pageno") pageno: Int): Response<Intervention>
+        @Query("oslc.where") bookmark : String): Response<Intervention>
 
 
 }
