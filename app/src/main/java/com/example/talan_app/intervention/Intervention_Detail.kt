@@ -111,7 +111,7 @@ class Intervention_Detail : AppCompatActivity() {
         }
 
 
-        setUpTabs(wonum)
+        setUpTabs(won.toString())
         binding.btnDescriptionInterv.setOnClickListener {
           descriptioview(txt)
         }

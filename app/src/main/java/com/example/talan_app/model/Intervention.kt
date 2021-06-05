@@ -23,6 +23,11 @@ data class Inter(
     @SerializedName("worktype")
     val worktype : String ,
 
+
+    @SerializedName("wogroup")
+    val wogroup : String ,
+
+
     @SerializedName("parent")
     val parent : String,
 

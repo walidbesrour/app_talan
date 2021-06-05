@@ -19,4 +19,7 @@ class RetrofitRepositoryIntervention {
         return RetrofitInstance.Myapi.getDetailFavoris(apikey,wonum,select)
     }
 
+    suspend fun getFilsFavoris(apikey: String,select: String,wonum: String): Response<Intervention> {
+        return RetrofitInstance.Myapi.getFilsFavoris(apikey,select,wonum)
+    }
 }

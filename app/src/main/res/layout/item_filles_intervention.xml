@@ -5,7 +5,7 @@
 
         <variable
             name="fillsmodel"
-            type="com.example.talan_app.model.Workorder" />
+            type="com.example.talan_app.model.Inter" />
     </data>
 
     <LinearLayout
@@ -33,24 +33,24 @@
                     android:layout_height="wrap_content"
                     android:background="#F4F5FA"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="5dp"
                     app:strokeColor="#707070">
 
                     <TextView
                         android:id="@+id/NunmIntervention"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="N°intervention :"
+                        android:text="@{fillsmodel.wonum}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
-                        android:fontFamily="@font/mmedium"
+                        android:fontFamily="@font/msemibold"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/compteurdescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="{fillsmodel.Code_Intervention}"
+                        android:text="@{fillsmodel.description}"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -61,16 +61,7 @@
 
 
                 </RelativeLayout>
-                <TextView
-                    android:id="@+id/descriptiondIntervention"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="{fillsmodel.Description_Intervention}"
-                    android:textStyle="normal"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="@font/mlight"
-                    android:textColor="@color/black"
-                    android:layout_below="@+id/RL_S2" />
+
 
                 <TextView
                     android:id="@+id/StatusIntervention1"
@@ -79,22 +70,23 @@
                     android:text="Statut :"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_below="@+id/descriptiondIntervention"
+                    android:layout_below="@+id/RL_S2"
+                    android:layout_marginLeft="10dp"
                     android:fontFamily="@font/mmedium"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blue_talan"
+                    />
 
 
                 <TextView
                     android:id="@+id/StatusIntervention"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="{fillsmodel.Etat_Intervention}"
+                    android:text="@{fillsmodel.status}"
                     android:paddingTop="2dp"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/descriptiondIntervention"
+                    android:layout_below="@+id/RL_S2"
                     android:layout_toRightOf="@+id/StatusIntervention1"/>
 
 
