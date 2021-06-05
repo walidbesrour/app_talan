@@ -12,11 +12,11 @@ import com.example.talan_app.adapters.Adapter_List_Articles
 import com.example.talan_app.databinding.FragmentArticlesBinding
 import com.example.talan_app.view_model.ArticlesVM
 
-class ArticlesFragment : Fragment() {
+class ArticlesFragment (won: String?): Fragment() {
 
     private lateinit var binding: FragmentArticlesBinding
     private var adapter_List_Articles : Adapter_List_Articles?= null
-
+    var wonum = won.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentArticlesBinding.inflate(layoutInflater)

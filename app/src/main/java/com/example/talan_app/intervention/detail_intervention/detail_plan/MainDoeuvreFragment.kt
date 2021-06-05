@@ -14,11 +14,11 @@ import com.example.talan_app.adapters.Adapter_List_MainDoeuvre
 import com.example.talan_app.databinding.FragmentMainDoeuvreBinding
 import com.example.talan_app.view_model.MainDoeuvreVM
 
-class MainDoeuvreFragment : Fragment() {
+class MainDoeuvreFragment (won: String?): Fragment() {
 
     private lateinit var binding: FragmentMainDoeuvreBinding
        private var adapter_List_MainDoeuvre : Adapter_List_MainDoeuvre?= null
-
+    var wonum = won.toString()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentMainDoeuvreBinding.inflate(layoutInflater)
 

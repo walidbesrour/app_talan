@@ -14,11 +14,11 @@ import com.example.talan_app.databinding.FragmentTachesBinding
 import com.example.talan_app.databinding.TacheBinding
 import com.example.talan_app.view_model.TacheVM
 
-class TachesFragment : Fragment() {
+class TachesFragment (won: String?): Fragment() {
 
             private lateinit var binding: FragmentTachesBinding
             private var adapter_List_Tache : Adapter_List_Tache?= null
-
+           var wonum = won.toString()
             override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
                 binding = FragmentTachesBinding.inflate(layoutInflater)
 

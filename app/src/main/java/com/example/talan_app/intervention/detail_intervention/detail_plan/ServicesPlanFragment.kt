@@ -13,11 +13,11 @@ import com.example.talan_app.adapters.Adapter_List_PlanServices
 import com.example.talan_app.databinding.FragmentServicesPlanBinding
 import com.example.talan_app.view_model.ServicePlanVM
 
-class ServicesPlanFragment : Fragment() {
+class ServicesPlanFragment  (won: String?): Fragment() {
 
         private lateinit var binding: FragmentServicesPlanBinding
         private var adapter_List_PlanServices : Adapter_List_PlanServices?= null
-
+        var wonum = won.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentServicesPlanBinding.inflate(layoutInflater)

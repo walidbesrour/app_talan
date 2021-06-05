@@ -14,10 +14,11 @@ import com.example.talan_app.databinding.FragmentOutilsBinding
 import com.example.talan_app.view_model.OutilVM
 
 
-class OutilsFragment : Fragment() {
+class OutilsFragment(won: String?) : Fragment() {
 
     private lateinit var binding: FragmentOutilsBinding
      private var adapter_List_Outil : Adapter_List_Outil?= null
+    var wonum = won.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentOutilsBinding.inflate(layoutInflater)

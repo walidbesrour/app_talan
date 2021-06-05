@@ -10,27 +10,27 @@ import com.example.talan_app.databinding.FragmentPlanBinding
 import com.example.talan_app.intervention.detail_intervention.detail_plan.*
 
 
-class PlanFragment : Fragment() {
+class PlanFragment(won: String?) : Fragment() {
 
         private lateinit var binding :FragmentPlanBinding
-
+        var wonum = won.toString()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentPlanBinding.inflate(layoutInflater)
 
-        setUpTabs()
+        setUpTabs(wonum)
 
 
         return binding.root
     }
 
-    private fun setUpTabs() {
+    private fun setUpTabs(wonum :String) {
         val adapter = ViewAdapterPageView(childFragmentManager)
-        adapter.addFragment(InterventionsFillesFragment(), "FILLS")
-        adapter.addFragment(TachesFragment(), "TACHES")
-        adapter.addFragment(MainDoeuvreFragment(), "MAIN D'OEUVRE")
-        adapter.addFragment(ArticlesFragment(), "ARTICLES")
-        adapter.addFragment(ServicesPlanFragment(), "SERVICES")
-        adapter.addFragment(OutilsFragment(), "OUTILS")
+        adapter.addFragment(InterventionsFillesFragment(wonum), "FILLS")
+        adapter.addFragment(TachesFragment(wonum), "TACHES")
+        adapter.addFragment(MainDoeuvreFragment(wonum), "MAIN D'OEUVRE")
+        adapter.addFragment(ArticlesFragment(wonum), "ARTICLES")
+        adapter.addFragment(ServicesPlanFragment(wonum), "SERVICES")
+        adapter.addFragment(OutilsFragment(wonum), "OUTILS")
 
 
 

@@ -111,17 +111,17 @@ class Intervention_Detail : AppCompatActivity() {
         }
 
 
-        setUpTabs()
+        setUpTabs(wonum)
         binding.btnDescriptionInterv.setOnClickListener {
           descriptioview(txt)
         }
 
     }
 
-    private fun setUpTabs() {
+    private fun setUpTabs(wonum :String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
 
-        adapter.addFragment(PlanFragment(), "PLAN")
+        adapter.addFragment(PlanFragment(wonum), "PLAN")
         adapter.addFragment(RealisationFragment(), "REALISATION")
         adapter.addFragment(CompteurIntervFragment(), "COMPTEURS")
         adapter.addFragment(RisqPreqIntervFragment(), "RISQUE PRECAUTION")
@@ -150,4 +150,6 @@ class Intervention_Detail : AppCompatActivity() {
         textView.text= txt
         dialog.findViewById<Button>(R.id.btnok1)?.setOnClickListener { dialog.dismiss() }
     }
+
+
 }

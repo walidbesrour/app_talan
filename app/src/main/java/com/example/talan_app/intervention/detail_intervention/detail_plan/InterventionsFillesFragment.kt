@@ -16,9 +16,10 @@ import com.example.talan_app.view_model.InterventionsAssocieesVM
 import com.example.talan_app.view_model.PrecautionVM
 
 
-class InterventionsFillesFragment : Fragment() {
+class InterventionsFillesFragment(won: String?) : Fragment() {
 
     private lateinit var binding: FragmentInterventionsFillsBinding
+    var wonum = won.toString()
         private var adapter_List_InterventionsFilles : Adapter_List_InterventionsFilles?= null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
