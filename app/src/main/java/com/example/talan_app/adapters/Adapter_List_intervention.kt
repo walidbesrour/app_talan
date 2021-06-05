@@ -37,8 +37,12 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
         fun bind(inter:Inter){
             this.inter_Binding.interventionmodel = inter
 
+            val won = inter.wonum
+            val wonum = "\"$won\""
+
             inter_Binding.cardintervention.setOnClickListener {
                 val intent = Intent(context,Intervention_Detail::class.java)
+                intent.putExtra("wonum",wonum)
                 context.startActivity(intent)
 
             }

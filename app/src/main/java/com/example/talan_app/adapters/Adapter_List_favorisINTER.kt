@@ -37,9 +37,12 @@ class Adapter_List_favorisINTER(private val context: Context ) : RecyclerView.Ad
         fun bind(inter:Inter){
             this.favorisBinding.favorismodel = inter
 
+            val won = inter.wonum
+            val wonum = "\"$won\""
 
             favorisBinding.cardintervention.setOnClickListener {
                 val intent = Intent(context, Intervention_Detail::class.java)
+                intent.putExtra("wonum",wonum)
                 context.startActivity(intent)
 
             }

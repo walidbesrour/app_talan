@@ -23,14 +23,21 @@ data class Inter(
     @SerializedName("worktype")
     val worktype : String ,
 
+    @SerializedName("parent")
+    val parent : String,
+
     @SerializedName("wopriority")
     val wopriority : Int,
+
+    @SerializedName("location")
+    val location : String ,
 
     @SerializedName("targstartdate")
     val targstartdate : String,
 
     @SerializedName("bookmark")
     val bookmark : ArrayList<Bookmark>
+
 )
 
 data class Bookmark(

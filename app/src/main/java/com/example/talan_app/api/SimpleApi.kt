@@ -131,6 +131,10 @@ interface SimpleApi {
         @Query("oslc.select") select: String,
         @Query("oslc.where") bookmark : String): Response<Intervention>
 
-
+    @GET("os/PFEWA_IN/?lean=1")
+    suspend fun getDetailFavoris(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") wonum : String,
+        @Query("oslc.select") select: String): Response<Intervention>
 }
 

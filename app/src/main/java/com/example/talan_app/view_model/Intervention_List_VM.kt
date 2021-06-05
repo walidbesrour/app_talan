@@ -17,6 +17,7 @@ class Intervention_List_VM (private val repository: RetrofitRepositoryInterventi
     var myResponse1  : MutableLiveData<Response<Intervention>> = MutableLiveData()
 
     var ResponseFavoris  : MutableLiveData<Response<Intervention>> = MutableLiveData()
+    var ResponseInter  : MutableLiveData<Response<Intervention>> = MutableLiveData()
 
 
 
@@ -43,6 +44,15 @@ class Intervention_List_VM (private val repository: RetrofitRepositoryInterventi
             ResponseFavoris.value = response
         }
     }
+
+
+    fun getDetailFavoris(apikey: String,wonum: String,select: String){
+        viewModelScope.launch {
+            val response = repository.getDetailFavoris(apikey,wonum,select)
+            ResponseInter.value = response
+        }
+    }
+
 
 
 

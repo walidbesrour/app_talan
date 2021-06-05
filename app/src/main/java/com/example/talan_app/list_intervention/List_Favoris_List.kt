@@ -20,8 +20,8 @@ import com.example.talan_app.view_model.Intervention_List_VM
 
 class List_Favoris_List : Fragment() {
 
-private lateinit var binding : FragmentListFavorisListBinding
-private var adapter_List_favorisINTER: Adapter_List_favorisINTER? = null
+    private lateinit var binding : FragmentListFavorisListBinding
+    private var adapter_List_favorisINTER: Adapter_List_favorisINTER? = null
     private lateinit var viewModel: Intervention_List_VM
 
 
