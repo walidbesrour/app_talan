@@ -7,17 +7,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.PlanServiceBinding
-import com.example.talan_app.view_model.ServicePlanVM
+import com.example.talan_app.model.Assig
+import com.example.talan_app.model.Serv
 
-class Adapter_List_PlanServices(private val context: Context, private val list_ServicePlan: ArrayList<ServicePlanVM>) : RecyclerView.Adapter<Adapter_List_PlanServices.PlanServices_Holder>() {
+class Adapter_List_PlanServices(private val context: Context) : RecyclerView.Adapter<Adapter_List_PlanServices.PlanServices_Holder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_PlanServices.PlanServices_Holder {
 
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val planServiceBinding : PlanServiceBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_services, parent,false)
-        return PlanServices_Holder(planServiceBinding)
+    var list_ServicePlan= ArrayList<Serv>()
 
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PlanServices_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_services, parent,false)
+    )
+
+
 
     override fun onBindViewHolder(holder: Adapter_List_PlanServices.PlanServices_Holder, position: Int) {
 
@@ -30,12 +32,17 @@ class Adapter_List_PlanServices(private val context: Context, private val list_S
     /////////////////////////////// Class PlanServices_Holder  /////////////////////////////////////////////
 
     inner class PlanServices_Holder( private val planServiceBinding : PlanServiceBinding) :RecyclerView.ViewHolder(planServiceBinding.root) {
-        fun bind(servicePlanVM:ServicePlanVM){
+        fun bind(serv:Serv){
 
-            this.planServiceBinding.planservicemodel = servicePlanVM
+            this.planServiceBinding.planservicemodel = serv
             planServiceBinding.executePendingBindings()
         }
 
+    }
+
+    fun setData(newList: ArrayList<Serv>){
+        list_ServicePlan = newList
+        notifyDataSetChanged()
     }
 
 }

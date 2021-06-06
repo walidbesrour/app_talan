@@ -1,15 +1,22 @@
 package com.example.talan_app.model
 
-class ServicesPlan {
-    var CodeArticles : String = ""
-    var DescriptionArticles :  String = ""
-    var QuantiteArticles : String = ""
-    var UniteArticles : String = ""
+import com.google.gson.annotations.SerializedName
 
-    constructor(CodeArticles: String, DescriptionArticles: String, QuantiteArticles: String, UniteArticles: String) {
-        this.CodeArticles = CodeArticles
-        this.DescriptionArticles = DescriptionArticles
-        this.QuantiteArticles = QuantiteArticles
-        this.UniteArticles = UniteArticles
-    }
-}
+data class ServicesPlan (@SerializedName("member") val member : ArrayList<Wpservice>)
+
+data class Wpservice(@SerializedName("wpservice") val wpservice : ArrayList<Serv>)
+
+data class Serv(
+
+    @SerializedName("itemnum")
+    val itemnum : String,
+
+    @SerializedName("description")
+    val description : String,
+
+    @SerializedName("itemqty")
+    val itemqty : Double,
+
+    @SerializedName("unitcost")
+    val unitcost : Double
+)

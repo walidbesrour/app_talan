@@ -4,7 +4,7 @@
     <data class="ArticlesBinding">
         <variable
             name="articlesmodel"
-            type="com.example.talan_app.view_model.ArticlesVM" />
+            type="com.example.talan_app.model.Artic" />
     </data>
 
     <LinearLayout
@@ -32,25 +32,25 @@
                     android:layout_height="wrap_content"
                     android:background="#F4F5FA"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
+
                     app:strokeColor="#707070"
-                    android:layout_below="@+id/RL_S1">
+                  >
 
                     <TextView
                         android:id="@+id/Articles1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Code Article :"
+                        android:text="@{articlesmodel.itemnum}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
                         android:fontFamily="@font/mmedium"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blue_talan" />
 
                     <TextView
                         android:id="@+id/Articles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{articlesmodel.CodeArticles}"
+                        android:text="@{articlesmodel.description}"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -61,66 +61,46 @@
 
 
                 </RelativeLayout>
-                <TextView
-                    android:id="@+id/descriptiondArticles"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{articlesmodel.DescriptionArticles}"
-                    android:textStyle="normal"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="@font/mlight"
-                    android:textColor="@color/black"
-                    android:layout_below="@+id/RL_S2" />
+
 
                 <TextView
                     android:id="@+id/quantiteIntervention1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="quantité :"
+                    android:text="Qte :"
                     android:textStyle="bold"
-                    android:paddingTop="2dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_below="@+id/descriptiondArticles"
+                    android:layout_marginLeft="5dp"
+                    android:layout_below="@+id/RL_S2"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black" />
 
 
                 <TextView
-                    android:id="@+id/quantiteIntervention"
+                    android:id="@+id/descriptiondArticles"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{articlesmodel.QuantiteArticles}"
-                    android:paddingTop="2dp"
+                    android:text="@{Double.toString(articlesmodel.itemqty)}"
+                    android:textStyle="normal"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/descriptiondArticles"
-                    android:layout_toRightOf="@+id/quantiteIntervention1"/>
+                    android:layout_toRightOf="@+id/quantiteIntervention1"
+                    android:layout_below="@+id/RL_S2" />
 
 
                 <TextView
                     android:id="@+id/uniteIntervention1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="unité :"
+                    android:text="@{Double.toString(articlesmodel.unitcost)}"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_below="@+id/quantiteIntervention"
+                    android:layout_marginLeft="6dp"
+                    android:layout_below="@+id/quantiteIntervention1"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black" />
 
-                <TextView
-                    android:id="@+id/uniteIntervention"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{articlesmodel.UniteArticles}"
-                    android:paddingTop="2dp"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/mlight"
-                    android:textColor="@color/black"
-                    android:layout_below="@+id/quantiteIntervention"
-                    android:layout_toRightOf="@+id/uniteIntervention1"/>
+
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>

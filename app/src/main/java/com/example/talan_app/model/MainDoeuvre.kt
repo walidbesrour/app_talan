@@ -19,5 +19,5 @@ data class Person(
     val displayname : String,
 
     @SerializedName("personid")
-    val personid : String,
+    val personid : String
 )

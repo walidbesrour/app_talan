@@ -46,7 +46,14 @@ class TachesFragment (won: String?): Fragment() {
                     viewModel.getTacheInter(Apikey,"wonum=$wonum","woactivity{wosequence,description,estdur}")
                     viewModel.myResponseTache.observe(viewLifecycleOwner,{ Myresponse ->
                         if (Myresponse.isSuccessful) {
-                            Myresponse.body()?.let { adapter_List_Tache!!.setData(it.member[0].woactivity) }
+
+                            if (Myresponse.body()!!.member[0].woactivity == null){
+
+                            }else{
+                                Myresponse.body()?.let { adapter_List_Tache!!.setData(it.member[0].woactivity) }
+                            }
+
+
                         }else{
                             Log.d("response --", Myresponse.code().toString())
                             Log.d("response --", Myresponse.message().toString())

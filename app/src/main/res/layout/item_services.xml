@@ -4,7 +4,7 @@
     <data class="PlanServiceBinding">
         <variable
             name="planservicemodel"
-            type="com.example.talan_app.view_model.ServicePlanVM" />
+            type="com.example.talan_app.model.Serv" />
     </data>
 
     <LinearLayout
@@ -32,25 +32,25 @@
                     android:layout_height="wrap_content"
                     android:background="#F4F5FA"
                     android:layout_margin="5dp"
-                    android:paddingLeft="10dp"
+
                     app:strokeColor="#707070"
-                    android:layout_below="@+id/RL_S1">
+                   >
 
                     <TextView
                         android:id="@+id/Service1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Code Service :"
+                        android:text="@{planservicemodel.itemnum}"
                         android:textStyle="bold"
                         android:paddingTop="2dp"
-                        android:fontFamily="@font/mmedium"
-                        android:textColor="@color/black" />
+                        android:fontFamily="@font/msemibold"
+                        android:textColor="@color/blue_talan" />
 
                     <TextView
                         android:id="@+id/Service"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{planservicemodel.CodeArticles}"
+                        android:text="@{planservicemodel.description}"
                         android:paddingTop="2dp"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/mlight"
@@ -61,26 +61,17 @@
 
 
                 </RelativeLayout>
-                <TextView
-                    android:id="@+id/descriptiondService"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{planservicemodel.DescriptionArticles}"
-                    android:textStyle="normal"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="@font/mlight"
-                    android:textColor="@color/black"
-                    android:layout_below="@+id/RL_S2" />
+
 
                 <TextView
                     android:id="@+id/quantiteIntervention1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="quantité :"
+                    android:text="Qte :"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_below="@+id/descriptiondService"
+                    android:layout_marginLeft="5dp"
+                    android:layout_below="@+id/RL_S2"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black" />
 
@@ -89,12 +80,12 @@
                     android:id="@+id/quantiteIntervention"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{planservicemodel.QuantiteArticles}"
+                    android:text="@{Double.toString(planservicemodel.itemqty)}"
                     android:paddingTop="2dp"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/descriptiondService"
+                    android:layout_below="@+id/RL_S2"
                     android:layout_toRightOf="@+id/quantiteIntervention1"/>
 
 
@@ -102,25 +93,15 @@
                     android:id="@+id/uniteIntervention1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="unité :"
+                    android:text="@{Double.toString(planservicemodel.unitcost)}"
                     android:textStyle="bold"
                     android:paddingTop="2dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/quantiteIntervention"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/black" />
 
-                <TextView
-                    android:id="@+id/uniteIntervention"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{planservicemodel.UniteArticles}"
-                    android:paddingTop="2dp"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/mlight"
-                    android:textColor="@color/black"
-                    android:layout_below="@+id/quantiteIntervention"
-                    android:layout_toRightOf="@+id/uniteIntervention1"/>
+
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
