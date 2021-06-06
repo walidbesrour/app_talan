@@ -2,6 +2,7 @@ package com.example.talan_app.repository
 
 import com.example.talan_app.api.RetrofitInstance
 import com.example.talan_app.model.Intervention
+import com.example.talan_app.model.MainDoeuvre
 import com.example.talan_app.model.Tache
 import retrofit2.Response
 
@@ -27,5 +28,9 @@ class RetrofitRepositoryIntervention {
 
     suspend fun getTacheInter(apikey: String,wonum: String,select: String): Response<Tache> {
         return RetrofitInstance.Myapi.getTacheInter(apikey,wonum,select)
+    }
+
+    suspend fun getMainInter(apikey: String,wonum: String,select: String): Response<MainDoeuvre> {
+        return RetrofitInstance.Myapi.getMainInter(apikey,wonum,select)
     }
 }

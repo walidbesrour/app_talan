@@ -1,12 +1,23 @@
 package com.example.talan_app.model
 
-class MainDoeuvre {
+import com.google.gson.annotations.SerializedName
 
-   var CodeEmploye = ""
-   var CodeDescription = ""
+data class MainDoeuvre(@SerializedName("member") val member : ArrayList<Assignment> )
 
-    constructor(CodeEmploye: String, CodeDescription: String) {
-        this.CodeEmploye = CodeEmploye
-        this.CodeDescription = CodeDescription
-    }
-}
+data class Assignment (@SerializedName("assignment") val assignment : ArrayList<Assig> )
+
+data class Assig(
+    @SerializedName("laborhrs")
+    val laborhrs : Double,
+
+    @SerializedName("person")
+    val person : ArrayList<Person>
+)
+
+data class Person(
+    @SerializedName("displayname")
+    val displayname : String,
+
+    @SerializedName("personid")
+    val personid : String,
+)

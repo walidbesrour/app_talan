@@ -7,19 +7,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.DoeuvreBinding
-import com.example.talan_app.view_model.MainDoeuvreVM
+import com.example.talan_app.model.Assig
+import com.example.talan_app.model.Inter
+import com.example.talan_app.model.Woactivity
 
-class Adapter_List_MainDoeuvre (private val context: Context, private val list_MainDoeuvre: ArrayList<MainDoeuvreVM>) : RecyclerView.Adapter<Adapter_List_MainDoeuvre.MainDoeuvre_Holder>(){
+class Adapter_List_MainDoeuvre (private val context: Context) : RecyclerView.Adapter<Adapter_List_MainDoeuvre.MainDoeuvre_Holder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_MainDoeuvre.MainDoeuvre_Holder {
+    var list_MainDoeuvre = ArrayList<Assig>()
 
-         val layoutInflater = LayoutInflater.from(parent.context)
-        val doeuvreBinding : DoeuvreBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_main_oeuvre, parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)= MainDoeuvre_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_main_oeuvre, parent,false)
+    )
 
-        return MainDoeuvre_Holder(doeuvreBinding)
-
-
-    }
 
     override fun onBindViewHolder(holder: Adapter_List_MainDoeuvre.MainDoeuvre_Holder, position: Int) {
 
@@ -32,11 +31,16 @@ class Adapter_List_MainDoeuvre (private val context: Context, private val list_M
 
     /////////////////////////////// Class MainDoeuvre_Holder  /////////////////////////////////////////////
       inner class MainDoeuvre_Holder( private val doeuvreBinding : DoeuvreBinding) :RecyclerView.ViewHolder(doeuvreBinding.root){
-          fun bind(mainDoeuvreVM :MainDoeuvreVM){
-              this.doeuvreBinding.doeuvremodel = mainDoeuvreVM
+          fun bind(assig :Assig){
+              this.doeuvreBinding.doeuvremodel = assig
               doeuvreBinding.executePendingBindings()
 
           }
 
       }
+
+    fun setData(newList: ArrayList<Assig>){
+        list_MainDoeuvre = newList
+        notifyDataSetChanged()
+    }
 }

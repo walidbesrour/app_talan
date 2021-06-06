@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
-import com.example.talan_app.databinding.DoeuvreBinding
 import com.example.talan_app.databinding.OutilBinding
-import com.example.talan_app.view_model.MainDoeuvreVM
 import com.example.talan_app.view_model.OutilVM
 
 class Adapter_List_Outil (private val context: Context, private val list_outil: ArrayList<OutilVM>) : RecyclerView.Adapter<Adapter_List_Outil.Outil_Holder>(){
