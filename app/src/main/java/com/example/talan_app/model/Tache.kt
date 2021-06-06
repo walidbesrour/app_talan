@@ -1,14 +1,20 @@
 package com.example.talan_app.model
 
-class Tache {
+import com.google.gson.annotations.SerializedName
 
-    var CodeTache =""
-    var DescriptionTache =""
-    var DureeTache=""
+data class Tache (@SerializedName("member") val member : ArrayList<InterTache> )
 
-    constructor(CodeTache: String, DescriptionTache: String, DureeTache: String) {
-        this.CodeTache = CodeTache
-        this.DescriptionTache = DescriptionTache
-        this.DureeTache = DureeTache
-    }
-}
+data class InterTache (@SerializedName("woactivity") val woactivity : ArrayList<Woactivity> )
+
+data class Woactivity(
+
+    @SerializedName("wosequence")
+    val wosequence : Int ,
+
+    @SerializedName("description")
+    val description : String,
+
+    @SerializedName("estdur")
+    val estdur : Double
+)
+

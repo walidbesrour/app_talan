@@ -42,7 +42,7 @@ class InterventionsFillesFragment(won: String?) : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(Intervention_List_VM::class.java)
 
 
-        println("zzzzzzzzzzzzzzzzzzzzzzzz $wonum")
+
         val sharedPreferences = this.getActivity()!!.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
         val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
         if (Apikey != null) {

@@ -142,8 +142,18 @@ interface SimpleApi {
     suspend fun getFilsFavoris(
         @Query("apikey") apikey: String,
         @Query("oslc.select") select: String,
-        @Query("oslc.where") wonum : String
+        @Query("oslc.where") wonum : String): Response<Intervention>
 
-    ): Response<Intervention>
+
+    @GET("os/PFEWA_INTER/?lean=1")
+    suspend fun getTacheInter(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") wonum : String,
+        @Query("oslc.select") select: String): Response<Tache>
+
+
+
 }
+
+
 

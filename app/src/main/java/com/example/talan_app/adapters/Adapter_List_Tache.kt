@@ -7,19 +7,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.TacheBinding
-import com.example.talan_app.view_model.InterventionsAssocieesVM
-import com.example.talan_app.view_model.TacheVM
+import com.example.talan_app.model.Inter
+import com.example.talan_app.model.Woactivity
 
-class Adapter_List_Tache(private val context: Context, private val list_Tache: ArrayList<TacheVM> ): RecyclerView.Adapter<Adapter_List_Tache.Tache_Holder>() {
+class Adapter_List_Tache(private val context: Context ): RecyclerView.Adapter<Adapter_List_Tache.Tache_Holder>() {
 
+    var list_Tache = ArrayList<Woactivity>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_Tache.Tache_Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = Tache_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_tache, parent,false)
+    )
 
-       val layoutInflater = LayoutInflater.from(parent.context)
-        val tacheBinding : TacheBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_tache, parent,false)
-        return Tache_Holder(tacheBinding)
-
-    }
 
     override fun onBindViewHolder(holder: Adapter_List_Tache.Tache_Holder, position: Int) {
 
@@ -34,11 +32,16 @@ class Adapter_List_Tache(private val context: Context, private val list_Tache: A
 
     inner class Tache_Holder(private val tacheBinding: TacheBinding):RecyclerView.ViewHolder(tacheBinding.root) {
 
-        fun bind(tacheVM :TacheVM){
-            this.tacheBinding.tachemodel = tacheVM
+        fun bind(woactivity: Woactivity ){
+            this.tacheBinding.tachemodel = woactivity
             tacheBinding.executePendingBindings()
 
         }
 
+    }
+
+    fun setData(newList: ArrayList<Woactivity>){
+        list_Tache = newList
+        notifyDataSetChanged()
     }
 }

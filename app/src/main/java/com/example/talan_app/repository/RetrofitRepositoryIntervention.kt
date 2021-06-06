@@ -2,6 +2,7 @@ package com.example.talan_app.repository
 
 import com.example.talan_app.api.RetrofitInstance
 import com.example.talan_app.model.Intervention
+import com.example.talan_app.model.Tache
 import retrofit2.Response
 
 class RetrofitRepositoryIntervention {
@@ -21,5 +22,10 @@ class RetrofitRepositoryIntervention {
 
     suspend fun getFilsFavoris(apikey: String,select: String,wonum: String): Response<Intervention> {
         return RetrofitInstance.Myapi.getFilsFavoris(apikey,select,wonum)
+    }
+
+
+    suspend fun getTacheInter(apikey: String,wonum: String,select: String): Response<Tache> {
+        return RetrofitInstance.Myapi.getTacheInter(apikey,wonum,select)
     }
 }
