@@ -7,19 +7,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.OutilBinding
-import com.example.talan_app.view_model.OutilVM
+import com.example.talan_app.model.OutilInter
+import com.example.talan_app.model.Serv
 
-class Adapter_List_Outil (private val context: Context, private val list_outil: ArrayList<OutilVM>) : RecyclerView.Adapter<Adapter_List_Outil.Outil_Holder>(){
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_Outil.Outil_Holder {
-
-         val layoutInflater = LayoutInflater.from(parent.context)
-        val outilBinding : OutilBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_outils, parent,false)
-
-        return Outil_Holder(outilBinding)
+class Adapter_List_Outil (private val context: Context) : RecyclerView.Adapter<Adapter_List_Outil.Outil_Holder>(){
 
 
-    }
+    var list_outil= ArrayList<OutilInter>()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = Outil_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_outils, parent,false)
+    )
+
+
 
     override fun onBindViewHolder(holder: Adapter_List_Outil.Outil_Holder, position: Int) {
 
@@ -32,11 +32,16 @@ class Adapter_List_Outil (private val context: Context, private val list_outil: 
 
     /////////////////////////////// Class Outil_Holder  /////////////////////////////////////////////
       inner class Outil_Holder( private val outilBinding : OutilBinding) :RecyclerView.ViewHolder(outilBinding.root){
-          fun bind(outilVM : OutilVM){
-              this.outilBinding.outilmodel = outilVM
+          fun bind(outil : OutilInter){
+              this.outilBinding.outilmodel = outil
               outilBinding.executePendingBindings()
 
           }
 
       }
+
+    fun setData(newList: ArrayList<OutilInter>){
+        list_outil = newList
+        notifyDataSetChanged()
+    }
 }

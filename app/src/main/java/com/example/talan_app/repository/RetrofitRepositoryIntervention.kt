@@ -39,5 +39,9 @@ class RetrofitRepositoryIntervention {
     suspend fun getServInter(apikey: String,wonum: String,select: String): Response<ServicesPlan> {
         return RetrofitInstance.Myapi.getServInter(apikey,wonum,select)
     }
+
+    suspend fun getOutilInter(apikey: String,wonum: String,select: String): Response<Outil> {
+        return RetrofitInstance.Myapi.getOutilInter(apikey,wonum,select)
+    }
 }
 

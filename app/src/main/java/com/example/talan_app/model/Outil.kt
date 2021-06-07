@@ -1,12 +1,18 @@
 package com.example.talan_app.model
 
-class Outil {
+import com.google.gson.annotations.SerializedName
 
-   var CodeOutil = ""
-   var OutilDescription = ""
+data class Outil (@SerializedName("member") val member : ArrayList<Wptool>)
 
-    constructor(CodeOutil: String, OutilDescription: String) {
-        this.CodeOutil = CodeOutil
-        this.OutilDescription = OutilDescription
-    }
-}
+data class Wptool(@SerializedName("wptool") val wptool : ArrayList<OutilInter>)
+
+data class OutilInter(
+
+    @SerializedName("itemnum")
+    val itemnum : String,
+
+    @SerializedName("description")
+    val description : String,
+
+
+)
