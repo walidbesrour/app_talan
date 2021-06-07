@@ -12,20 +12,21 @@ import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.FragmentRisqPreqIntervBinding
 
 
-class RisqPreqIntervFragment : Fragment() {
+class RisqPreqIntervFragment(SelectWonum: String?): Fragment() {
 
     private lateinit var binding : FragmentRisqPreqIntervBinding
+    var wonum = SelectWonum.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRisqPreqIntervBinding.inflate(layoutInflater)
-        setUpTabs()
+        setUpTabs(wonum)
         return binding.root
     }
 
-    private fun setUpTabs() {
+    private fun setUpTabs(wonum :String) {
         val adapter = ViewAdapterPageView(childFragmentManager)
-        adapter.addFragment(RisqueIntervFragment(), "RISQUES")
-        adapter.addFragment(PrecautionIntervFragment(), "PRECAUTION")
+        adapter.addFragment(RisqueIntervFragment(wonum), "RISQUES")
+        adapter.addFragment(PrecautionIntervFragment(wonum), "PRECAUTION")
 
         binding.viewPageActInt.adapter = adapter
         binding.tabsActInt.setupWithViewPager(binding.viewPageActInt)

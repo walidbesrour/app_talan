@@ -10,6 +10,9 @@ data class Assig(
     @SerializedName("laborhrs")
     val laborhrs : Double,
 
+    @SerializedName("scheduledate")
+    val scheduledate : String,
+
     @SerializedName("person")
     val person : ArrayList<Person>
 )

@@ -8,20 +8,21 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.RealisationBinding
+import com.example.talan_app.model.Assig
 
-import com.example.talan_app.view_model.RealisationVM
 
-class Adapter_List_Realisation (private val context: Context, private val list_Realisation: ArrayList<RealisationVM>) : RecyclerView.Adapter<Adapter_List_Realisation.Realisation_Holder>(){
+class Adapter_List_Realisation (private val context: Context) : RecyclerView.Adapter<Adapter_List_Realisation.Realisation_Holder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter_List_Realisation.Realisation_Holder {
 
-        val layoutInflater = LayoutInflater.from(parent.context)
+    var list_Realisation = ArrayList<Assig>()
 
-        val realisationBinding : RealisationBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_realisation, parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =Realisation_Holder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_realisation, parent,false)
+    )
 
-        return Realisation_Holder(realisationBinding)
 
-    }
+
+
 
     override fun onBindViewHolder(holder: Adapter_List_Realisation.Realisation_Holder, position: Int) {
         val interList = list_Realisation[position]
@@ -34,8 +35,10 @@ class Adapter_List_Realisation (private val context: Context, private val list_R
 
     inner class Realisation_Holder(private val realisationBinding: RealisationBinding):RecyclerView.ViewHolder(realisationBinding.root){
 
-        fun bind(realisationVM: RealisationVM){
-            this.realisationBinding.realisationmodule = realisationVM
+        fun bind(assig: Assig){
+            this.realisationBinding.realisationmodule = assig
+
+
             this.realisationBinding.libRelative.setOnClickListener {
                 if ( realisationBinding.invisibleView.visibility == View.VISIBLE){
                     realisationBinding.invisibleView.visibility = View.GONE
@@ -46,12 +49,15 @@ class Adapter_List_Realisation (private val context: Context, private val list_R
 
             }
 
-
-
             realisationBinding.executePendingBindings()
 
         }
 
+    }
+
+    fun setData(newList: ArrayList<Assig>){
+        list_Realisation = newList
+        notifyDataSetChanged()
     }
 }
 

@@ -111,20 +111,20 @@ class Intervention_Detail : AppCompatActivity() {
         }
 
 
-        setUpTabs(won.toString())
+        setUpTabs(won.toString() ,wonum )
         binding.btnDescriptionInterv.setOnClickListener {
           descriptioview(txt)
         }
 
     }
 
-    private fun setUpTabs(wonum :String) {
+    private fun setUpTabs(wonum :String, SelectWonum : String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
 
         adapter.addFragment(PlanFragment(wonum), "PLAN")
-        adapter.addFragment(RealisationFragment(), "REALISATION")
-        adapter.addFragment(CompteurIntervFragment(), "COMPTEURS")
-        adapter.addFragment(RisqPreqIntervFragment(), "RISQUE PRECAUTION")
+        adapter.addFragment(RealisationFragment(SelectWonum), "REALISATION")
+        adapter.addFragment(CompteurIntervFragment(SelectWonum), "COMPTEURS")
+        adapter.addFragment(RisqPreqIntervFragment(SelectWonum), "RISQUE PRECAUTION")
 
 
 

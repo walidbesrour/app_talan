@@ -13,12 +13,13 @@ import com.example.talan_app.adapters.Adapter_List_Precaution
 import com.example.talan_app.databinding.FragmentPrecautionIntervBinding
 import com.example.talan_app.view_model.PrecautionVM
 
-class PrecautionIntervFragment : Fragment() {
+class PrecautionIntervFragment(SelectWonum: String?)  : Fragment() {
 
 
     private lateinit var binding:FragmentPrecautionIntervBinding
     private var adapter_List_Precaution : Adapter_List_Precaution?= null
 
+    var wonum = SelectWonum.toString()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
        binding = FragmentPrecautionIntervBinding.inflate(layoutInflater)
 

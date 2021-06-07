@@ -12,11 +12,11 @@ import com.example.talan_app.adapters.Adapter_List_Risque
 import com.example.talan_app.databinding.FragmentRisqueIntervBinding
 import com.example.talan_app.view_model.RisqueVM
 
-class RisqueIntervFragment : Fragment() {
+class RisqueIntervFragment (SelectWonum: String?): Fragment() {
 
         private lateinit var binding : FragmentRisqueIntervBinding
 //        private var adapter_List_Risque : Adapter_List_Risque?= null
-
+var wonum = SelectWonum.toString()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRisqueIntervBinding.inflate(layoutInflater)
 

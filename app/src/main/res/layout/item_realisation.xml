@@ -4,7 +4,7 @@
     <data class="RealisationBinding">
         <variable
             name="realisationmodule"
-            type="com.example.talan_app.view_model.RealisationVM" />
+            type="com.example.talan_app.model.Assig" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,30 +32,22 @@
                         android:id="@+id/libRelative"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="15dp">
+                        android:paddingLeft="5dp">
                         <TextView
                             android:id="@+id/rendu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Compte rendu : "
+                            android:text="@{realisationmodule.Person[0].displayname}"
                             android:textStyle="bold"
                             android:paddingTop="2dp"
                             android:fontFamily="@font/mmedium"
-                            android:textColor="@color/black" />
-                        <TextView
-                            android:id="@+id/CodeRendu"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@{realisationmodule.CodeRendu}"
-                            android:paddingTop="2dp"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/black"
-                            android:layout_toRightOf="@+id/rendu"/>
+                            android:textColor="@color/blue_talan" />
+
                         <TextView
                             android:id="@+id/Rendudescription"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@{realisationmodule.DescriptionRendu}"
+                            android:text="@{realisationmodule.Person[0].personid}"
                             android:paddingTop="2dp"
                             android:fontFamily="@font/mlight"
                             android:textColor="@color/black"
@@ -67,65 +59,23 @@
                         android:layout_height="wrap_content"
                         android:background="#F4F5FA"
                         android:layout_margin="5dp"
-                        android:paddingLeft="10dp"
-                        app:strokeColor="#707070"
+                        android:paddingLeft="3dp"
                         android:visibility="gone"
+                        app:strokeColor="#707070"
                         android:layout_below="@+id/libRelative"
                         >
-                        <RelativeLayout
-                            android:id="@+id/r1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/codeEmployeRealitxt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Code Employé :"
-                                android:textStyle="bold"
-                                android:paddingTop="2dp"
-                                android:fontFamily="@font/mmedium"
-                                android:textColor="@color/black" />
 
-                            <TextView
-                                android:id="@+id/codeEmployeReali"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@{realisationmodule.CodeEmploye}"
-                                android:paddingTop="2dp"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="@font/mlight"
-                                android:textColor="@color/black"
-                                android:layout_toRightOf="@+id/codeEmployeRealitxt"/>
-                            <TextView
-                                android:id="@+id/DescEmployeReali"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@{realisationmodule.DescriptionEmploye}"
-                                android:paddingTop="2dp"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="@font/mlight"
-                                android:textColor="@color/black"
-                                android:layout_below="@+id/codeEmployeRealitxt"/>
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="0.5dp"
-                                android:layout_below="@+id/DescEmployeReali"
-                                android:layout_margin="5dp"
-                                android:background="#AAA8A8"
-                                />
-
-                        </RelativeLayout>
 
                         <RelativeLayout
                             android:id="@+id/r2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/r1">
+                         >
                             <TextView
                                 android:id="@+id/codeheureRealitxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Nombre de heure :"
+                                android:text="Nbr H:"
                                 android:textStyle="bold"
                                 android:paddingTop="2dp"
                                 android:fontFamily="@font/mmedium"
@@ -135,9 +85,9 @@
                                 android:id="@+id/heureReali"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@{realisationmodule.NbreHeur}"
+                                android:text="@{Double.toString(realisationmodule.laborhrs)}"
                                 android:paddingTop="2dp"
-                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
                                 android:fontFamily="@font/mlight"
                                 android:textColor="@color/black"
                                 android:layout_toRightOf="@+id/codeheureRealitxt"/>
@@ -157,13 +107,13 @@
                             android:id="@+id/r3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
+                            android:layout_marginBottom="5dp"
                             android:layout_below="@+id/r2">
                             <TextView
                                 android:id="@+id/DateRealitxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Dare de realisation :"
+                                android:text="Date R:"
                                 android:textStyle="bold"
                                 android:paddingTop="2dp"
                                 android:fontFamily="@font/mmedium"
@@ -173,7 +123,7 @@
                                 android:id="@+id/DateReali"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@{realisationmodule.DateRealisation}"
+                                android:text="@{realisationmodule.scheduledate}"
                                 android:paddingTop="2dp"
                                 android:layout_marginLeft="5dp"
                                 android:fontFamily="@font/mlight"

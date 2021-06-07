@@ -179,6 +179,14 @@ interface SimpleApi {
         @Query("oslc.where") wonum : String,
         @Query("oslc.select") select: String): Response<Outil>
 
+
+
+    @GET("os/PFEWA_INTER/?lean=1")
+    suspend fun getRealisationInter(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") wonum : String,
+        @Query("oslc.select") select: String): Response<MainDoeuvre>
+
 }
 
 

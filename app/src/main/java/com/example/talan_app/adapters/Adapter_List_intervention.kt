@@ -69,8 +69,7 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
                 var j = inter.bookmark.size - 1
                 for (i in 0..j){
                     if (inter.bookmark[i].userid == "B.WALID" && inter.bookmark[i].app == "WOTRACK"){
-                        println("======> ${inter.bookmark[0].userid}")
-                        println("======> ${inter.wonum}")
+
                         inter_Binding.iconbtn.isChecked = true
                     }
                 }

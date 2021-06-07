@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.talan_app.model.Intervention
+import com.example.talan_app.model.MainDoeuvre
 
 import com.example.talan_app.repository.RetrofitRepositoryIntervention
 import kotlinx.coroutines.launch
@@ -20,6 +21,8 @@ class Intervention_List_VM (private val repository: RetrofitRepositoryInterventi
     var ResponseInter  : MutableLiveData<Response<Intervention>> = MutableLiveData()
 
     var ResponseFILS  : MutableLiveData<Response<Intervention>> = MutableLiveData()
+
+    var ResponseRealisation  : MutableLiveData<Response<MainDoeuvre>> = MutableLiveData()
 
 
 
@@ -62,5 +65,11 @@ class Intervention_List_VM (private val repository: RetrofitRepositoryInterventi
         }
     }
 
+    fun getRealisationInter(apikey: String,bookmark: String,select: String){
+        viewModelScope.launch {
 
+            val response = repository.getRealisationInter(apikey,bookmark,select)
+            ResponseRealisation.value = response
+        }
+    }
 }

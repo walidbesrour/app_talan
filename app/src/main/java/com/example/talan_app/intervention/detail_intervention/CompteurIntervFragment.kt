@@ -13,10 +13,12 @@ import com.example.talan_app.databinding.FragmentCompteurIntervBinding
 import com.example.talan_app.view_model.Compteur_List_VM
 
 
-class CompteurIntervFragment : Fragment() {
+class CompteurIntervFragment(SelectWonum: String?) : Fragment() {
 
     private lateinit var binding: FragmentCompteurIntervBinding
 //    private  var adapteurlistCompteur : Adapteur_List_Compteur?= null
+
+    var wonum = SelectWonum.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             binding = FragmentCompteurIntervBinding.inflate(layoutInflater)
