@@ -187,6 +187,20 @@ interface SimpleApi {
         @Query("oslc.where") wonum : String,
         @Query("oslc.select") select: String): Response<MainDoeuvre>
 
+
+    @GET("os/PFEWA_INTER/?lean=1")
+    suspend fun getRisqueInter(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") wonum : String,
+        @Query("oslc.select") select: String): Response<RisqueInter>
+
+
+    @GET("os/PFEWA_INTER/?lean=1")
+    suspend fun getPrecautionInter(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") wonum : String,
+        @Query("oslc.select") select: String): Response<PcautionreInter>
+
 }
 
 

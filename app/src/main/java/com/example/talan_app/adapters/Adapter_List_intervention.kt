@@ -36,16 +36,13 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
     inner class Intervention_View_Holder( private val inter_Binding : InterventionBinding) :RecyclerView.ViewHolder(inter_Binding.root) {
         fun bind(inter:Inter){
             this.inter_Binding.interventionmodel = inter
-
+            var assetnum = ""
             val won = inter.wonum
             val wonum = "\"$won\""
 
-            inter_Binding.cardintervention.setOnClickListener {
-                val intent = Intent(context,Intervention_Detail::class.java)
-                intent.putExtra("wonum",wonum)
-                context.startActivity(intent)
 
-            }
+
+
 
 
             if (inter.asset == null){
@@ -55,12 +52,21 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
                 inter_Binding.Site.visibility = View.VISIBLE
                 inter_Binding.SiteInter.visibility = View.VISIBLE
 
+
+
             }else{
                 inter_Binding.ActifInter.visibility = View.VISIBLE
                 inter_Binding.DescriptionInter.visibility = View.VISIBLE
 
                 inter_Binding.Site.visibility = View.GONE
                 inter_Binding.SiteInter.visibility = View.GONE
+
+                if (inter.asset[0].assetnum != null){
+                    val asset = inter.asset[0].assetnum
+                    assetnum = "\"$asset\""
+                }else{
+                    assetnum =""
+                }
             }
 
 
@@ -79,7 +85,13 @@ class Adapter_List_intervention(private val context: Context ) : RecyclerView.Ad
             }
 
 //            inter_Binding.iconbtn.isChecked = inter.bookmark != null
+            inter_Binding.cardintervention.setOnClickListener {
+                val intent = Intent(context,Intervention_Detail::class.java)
+                intent.putExtra("wonum",wonum)
+                intent.putExtra("assetnum",assetnum)
+                context.startActivity(intent)
 
+            }
 
             inter_Binding.executePendingBindings()
         }

@@ -47,5 +47,13 @@ class RetrofitRepositoryIntervention {
     suspend fun getRealisationInter(apikey: String,wonum: String,select: String): Response<MainDoeuvre> {
         return RetrofitInstance.Myapi.getRealisationInter(apikey,wonum,select)
     }
+
+    suspend fun getRisqueInter(apikey: String,wonum: String,select: String): Response<RisqueInter> {
+        return RetrofitInstance.Myapi.getRisqueInter(apikey,wonum,select)
+    }
+
+    suspend fun getPrecautionInter(apikey: String,wonum: String,select: String): Response<PcautionreInter> {
+        return RetrofitInstance.Myapi.getPrecautionInter(apikey,wonum,select)
+    }
 }
 

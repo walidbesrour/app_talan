@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.talan_app.model.Intervention
 import com.example.talan_app.model.MainDoeuvre
+import com.example.talan_app.model.PcautionreInter
+import com.example.talan_app.model.RisqueInter
 
 import com.example.talan_app.repository.RetrofitRepositoryIntervention
 import kotlinx.coroutines.launch
@@ -23,6 +25,10 @@ class Intervention_List_VM (private val repository: RetrofitRepositoryInterventi
     var ResponseFILS  : MutableLiveData<Response<Intervention>> = MutableLiveData()
 
     var ResponseRealisation  : MutableLiveData<Response<MainDoeuvre>> = MutableLiveData()
+
+    var ResponseRisque  : MutableLiveData<Response<RisqueInter>> = MutableLiveData()
+
+    var ResponsePrecaution  : MutableLiveData<Response<PcautionreInter>> = MutableLiveData()
 
 
 
@@ -72,4 +78,21 @@ class Intervention_List_VM (private val repository: RetrofitRepositoryInterventi
             ResponseRealisation.value = response
         }
     }
+
+    fun getRisqueInter(apikey: String,bookmark: String,select: String){
+        viewModelScope.launch {
+
+            val response = repository.getRisqueInter(apikey,bookmark,select)
+            ResponseRisque.value = response
+        }
+    }
+
+    fun getPrecautionInter(apikey: String,bookmark: String,select: String){
+        viewModelScope.launch {
+
+            val response = repository.getPrecautionInter(apikey,bookmark,select)
+            ResponsePrecaution.value = response
+        }
+    }
+
 }

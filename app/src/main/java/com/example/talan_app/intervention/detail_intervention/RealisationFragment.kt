@@ -47,8 +47,6 @@ class RealisationFragment (SelectWonum: String?) : Fragment() {
                 if (Myresponse.isSuccessful) {
 
 
-                    println(Myresponse.body())
-
                     if (Myresponse.body()!!.member[0].assignment == null){
 
                     }else{

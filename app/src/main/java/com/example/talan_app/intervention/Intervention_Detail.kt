@@ -32,6 +32,8 @@ class Intervention_Detail : AppCompatActivity() {
         setContentView(binding.root)
 
         val won = intent.getStringExtra("wonum")
+        val assetnum = intent.getStringExtra("assetnum")
+
         val wonum = "wonum=$won"
 
         val repository = RetrofitRepositoryIntervention()
@@ -111,19 +113,19 @@ class Intervention_Detail : AppCompatActivity() {
         }
 
 
-        setUpTabs(won.toString() ,wonum )
+        setUpTabs(won.toString() ,wonum ,assetnum.toString())
         binding.btnDescriptionInterv.setOnClickListener {
           descriptioview(txt)
         }
 
     }
 
-    private fun setUpTabs(wonum :String, SelectWonum : String) {
+    private fun setUpTabs(wonum :String, SelectWonum : String, assetnum :String) {
         val adapter = ViewAdapterPageView(supportFragmentManager)
 
         adapter.addFragment(PlanFragment(wonum), "PLAN")
         adapter.addFragment(RealisationFragment(SelectWonum), "REALISATION")
-        adapter.addFragment(CompteurIntervFragment(SelectWonum), "COMPTEURS")
+        adapter.addFragment(CompteurIntervFragment(assetnum), "COMPTEURS")
         adapter.addFragment(RisqPreqIntervFragment(SelectWonum), "RISQUE PRECAUTION")
 
 

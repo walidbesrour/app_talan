@@ -65,8 +65,7 @@ class ServiceFragment : Fragment()  {
             viewModel.myResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
                 if (Myresponse.isSuccessful) {
 
-                println("oooooooooooooooooooooooooooooooooooooooooooooooooo")
-                    println(Myresponse.body())
+
                     Myresponse.body()?.let { adapter_List_Service!!.setData(it.member) }
 
                     binding.recycleservice.addOnScrollListener(object : RecyclerView.OnScrollListener(){
