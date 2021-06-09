@@ -1,26 +1,97 @@
  package com.example.talan_app.menu_fragments
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.databinding.FragmentHomeBinding
-import com.github.mikephil.charting.charts.PieChart
+import com.example.talan_app.repository.RetrofitRepositoryService
+import com.example.talan_app.view_model.Service_ListFactory_VM
+import com.example.talan_app.view_model.Service_List_VM
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.utils.ColorTemplate
-import java.util.ArrayList
+import java.text.DateFormat
+import java.util.*
 
  class HomeFragment : Fragment() {
 
      private lateinit var binding: FragmentHomeBinding
+     private lateinit var viewModel: Service_List_VM
+
+     var Cours :Float  = 1.0f
+     var Traitee :Float  = 1.0f
+     var Suspendue :Float  = 1.0f
+     var FERME :Float  = 1.0f
+
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
+        val repository = RetrofitRepositoryService()
+        val viewModelFactory = Service_ListFactory_VM(repository)
+
+        val sharedPreferences = this.getActivity()!!.getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
+        val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(Service_List_VM::class.java)
+
+        if (Apikey != null) {
+            viewModel.getStatusService(Apikey,"status")
+            viewModel.myResponseStatus.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+                if (Myresponse.isSuccessful) {
+
+                    val siz = Myresponse.body()!!.member.size - 1
+
+                    for (i in 0..siz){
+//
+                        if (Myresponse.body()!!.member[i].status == "FERME"){
+                            FERME += 1.0f
+
+                        }else if (Myresponse.body()!!.member[i].status == "ENCRS"){
+                            Cours += 1.0f
+
+                        }else if (Myresponse.body()!!.member[i].status == "RESOLU"){
+                            Traitee += 1.0f
+
+                        }else if (Myresponse.body()!!.member[i].status == "FILATT"){
+                            Suspendue += 1.0f
+
+
+                        }else{
+
+                        }
+
+                    }
+
+
+                    setPieChart(Cours,Traitee,Suspendue,FERME)
+
+                } else {
+                    Log.d("response --", Myresponse.code().toString())
+                    Log.d("response --", Myresponse.message().toString())
+                    println("+++++++++++++++++++++++++++++++++++++")
+                }
+            })
+        }
+
         setBarChart()
-        setPieChart()
+
+
+//        val calendar: Calendar = Calendar.getInstance()
+//        val currentDate: String = DateFormat.getDateInstance(DateFormat.AM_PM_FIELD).format(calendar.getTime())
+
+//        Log.e("date to day ","********* $currentDate")
+
+
 
         return binding.root
     }
@@ -59,31 +130,36 @@ import java.util.ArrayList
         binding.barChart.animateY(5000)
     }
 
-     private fun setPieChart() {
+     private fun setPieChart(CR : Float,TR : Float,SU : Float,FR : Float) {
          val pieEntries = arrayListOf<Entry>()
-         pieEntries.add(Entry(30.0f,1))
-         pieEntries.add(Entry(40.0f,2))
-         pieEntries.add(Entry(60.0f,3))
+         pieEntries.add(Entry(CR,1))
+         pieEntries.add(Entry(TR,2))
+         pieEntries.add(Entry(SU,3))
+         pieEntries.add(Entry(FR,4))
          // Setup Pie Chart Animation
          binding.pieChart.animateXY(1000, 1000) // This 1000 is time that how much time piechart chreated
 
          // Setup PicChart Colors
-         val pieDataSet = PieDataSet(pieEntries, "SR")
+         val pieDataSet = PieDataSet(pieEntries, "Statut Service")
 
          val labels = ArrayList<String>()
          labels.add("En Cours")
          labels.add("Traitée")
          labels.add("Suspendue")
+         labels.add("FERME")
 
          val data = PieData(labels, pieDataSet)
+
+         data.setValueTextSize(10f)
+
          binding.pieChart.data = data
 
-         binding.pieChart.setDescription("Statut Service")
+         binding.pieChart.setDescription("")
 
          pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS)
 
 
-         binding.pieChart.animateXY(1000,1000)
+//         binding.pieChart.animateXY(1000,1000)
      }
 
 }

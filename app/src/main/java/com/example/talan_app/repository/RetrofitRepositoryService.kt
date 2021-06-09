@@ -30,4 +30,8 @@ class RetrofitRepositoryService {
     suspend fun getServiceJournal(apikey: String,ASSETNUM: String ,Myselect: String): Response<Journal> {
         return RetrofitInstance.Myapi.getServiceJournal(apikey,ASSETNUM,Myselect)
     }
+
+    suspend fun getStatusService(apikey: String,select: String): Response<Services> {
+        return RetrofitInstance.Myapi.getStatusService(apikey,select)
+    }
 }

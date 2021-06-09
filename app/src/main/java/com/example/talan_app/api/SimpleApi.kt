@@ -77,6 +77,12 @@ interface SimpleApi {
         @Query("pageno") pageno: Int): Response<Services>
 
 
+    @GET("os/PFEWB_LISTSR/?lean=1")
+    suspend fun getStatusService(
+        @Query("apikey") apikey: String,
+        @Query("oslc.select") select: String): Response<Services>
+
+
     @GET("os/PFEWA_SR/?lean=1")
     suspend fun getDetailService(
         @Query("apikey") apikey: String,
