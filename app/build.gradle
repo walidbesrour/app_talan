@@ -121,4 +121,6 @@ dependencies {
     // KOIN
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
     implementation 'org.koin:koin-android:2.0.1'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
