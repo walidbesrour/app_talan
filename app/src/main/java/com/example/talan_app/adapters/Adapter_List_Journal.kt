@@ -12,7 +12,7 @@ import com.example.talan_app.model.Journals
 
 
 
-class Adapter_List_Journal(private val context: Context, ) : RecyclerView.Adapter<Adapter_List_Journal.Journal_Holder>()  {
+class Adapter_List_Journal(private val context: Context ) : RecyclerView.Adapter<Adapter_List_Journal.Journal_Holder>()  {
 
     var list_journal = ArrayList<Journals>()
 

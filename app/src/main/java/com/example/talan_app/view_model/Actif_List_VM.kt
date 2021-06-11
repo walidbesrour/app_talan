@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.talan_app.model.Actifs
+import com.example.talan_app.model.PieceJoint
 import com.example.talan_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -22,6 +23,8 @@ class Actif_List_VM (private val repository: RetrofitRepository): ViewModel() {
     var myResponsefils : MutableLiveData<Response<Actifs>> = MutableLiveData()
 
     var myResponseDetail : MutableLiveData<Response<Actifs>> = MutableLiveData()
+
+    var myResponseJoint : MutableLiveData<Response<PieceJoint>> = MutableLiveData()
 
 
     fun getActif(apikey: String, parent: String,select: String){
@@ -61,6 +64,13 @@ class Actif_List_VM (private val repository: RetrofitRepository): ViewModel() {
         viewModelScope.launch {
             val response1 = repository.getDetailActif(apikey,ASSETNUM,Myselect)
             myResponseDetail.value = response1
+        }
+    }
+
+    fun getPieceActif(apikey: String,ASSETNUM: String ,Myselect: String){
+        viewModelScope.launch {
+            val response1 = repository.getPieceActif(apikey,ASSETNUM,Myselect)
+            myResponseJoint.value = response1
         }
     }
 

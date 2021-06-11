@@ -31,6 +31,11 @@ class RetrofitRepository {
         return RetrofitInstance.Myapi.getDetailActif(apikey,ASSETNUM,Myselect)
     }
 
+    suspend fun getPieceActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<PieceJoint> {
+
+        return RetrofitInstance.Myapi.getPieceActif(apikey,ASSETNUM,Myselect)
+    }
+
     suspend fun getCompteurActif(apikey: String,ASSETNUM: String ,Myselect: String): Response<Compteurs> {
 
         return RetrofitInstance.Myapi.getCompteurActif(apikey,ASSETNUM,Myselect)

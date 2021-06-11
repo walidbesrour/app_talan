@@ -41,6 +41,12 @@ interface SimpleApi {
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<Actifs>
 
+    @GET("os/PFEWA_PIECE/?lean=1")
+    suspend fun getPieceActif(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ASSETNUM : String,
+        @Query("oslc.select") Myselect: String): Response<PieceJoint>
+
     @GET("os/PFEWB_ACTIFDET/?lean=1")
     suspend fun getCompteurActif(
         @Query("apikey") apikey: String,

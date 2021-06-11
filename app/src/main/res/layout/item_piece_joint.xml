@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="PieceBinding">
+        <variable
+            name="piecemodel"
+            type="com.example.talan_app.model.Pis" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/My_background"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            app:strokeColor="#AAA8A8"
+            app:strokeWidth="0.25dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/RL_S2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F4F5FA"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                    app:strokeColor="#707070">
+
+                    <TextView
+                        android:id="@+id/Document"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:paddingTop="2dp"
+                        android:text="@{piecemodel.describedBy.title}"
+                        android:textColor="@color/blue_talan"
+                        android:textStyle="bold" />
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/descriptionDocument"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{piecemodel.describedBy.description}"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/RL_S2" />
+                <TextView
+                    android:id="@+id/Dossier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{piecemodel.describedBy.docType}"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/msemibold"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/descriptionDocument" />
+                <Button
+                    android:id="@+id/btn_add_intervention"
+                    android:layout_width="20dp"
+                    android:layout_height="25dp"
+                    app:icon="@drawable/ic_delete"
+                    app:iconGravity="textEnd"
+                    app:iconPadding="1sp"
+                    app:iconTint="#0064FE"
+                    android:background="#00000000"
+                    android:text=""
+                    android:layout_below="@+id/descriptionDocument"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="2dp"
+                    android:elevation="3dp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

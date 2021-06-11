@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.talan_app.R
 import com.example.talan_app.adapters.ViewAdapterPageView
 import com.example.talan_app.databinding.ActivityActifDetailBinding
@@ -16,11 +18,12 @@ import com.example.talan_app.actifs.detail_actif.CompteurFragment
 import com.example.talan_app.actifs.detail_actif.FilsDetailFragment
 import com.example.talan_app.actifs.detail_actif.PieceDetacheeFragment
 import com.example.talan_app.actifs.detail_actif.RisquePrecautionFragment
+import com.example.talan_app.adapters.Adapter_List_PieceJ
 import com.example.talan_app.repository.RetrofitRepository
 import com.example.talan_app.view_model.Actif_ListFactory_VM
 import com.example.talan_app.view_model.Actif_List_VM
 import com.google.android.material.textfield.TextInputEditText
-
+import java.lang.Exception
 
 
 class Actif_Detail : AppCompatActivity() {
@@ -28,7 +31,9 @@ class Actif_Detail : AppCompatActivity() {
 
     private lateinit var binding: ActivityActifDetailBinding
 
-     private lateinit var viewModel: Actif_List_VM
+    var adapter_list : Adapter_List_PieceJ  ?=null
+    private lateinit var viewModel: Actif_List_VM
+
     var descripActif =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +48,15 @@ class Actif_Detail : AppCompatActivity() {
 
 
         setUpTabs(num.toString(),siteid.toString())
+
+
         binding.btnDescription.setOnClickListener {
 
             descriptioview(descripActif)
+        }
+
+        binding.btnPiece.setOnClickListener {
+            ListPiece(assetnum)
         }
 
 
@@ -115,6 +126,9 @@ class Actif_Detail : AppCompatActivity() {
 
         }
 
+
+
+
     }
 
 
@@ -146,5 +160,66 @@ class Actif_Detail : AppCompatActivity() {
         val textView = dialog.findViewById<TextInputEditText>(R.id.DetaiDescription) as TextView
         textView.text= txt
         dialog.findViewById<Button>(R.id.btnok1)?.setOnClickListener { dialog.dismiss() }
+    }
+
+
+    fun ListPiece(assetnum:String){
+        val view = View.inflate(this, R.layout.dialog_piece_joint,null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+//
+
+        adapter_list = Adapter_List_PieceJ(this)
+
+        val recycleActif = dialog.findViewById<TextInputEditText>(R.id.recyclePieceJoint) as RecyclerView
+
+        recycleActif.adapter = adapter_list
+        recycleActif.layoutManager = LinearLayoutManager(this)
+
+        val repository = RetrofitRepository()
+        val viewModelFactory = Actif_ListFactory_VM(repository)
+
+        val sharedPreferences = getSharedPreferences("APIKEY", Context.MODE_PRIVATE)
+        val Apikey = sharedPreferences.getString("SAVE_APIKEY", null)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(Actif_List_VM::class.java)
+
+        if (Apikey != null) {
+            viewModel.getPieceActif(Apikey,assetnum,"doclinks{*}\n")
+
+
+
+            viewModel.myResponseJoint.observe(this, androidx.lifecycle.Observer { Myresponse ->
+                if (Myresponse.isSuccessful) {
+                    println(Myresponse.body())
+             try {
+                 Myresponse.body()?.let { adapter_list!!.setData(it.member[0].doclinks.member) }
+             }catch (e:Exception){
+                 Log.e("TAG", "ListPiece: $e" )
+             }
+
+
+
+
+
+
+                } else {
+                    Log.d("response --", Myresponse.code().toString())
+                    Log.d("response --", Myresponse.message().toString())
+                    println("+++++++++++++++++++++++++++++++++++++")
+                }
+            })
+
+
+        }
+
+
+        dialog.findViewById<Button>(R.id.btnPiecejoint)?.setOnClickListener { dialog.dismiss() }
     }
 }
