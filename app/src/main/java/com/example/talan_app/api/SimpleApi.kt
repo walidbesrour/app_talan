@@ -73,7 +73,7 @@ interface SimpleApi {
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<Precaution>
 
-
+/////////////////////////////  Demande de Service /////////////////////////////////
 
     @GET("os/PFEWB_LISTSR/?lean=1")
     suspend fun getListService(
@@ -81,6 +81,12 @@ interface SimpleApi {
         @Query("oslc.select") select: String,
         @Query("oslc.pageSize") pageSize: Int,
         @Query("pageno") pageno: Int): Response<Services>
+
+    @GET("os/PFEWB_LISTSR/?lean=1")
+    suspend fun getService(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ticketid : String,
+        @Query("oslc.select") select: String): Response<Services>
 
 
     @GET("os/PFEWB_LISTSR/?lean=1")

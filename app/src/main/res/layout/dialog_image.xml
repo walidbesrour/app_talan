@@ -20,16 +20,17 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="#EDE9E9"
-                android:text="Pièce joint"
+                android:text="Image Actif"
                 android:layout_margin="3dp"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
-            <ImageView
-                android:id="@+id/imagePiece"
+d            <ImageView
+                android:id="@+id/imageActif"
                 android:layout_width="match_parent"
+                android:src="#F80000"
                 android:layout_height="400dp"/>
 
             <Button
-                android:id="@+id/btnokPiece"
+                android:id="@+id/btnokImg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ok"

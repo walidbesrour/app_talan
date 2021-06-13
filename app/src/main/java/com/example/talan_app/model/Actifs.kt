@@ -33,7 +33,10 @@ data class ActifsListmember(
         val description_longdescription : String ,
 
         @SerializedName("workorder")
-        val workorder : ArrayList<Workorder>
+        val workorder : ArrayList<Workorder>,
+
+        @SerializedName("_imagelibref")
+        val _imagelibref : String
 
 
 )

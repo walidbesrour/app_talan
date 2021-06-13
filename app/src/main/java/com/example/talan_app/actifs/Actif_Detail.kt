@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +24,7 @@ import com.example.talan_app.repository.RetrofitRepository
 import com.example.talan_app.view_model.Actif_ListFactory_VM
 import com.example.talan_app.view_model.Actif_List_VM
 import com.google.android.material.textfield.TextInputEditText
+import com.squareup.picasso.Picasso
 import java.lang.Exception
 
 
@@ -35,6 +37,9 @@ class Actif_Detail : AppCompatActivity() {
     private lateinit var viewModel: Actif_List_VM
 
     var descripActif =""
+
+   var img = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +63,8 @@ class Actif_Detail : AppCompatActivity() {
         binding.btnPiece.setOnClickListener {
             ListPiece(assetnum)
         }
+
+
 
 
         val repository = RetrofitRepository()
@@ -101,15 +108,14 @@ class Actif_Detail : AppCompatActivity() {
                         if( Myresponse1.body()!!.member[0].description_longdescription != null){
                             descripActif = Myresponse1.body()!!.member[0].description_longdescription
                         }
+                    if (Myresponse1.body()!!.member[0]._imagelibref != null){
+
+                         img = Myresponse1.body()!!.member[0]._imagelibref
+                    }
 
 
 
 
-
-
-
-
-//                    var x = Myresponse1.body()!!.member[0].locations[0].
 
 
 
@@ -126,9 +132,10 @@ class Actif_Detail : AppCompatActivity() {
 
         }
 
-
-
-
+        binding.btnimg.setOnClickListener {
+            println("**********************//////////////////// $img")
+            imgActif(img)
+        }
     }
 
 
@@ -148,6 +155,8 @@ class Actif_Detail : AppCompatActivity() {
 
 
     }
+
+
     fun descriptioview(txt :String){
         val view = View.inflate(this, R.layout.dialog_description_detaille,null)
         val builder = AlertDialog.Builder(this)
@@ -161,7 +170,6 @@ class Actif_Detail : AppCompatActivity() {
         textView.text= txt
         dialog.findViewById<Button>(R.id.btnok1)?.setOnClickListener { dialog.dismiss() }
     }
-
 
     fun ListPiece(assetnum:String){
         val view = View.inflate(this, R.layout.dialog_piece_joint,null)
@@ -221,5 +229,24 @@ class Actif_Detail : AppCompatActivity() {
 
 
         dialog.findViewById<Button>(R.id.btnPiecejoint)?.setOnClickListener { dialog.dismiss() }
+    }
+
+    fun imgActif(img : String){
+        val lien = img
+
+
+        val view = View.inflate(this, R.layout.dialog_image,null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+        val img = dialog.findViewById<ImageView>(R.id.imageActif) as ImageView
+
+        Picasso.get().load(lien).into(img)
+
+        dialog.findViewById<Button>(R.id.btnokImg)?.setOnClickListener { dialog.dismiss() }
     }
 }

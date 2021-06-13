@@ -8,11 +8,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.speech.RecognizerIntent
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextSwitcher
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -126,7 +129,57 @@ class ServiceFragment : Fragment()  {
             })
         }
 
+        binding.SearchService.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (binding.SearchService.text.length == 0){
+                    binding.recycleservice.visibility = View.VISIBLE
+                    binding.recycleserviceSearch.visibility = View.GONE
+                }else{
+                    binding.recycleservice.visibility = View.GONE
+                    binding.recycleserviceSearch.visibility = View.VISIBLE
+
+                    if ( Apikey != null){
+                        binding.recycleserviceSearch.adapter = adapter_List_Service
+                        binding.recycleserviceSearch.layoutManager = LinearLayoutManager(requireContext())
+
+                        var txt = binding.SearchService.text
+
+                        viewModel.getService(Apikey,"ticketid=\"%$txt%\"","*")
+
+
+
+                        viewModel.myResponsegetService.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+                            if (Myresponse.isSuccessful) {
+
+                                Myresponse.body()?.let { adapter_List_Service!!.searchActif(it.member) }
+
+
+
+
+                            } else {
+                                Log.d("response --", Myresponse.code().toString())
+                                Log.d("response --", Myresponse.message().toString())
+                                Log.d("response --", Myresponse.errorBody().toString())
+
+                                println("++++++++++++++++ erreur recherch demande de service ++++++++++++++++++")
+                            }
+                        })
+
+
+                    }
+                }
+
+            }
+
+        })
 
 
 
@@ -164,7 +217,7 @@ class ServiceFragment : Fragment()  {
 
             REQ_CODE_SPEECH_INPUT -> if (resultCode == Activity.RESULT_OK && null != data) {
                 val result: ArrayList<String> = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
-                 binding.numPort1.setText(result.get(0))
+                 binding.SearchService.setText(result.get(0))
             }
 
         }
@@ -176,7 +229,7 @@ class ServiceFragment : Fragment()  {
                     Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
 //                    Toast.makeText(context, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
-                    binding.numPort1.setText( result.contents)
+                    binding.SearchService.setText( result.contents)
                 }
             } else {
                 super.onActivityResult(requestCode, resultCode, data)

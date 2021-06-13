@@ -90,5 +90,10 @@ class Adapter_List_Service(var context: Context  ) : RecyclerView.Adapter<Adapte
         list_service.addAll(serv)
     }
 
+    fun searchActif(newList: ArrayList<ServiceList>){
+        list_service = newList
+        notifyDataSetChanged()
+    }
+
 }
 //
