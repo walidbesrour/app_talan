@@ -88,6 +88,12 @@ interface SimpleApi {
         @Query("oslc.where") ticketid : String,
         @Query("oslc.select") select: String): Response<Services>
 
+    @GET("os/PFEWA_PICSR/?lean=1")
+    suspend fun getServicePiece(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") ticketid : String,
+        @Query("oslc.select") select: String): Response<PieceJoint>
+
 
     @GET("os/PFEWB_LISTSR/?lean=1")
     suspend fun getStatusService(

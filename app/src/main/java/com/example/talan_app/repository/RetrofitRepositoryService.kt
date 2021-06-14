@@ -2,6 +2,7 @@ package com.example.talan_app.repository
 
 import com.example.talan_app.api.RetrofitInstance
 import com.example.talan_app.model.Journal
+import com.example.talan_app.model.PieceJoint
 
 import com.example.talan_app.model.Services
 import retrofit2.Response
@@ -13,6 +14,10 @@ class RetrofitRepositoryService {
 
     suspend fun getService(apikey: String,ticketid: String,select: String): Response<Services> {
         return RetrofitInstance.Myapi.getService(apikey,ticketid,select)
+    }
+
+    suspend fun getServicePiece(apikey: String,ticketid: String,select: String): Response<PieceJoint> {
+        return RetrofitInstance.Myapi.getServicePiece(apikey,ticketid,select)
     }
 
     suspend fun getDetailService(apikey: String,ASSETNUM: String ,Myselect: String): Response<Services> {

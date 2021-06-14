@@ -4,6 +4,7 @@ package com.example.talan_app.view_model
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.talan_app.model.PieceJoint
 import com.example.talan_app.model.Services
 
 
@@ -22,6 +23,9 @@ class Service_List_VM (private val repository: RetrofitRepositoryService): ViewM
 
     var myResponseStatus : MutableLiveData<Response<Services>> = MutableLiveData()
 
+    var myResponsegetServicePiece : MutableLiveData<Response<PieceJoint>> = MutableLiveData()
+
+
     var myResponsegetService : MutableLiveData<Response<Services>> = MutableLiveData()
 
     fun getListService(apikey: String,select: String,pageSize: Int,pageno: Int){
@@ -37,6 +41,15 @@ class Service_List_VM (private val repository: RetrofitRepositoryService): ViewM
 
             val response = repository.getService(apikey,ticketid,select)
             myResponsegetService.value = response
+        }
+    }
+
+    fun getServicePiece(apikey: String,ticketid: String,select: String){
+        viewModelScope.launch {
+
+            val response = repository.getServicePiece(apikey,ticketid,select)
+            myResponsegetServicePiece.value = response
+
         }
     }
 
