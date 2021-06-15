@@ -7,6 +7,7 @@ import com.example.talan_app.MainActivity.Companion.URL_BASE
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 object RetrofitInstance {
 
@@ -15,9 +16,11 @@ object RetrofitInstance {
 //    private  const val BASE_URL  ="http://192.168.111.10:80/maximo/oslc/apitoken/"
 
     private val client = OkHttpClient.Builder().apply {
+
         addInterceptor(MyInterceptor())
+
     }
-            .build()
+        .build()
 
     private val retrofit by lazy {
 
@@ -41,8 +44,10 @@ object RetrofitInstance {
 
         Retrofit.Builder()
                 .baseUrl(URL_BASE)
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+
     }
 
     val Myapi: SimpleApi by lazy {

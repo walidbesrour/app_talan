@@ -1,11 +1,15 @@
 package com.example.talan_app.list_intervention
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.speech.RecognizerIntent
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +19,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.talan_app.R
 import com.example.talan_app.adapters.Adapter_List_intervention
 import com.example.talan_app.databinding.FragmentListInterventionBinding
 import com.example.talan_app.intervention.AddIntervention
@@ -25,6 +30,7 @@ import com.example.talan_app.view_model.Intervention_List_VM
 import com.example.talan_app.view_model.Service_ListFactory_VM
 import com.example.talan_app.view_model.Service_List_VM
 import com.google.zxing.integration.android.IntentIntegrator
+import java.util.*
 import kotlin.math.log
 
 
@@ -34,10 +40,11 @@ private lateinit var binding : FragmentListInterventionBinding
 private var adapterListIntervention : Adapter_List_intervention? =null
     private lateinit var viewModel: Intervention_List_VM
 
-    var LoadingSer = false
-    var pageSizes = 150
-    var pageno = 1
+    private val REQ_CODE_SPEECH_INPUT = 100
 
+    var LoadingSer = false
+    var pageSizes = 100
+    var pageno = 1
     var newpage = 2
 
 
@@ -154,12 +161,84 @@ private var adapterListIntervention : Adapter_List_intervention? =null
             scanner.initiateScan()
         }
 
+        binding.VoiceIntervention.setOnClickListener {
+            speechInput()
+        }
+
+
+//////////////////////////////// SEARCH ///////////////////////////////////////
+        binding.SearchIntervention.addTextChangedListener(object  :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (binding.SearchIntervention.text.length == 0){
+                    binding.recycleIntervention.visibility = View.VISIBLE
+                    binding.recycleSearch.visibility = View.GONE
+
+                }else{
+
+                    binding.recycleIntervention.visibility = View.GONE
+                    binding.recycleSearch.visibility = View.VISIBLE
+                    if (Apikey != null) {
+                        adapterListIntervention = Adapter_List_intervention(requireContext())
+                        binding.recycleSearch.adapter = adapterListIntervention
+                        binding.recycleSearch.layoutManager = LinearLayoutManager(requireContext())
+
+                        var txt = binding.SearchIntervention.text
+                        viewModel.getIntervention(Apikey,"wonum=\"%25%\"","*")
+                        viewModel.ResponsegetIterv.observe(viewLifecycleOwner, androidx.lifecycle.Observer { Myresponse ->
+                            if (Myresponse.isSuccessful) {
+                                println(Myresponse.body())
+
+                                Myresponse.body()?.let { adapterListIntervention!!.addActif(it.member) }
+
+
+
+
+                            } else {
+                                Log.d("response --", Myresponse.code().toString())
+                                Log.d("response --", Myresponse.message().toString())
+                                Log.d("response --", Myresponse.errorBody().toString())
+
+                                println("+++++++++++++++++++++++++++++++++++++")
+                            }
+                        })
+
+                    }
+                }
+
+
+
+
+
+            }
+        })
+
+
+
+
         return binding.root
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+            when (requestCode) {
+
+                REQ_CODE_SPEECH_INPUT -> if (resultCode == Activity.RESULT_OK && null != data) {
+                    val result: ArrayList<String> = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
+                    binding.SearchIntervention.setText(result.get(0))
+                }
+
+            }
+
             if (result != null) {
                 if (result.contents == null) {
                     Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
@@ -170,5 +249,22 @@ private var adapterListIntervention : Adapter_List_intervention? =null
                 super.onActivityResult(requestCode, resultCode, data)
             }
         }
+    }
+
+    fun speechInput() {
+
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speech_alert))
+
+
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT)
+        } catch (a: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), getString(R.string.not_supported), Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

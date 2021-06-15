@@ -132,6 +132,9 @@ interface SimpleApi {
         @Query("oslc.where") ASSETNUM : String,
         @Query("oslc.select") Myselect: String): Response<Journal>
 
+
+///////////////////////////////// Intervention ////////////////////////////////////////////////
+
     @GET("os/PFEWB_ACTIFDET/?lean=1")
     suspend fun getDetailInterv(
         @Query("apikey") apikey: String,
@@ -148,6 +151,13 @@ interface SimpleApi {
         @Query("pageno") pageno: Int): Response<Intervention>
 
 
+
+    @GET("os/PFEWA_LISINV/?lean=1")
+    suspend fun getIntervention(
+        @Query("apikey") apikey: String,
+        @Query("oslc.where") bookmark : String,
+        @Query("oslc.select") select: String
+        ): Response<Intervention>
 
     @GET("os/PFEWA_LISINV/?lean=1")
     suspend fun getListInterventionFavoris(
