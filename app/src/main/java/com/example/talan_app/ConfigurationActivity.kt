@@ -4,16 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.talan_app.data.entity.ConfigurationEntity
 import com.example.talan_app.databinding.ActivityConfigurationBinding
 import com.example.talan_app.view_model.ConfigurationVM
 
@@ -123,7 +118,7 @@ class ConfigurationActivity : AppCompatActivity() {
         val saveString = sharedPreferences.getString("String_kye","null")
         println("************************************************")
         println("****************  $saveString ********************************")
-        Toast.makeText(this,saveString,Toast.LENGTH_LONG).show()
+//        Toast.makeText(this,saveString,Toast.LENGTH_LONG).show()
     }
 
     //////////////////////////////////////////////////
